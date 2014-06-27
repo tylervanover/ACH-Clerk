@@ -8,21 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using PdfSharp.Pdf;
+using PdfSharp.Drawing;
+using PdfSharp.Charting;
+using PdfSharp.Forms;
+
 namespace ACHClerk
 {
     public partial class ClerkForm : Form
-    {
-        private SearchForm fSearchDialog;
-        private PdfViewer pdfEmbedPane;
+    {   
         private Clerk _clerk;
-        private TableCreatorForm fTableCreator;
-
-        //Form also has an open file dialog, called dlgOpenFileDiag
-        //Form also has a print dialog, called dlgPrintDiag
 
         public ClerkForm()
         {
             InitializeComponent();
+            _clerk = new Clerk("bin\\");
         }
 
     }

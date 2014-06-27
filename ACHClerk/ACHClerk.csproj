@@ -32,6 +32,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MigraDoc.DocumentObjectModel">
+      <HintPath>C:\Users\Tyler\Documents\Visual Studio 2013\DLLs\PDFSharp\MigraDoc.DocumentObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.Rendering">
+      <HintPath>C:\Users\Tyler\Documents\Visual Studio 2013\DLLs\PDFSharp\MigraDoc.Rendering.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.RtfRendering">
+      <HintPath>C:\Users\Tyler\Documents\Visual Studio 2013\DLLs\PDFSharp\MigraDoc.RtfRendering.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp">
+      <HintPath>C:\Users\Tyler\Documents\Visual Studio 2013\DLLs\PDFSharp\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting">
+      <HintPath>C:\Users\Tyler\Documents\Visual Studio 2013\DLLs\PDFSharp\PdfSharp.Charting.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -51,6 +66,7 @@
     <Compile Include="ClerkForm.Designer.cs">
       <DependentUpon>ClerkForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PacketEntry.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ClerkForm.resx">
