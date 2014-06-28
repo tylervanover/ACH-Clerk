@@ -14,7 +14,7 @@ namespace ACHClerk
         /// <summary>
         /// Documents to be printed as the final ACH packet. PacketEntry
         /// is a custom class, representing the PdfDocument, and various tags.
-        /// The tag implementation (such as "service: gas" or "company: WestStar") is
+        /// The tag implementation (such as "gas" or "Manhattan") is
         /// still under construction.
         /// </summary>
         private List<PacketEntry> _packetDocuments;
@@ -32,13 +32,19 @@ namespace ACHClerk
         /// </summary>
         private String _parentDirectory;
 
+        private bool _nonDefaultLoadPath;
+
         /// <summary>
         /// Default, public constructor. Sets the parent directory, and allocates memory
         /// for the class' collections. 
         /// </summary>
         public Clerk(String loadPath)
         {
-            ParentDirectory = loadPath;
+            if (_nonDefaultLoadPath)
+                ParentDirectory = loadPath;
+            else
+                ParentDirectory = System.Reflection.Assembly.GetEntryAssembly().Location;
+ 
             _packetDocuments = new List<PacketEntry>();
             _nativeChangeForms = new List<PacketEntry>();
         }
@@ -48,7 +54,7 @@ namespace ACHClerk
         /// information on switching ACH transfers between financial institutions.
         /// The method is going to first check the load path, which is an initial directory.
         /// Next, it will recursively walk through each subdirectory, each one representing a separate 
-        /// company's ACH form, and then a quick text file that contains the tags for "service", "company".
+        /// company's ACH form, and then a quick text file that contains the tags for what type of service it provides.
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
@@ -56,6 +62,9 @@ namespace ACHClerk
         {
             if (Directory.Exists(path))
             {
+                //Logic to recursively walk directories, stopping at each to sift out the
+                //PDF of each company, as well as it's tags. Company name is stripped from sub-directory
+                //folder name.
                 return true;
             }
             else
@@ -76,6 +85,21 @@ namespace ACHClerk
             set
             {
                 _parentDirectory = value;
+            }
+        }
+
+        /// <summary>
+        /// Member access modifier.
+        /// </summary>
+        public Boolean NonDefaultLoadPath
+        {
+            get
+            {
+                return _nonDefaultLoadPath;
+            }
+            set
+            {
+                _nonDefaultLoadPath = value;
             }
         }
     }

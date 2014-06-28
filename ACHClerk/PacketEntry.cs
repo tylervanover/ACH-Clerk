@@ -10,23 +10,23 @@ namespace ACHClerk
     {
         private PdfDocument _nativeDoc;
         private String _company;
-        private String _service;
+        private List<String> _services;
         private String _toString;
         private bool _isTable;
 
         private StringBuilder strbldr;
 
-        public PacketEntry(PdfDocument native, String company, String service, bool isTable) 
+        public PacketEntry(PdfDocument native, String company, List<String> services, bool isTable) 
         {
             _nativeDoc = native;
             _company = company;
-            _service = service;
+            _services = new List<string>();
+            _services.AddRange(services);
             _isTable = isTable;
 
             strbldr = new StringBuilder();
             strbldr.Append(_nativeDoc.Info.Title);
             strbldr.Append(_company);
-            strbldr.Append(_service);
 
             _toString = strbldr.ToString();
         }
@@ -56,15 +56,11 @@ namespace ACHClerk
             }
         }
 
-        public String Service
+        public String[] Services
         {
             get
             {
-                return _service;
-            }
-            private set
-            {
-                _service = value;
+                return _services.ToArray(); ;
             }
         }
 
