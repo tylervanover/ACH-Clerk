@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 
 using PdfSharp.Pdf;
+using PdfSharp.Pdf.IO;
 
 namespace ACHClerk
 {
@@ -68,29 +69,39 @@ namespace ACHClerk
  
             _selectedEntries = new List<PacketEntry>();
             _nativeChangeForms = new List<PacketEntry>();
+
         }
 
         /// <summary>
         /// Loads the native Change forms. They are all PDF documents that contain
         /// information on switching ACH transfers between financial institutions.
-        /// The method is going to first check the load path, which is an initial directory.
-        /// Next, it will recursively walk through each subdirectory, each one representing a separate 
-        /// company's ACH form, and then a quick text file that contains the tags for what type of service it provides.
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        private bool LoadNativeChangeForms(String path)
+        private void LoadNativeChangeForms(String path)
         {
+            // Check that the parent directory exists.
             if (Directory.Exists(path))
             {
-                //Logic to recursively walk directories, stopping at each to sift out the
-                //PDF of each company, as well as it's tags. Company name is stripped from sub-directory
-                //folder name.
-                return true;
+                // Get all 2nd tier directories. If no tables are present, then there should only be 1, called "Forms".
+                String[] directories = Directory.GetDirectories(path);
+
+                // Iterate each 2nd tier, and check that it is a valid entry for the 2nd tier. 
+                foreach (String s in directories)
+                {
+                    if ( s == "Forms" )
+                    {
+                        ProcessFormDirectory(s);
+                    }
+                    else if (s == "Tables")
+                    {
+                        //ProcessTableDirectory();
+                    }
+                }
             }
             else
             {
-                return false;
+                throw new DirectoryNotFoundException("This directory is not found.");
             }
         }
 
@@ -123,6 +134,54 @@ namespace ACHClerk
             }
         }
 
+        /// <summary>
+        /// Process the directory which contains the PDF directories.
+        /// </summary>
+        /// <param name="formsPath"></param>
+        private void ProcessFormDirectory(String formsPath)
+        {
+            int packetID = PacketID;
+            String[] directories = Directory.GetDirectories(formsPath);
+            List<String> tags = new List<String>();
+
+            foreach (String s in directories)
+            {
+                String[] pdfs = Directory.GetFiles(s, "*.pdf");
+                String[] txts = Directory.GetFiles(s, "*.txt");
+
+                // Import the native pdf document into our environment. Only take the first file (there should only be one!).
+                PdfDocument pdf = PdfReader.Open( pdfs[0], PdfDocumentOpenMode.Import );
+
+                // Read the text file and process it for tags.
+                tags = ProcessTags(txts[0]);
+            }
+        }
+
+        /// <summary>
+        /// Read in the tags text file and process each tag.
+        /// </summary>
+        /// <param name="textFilePath"></param>
+        private List<String> ProcessTags(String textFilePath)
+        {
+            using( StreamReader txtfile = new StreamReader(textFilePath) )
+            {
+                String line;
+                String[] pieces;
+                List<String> tags = new List<String>();
+
+                // Grab the file line by line.
+                while( (line = txtfile.ReadLine()) != null )
+                {
+                    // Split each tag from the others.
+                    pieces = line.Split(',');
+
+                    // Add the new tags to the tag list.
+                    tags.AddRange(pieces.ToList<String>());
+                }
+
+                return tags;
+            }
+        }
 
         /// <summary>
         /// Assign or return the parent directory, which houses the native change forms. 
@@ -175,6 +234,14 @@ namespace ACHClerk
             get
             {
                 return _nativeChangeForms.ToArray();
+            }
+        }
+
+        public int PacketID
+        {
+            get
+            {
+                return _nativeChangeForms.Count;
             }
         }
     }
