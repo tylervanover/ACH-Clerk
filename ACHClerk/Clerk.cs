@@ -23,6 +23,7 @@ namespace ACHClerk
     /// Created: 2014-06-26.
     /// Version: 1.0.
     /// </summary>
+    [Serializable]
     public class Clerk
     {
         /// <summary>
@@ -107,16 +108,22 @@ namespace ACHClerk
         /// should the user request to not print this document (maybe an erroneous selection?).
         /// </summary>
         /// <param name="toRemove">The packet entry which will be removed.</param>
-        /// <returns>True if the collection no longer contains the toRemove entry.</returns>
-        private bool RemovePacketEntry(int removePacketID)
+        private void RemovePacketEntry(int removePacketID)
         {
-            PacketEntry p = _selectedEntries.Find(pe => pe.);
+            // Use lambda to find the packet by ID.
+            PacketEntry p = _selectedEntries.Find(pe => (pe.PacketID == removePacketID));
+
+            if (p != null)
+            {
+                _selectedEntries.RemoveAll(pe => pe.PacketID == removePacketID);
+            }
+            else
+            {
+                throw new ArgumentException("Entry not found. Are you sure this PDF exists?");
+            }
         }
 
 
-        //====================================//
-        //              PROPERTIES            //
-        //====================================//
         /// <summary>
         /// Assign or return the parent directory, which houses the native change forms. 
         /// </summary>
