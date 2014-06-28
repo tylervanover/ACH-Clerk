@@ -17,7 +17,7 @@ namespace ACHClerk
         /// The tag implementation (such as "gas" or "Manhattan") is
         /// still under construction.
         /// </summary>
-        private List<PacketEntry> _packetDocuments;
+        private List<PacketEntry> _finalACHPacket;
 
         /// <summary>
         /// A complete collection of the native change form PDFs. From this selection, the final _packetDocuments
@@ -45,7 +45,7 @@ namespace ACHClerk
             else
                 ParentDirectory = System.Reflection.Assembly.GetEntryAssembly().Location;
  
-            _packetDocuments = new List<PacketEntry>();
+            _finalACHPacket = new List<PacketEntry>();
             _nativeChangeForms = new List<PacketEntry>();
         }
 
@@ -74,6 +74,26 @@ namespace ACHClerk
         }
 
         /// <summary>
+        /// Adds a PacketEntry to the final ACH document collection.
+        /// </summary>
+        /// <param name="toAdd">A packet entry, of a PDF and some other ID information.</param>
+        private void AddPacketEntry(PacketEntry toAdd)
+        {
+            _finalACHPacket.Add(toAdd);
+        }
+
+        /// <summary>
+        /// Removes a PacketEntry from the final ACH document collection. This is in place
+        /// should the user request to not print this document (maybe an erroneous selection?).
+        /// </summary>
+        /// <param name="toRemove">The packet entry which will be removed.</param>
+        /// <returns>True if the collection no longer contains the toRemove entry.</returns>
+        private bool RemovePacketEntry(int removePacketID)
+        {
+            PacketEntry p = _finalACHPacket.Find(pe => pe.);
+        }
+
+        /// <summary>
         /// Member access modifier. 
         /// </summary>
         public String ParentDirectory
@@ -91,7 +111,7 @@ namespace ACHClerk
         /// <summary>
         /// Member access modifier.
         /// </summary>
-        public Boolean NonDefaultLoadPath
+        public bool NonDefaultLoadPath
         {
             get
             {
