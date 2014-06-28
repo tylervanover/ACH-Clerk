@@ -9,6 +9,20 @@ using PdfSharp.Pdf;
 
 namespace ACHClerk
 {
+    /// <summary>
+    /// Public class Clerk.cs.
+    /// Part of the ACHClerk namespace, which represents a program capbable delivering
+    /// an easy way for employees of the bank to provide ACH transition packets to customers.
+    /// 
+    /// The Clerk represents the main brain of the ACH packet operation. It is what handles all document
+    /// manipulation, conversion, presentation, etc.
+    /// 
+    /// It is realized, as of v1.0, by ClerkForm.cs. 
+    /// 
+    /// Author: Tyler Vanover.
+    /// Created: 2014-06-26.
+    /// Version: 1.0.
+    /// </summary>
     public class Clerk
     {
         /// <summary>
@@ -17,7 +31,7 @@ namespace ACHClerk
         /// The tag implementation (such as "gas" or "Manhattan") is
         /// still under construction.
         /// </summary>
-        private List<PacketEntry> _finalACHPacket;
+        private List<PacketEntry> _selectedEntries;
 
         /// <summary>
         /// A complete collection of the native change form PDFs. From this selection, the final _packetDocuments
@@ -32,6 +46,12 @@ namespace ACHClerk
         /// </summary>
         private String _parentDirectory;
 
+        /// <summary>
+        /// Allows a user to specify a non default path. This means that, upon being unserialized
+        /// by the system, the previous path will remain (as the constructor will not have to be reused).
+        /// Also, when the form starts for the first-time, the user will be asked if they would like to
+        /// use the default directory of the executable as their load path.
+        /// </summary>
         private bool _nonDefaultLoadPath;
 
         /// <summary>
@@ -40,12 +60,12 @@ namespace ACHClerk
         /// </summary>
         public Clerk(String loadPath)
         {
-            if (_nonDefaultLoadPath)
+            if (NonDefaultLoadPath)
                 ParentDirectory = loadPath;
             else
                 ParentDirectory = System.Reflection.Assembly.GetEntryAssembly().Location;
  
-            _finalACHPacket = new List<PacketEntry>();
+            _selectedEntries = new List<PacketEntry>();
             _nativeChangeForms = new List<PacketEntry>();
         }
 
@@ -79,7 +99,7 @@ namespace ACHClerk
         /// <param name="toAdd">A packet entry, of a PDF and some other ID information.</param>
         private void AddPacketEntry(PacketEntry toAdd)
         {
-            _finalACHPacket.Add(toAdd);
+            _selectedEntries.Add(toAdd);
         }
 
         /// <summary>
@@ -90,11 +110,15 @@ namespace ACHClerk
         /// <returns>True if the collection no longer contains the toRemove entry.</returns>
         private bool RemovePacketEntry(int removePacketID)
         {
-            PacketEntry p = _finalACHPacket.Find(pe => pe.);
+            PacketEntry p = _selectedEntries.Find(pe => pe.);
         }
 
+
+        //====================================//
+        //              PROPERTIES            //
+        //====================================//
         /// <summary>
-        /// Member access modifier. 
+        /// Assign or return the parent directory, which houses the native change forms. 
         /// </summary>
         public String ParentDirectory
         {
@@ -120,6 +144,30 @@ namespace ACHClerk
             set
             {
                 _nonDefaultLoadPath = value;
+            }
+        }
+
+        /// <summary>
+        /// Returns the selected ach packet entires as an array. This will make it
+        /// easier to iterate through and compile the final document. 
+        /// </summary>
+        public PacketEntry[] SelectedEntries
+        {
+            get
+            {
+                return _selectedEntries.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// Returns the native change forms as an array. In case you need to iterate the
+        /// raw PDF documents.
+        /// </summary>
+        public PacketEntry[] NativeChangeForms
+        {
+            get
+            {
+                return _nativeChangeForms.ToArray();
             }
         }
     }
