@@ -24,7 +24,6 @@ namespace ACHClerk
     /// Created: 2014-06-26.
     /// Version: 1.0.
     /// </summary>
-    [Serializable]
     public class Clerk
     {
         /// <summary>
@@ -71,8 +70,12 @@ namespace ACHClerk
             if (Directory.Exists(path))
             {
                 // Overwrite the parent directory for future uses on this session.
+                // Dispose of the current selection of change forms.
                 if (SetNewParentDirectory)
+                {
                     ParentDirectory = path;
+                    DisposeNativeChangeForms();
+                }
 
                 // Get all 2nd tier directories. If no tables are present, then there should only be 1, called "Forms".
                 List<String> directories = Directory.GetDirectories(path).ToList<String>();
@@ -95,6 +98,11 @@ namespace ACHClerk
             {
                 throw new DirectoryNotFoundException("You did not select a directory. Please select a directory.");
             }
+        }
+
+        public void DisposeNativeChangeForms()
+        {
+            _nativeChangeForms.RemoveRange(0, NativeFormsCount);
         }
 
         /// <summary>
@@ -242,6 +250,28 @@ namespace ACHClerk
             get
             {
                 return _nativeChangeForms.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// Number of elements in the native change forms collection.
+        /// </summary>
+        public int NativeFormsCount
+        {
+            get
+            {
+                return _nativeChangeForms.Count;
+            }
+        }
+
+        /// <summary>
+        /// Number of elements in the selected change forms collection.
+        /// </summary>
+        public int SelectedCount
+        {
+            get
+            {
+                return _selectedEntries.Count;
             }
         }
 

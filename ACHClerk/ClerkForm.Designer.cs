@@ -34,6 +34,10 @@
             this.btnTestChangeLoad = new System.Windows.Forms.Button();
             this.dlgFolderBrowser = new System.Windows.Forms.FolderBrowserDialog();
             this.btnTestPreConfig = new System.Windows.Forms.Button();
+            this.listPacketList = new System.Windows.Forms.ListBox();
+            this.btnTestPacketDisplay = new System.Windows.Forms.Button();
+            this.clerkNativeFormsCount = new System.Windows.Forms.TextBox();
+            this.clerkDirectoryDisp = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // dlgPrintDiag
@@ -74,17 +78,54 @@
             this.btnTestPreConfig.UseVisualStyleBackColor = true;
             this.btnTestPreConfig.Click += new System.EventHandler(this.btnTestPreConfig_Click);
             // 
+            // listPacketList
+            // 
+            this.listPacketList.FormattingEnabled = true;
+            this.listPacketList.Location = new System.Drawing.Point(12, 251);
+            this.listPacketList.Name = "listPacketList";
+            this.listPacketList.Size = new System.Drawing.Size(471, 95);
+            this.listPacketList.TabIndex = 3;
+            // 
+            // btnTestPacketDisplay
+            // 
+            this.btnTestPacketDisplay.Location = new System.Drawing.Point(12, 99);
+            this.btnTestPacketDisplay.Name = "btnTestPacketDisplay";
+            this.btnTestPacketDisplay.Size = new System.Drawing.Size(184, 23);
+            this.btnTestPacketDisplay.TabIndex = 4;
+            this.btnTestPacketDisplay.Text = "TestDisplayPacketInfo";
+            this.btnTestPacketDisplay.UseVisualStyleBackColor = true;
+            this.btnTestPacketDisplay.Click += new System.EventHandler(this.btnTestPacketDisplay_Click);
+            // 
+            // clerkNativeFormsCount
+            // 
+            this.clerkNativeFormsCount.Location = new System.Drawing.Point(383, 15);
+            this.clerkNativeFormsCount.Name = "clerkNativeFormsCount";
+            this.clerkNativeFormsCount.Size = new System.Drawing.Size(100, 20);
+            this.clerkNativeFormsCount.TabIndex = 5;
+            // 
+            // clerkDirectoryDisp
+            // 
+            this.clerkDirectoryDisp.Location = new System.Drawing.Point(211, 43);
+            this.clerkDirectoryDisp.Name = "clerkDirectoryDisp";
+            this.clerkDirectoryDisp.Size = new System.Drawing.Size(272, 20);
+            this.clerkDirectoryDisp.TabIndex = 6;
+            // 
             // ClerkForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(495, 358);
+            this.Controls.Add(this.clerkDirectoryDisp);
+            this.Controls.Add(this.clerkNativeFormsCount);
+            this.Controls.Add(this.btnTestPacketDisplay);
+            this.Controls.Add(this.listPacketList);
             this.Controls.Add(this.btnTestPreConfig);
             this.Controls.Add(this.btnTestChangeLoad);
             this.Controls.Add(this.btnTestLoad);
             this.Name = "ClerkForm";
             this.Text = "ACH Clerk";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -96,6 +137,10 @@
         private System.Windows.Forms.Button btnTestChangeLoad;
         private System.Windows.Forms.FolderBrowserDialog dlgFolderBrowser;
         private System.Windows.Forms.Button btnTestPreConfig;
+        private System.Windows.Forms.ListBox listPacketList;
+        private System.Windows.Forms.Button btnTestPacketDisplay;
+        private System.Windows.Forms.TextBox clerkNativeFormsCount;
+        private System.Windows.Forms.TextBox clerkDirectoryDisp;
     }
 }
 

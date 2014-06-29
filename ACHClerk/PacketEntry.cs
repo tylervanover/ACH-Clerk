@@ -20,7 +20,6 @@ namespace ACHClerk
     /// Created: 2014-06-26.
     /// Version: 1.0.
     /// </summary>
-    [Serializable]
     public class PacketEntry
     {
         private int _packetID;
@@ -39,6 +38,7 @@ namespace ACHClerk
             Company = company;
             Tags = tags;
             IsTable = isTable;
+            _toString = "";
 
             strbldr = new StringBuilder();
         }
@@ -50,12 +50,12 @@ namespace ACHClerk
         /// <returns></returns>
         public override String ToString()
         {
-            if (_toString.Equals(null))
+            if (_toString == "")
             {
                 strbldr.Append(PacketID);
-                strbldr.Append(" | ");
+                strbldr.Append("  | ");
                 strbldr.Append(Company);
-                strbldr.Append(" | tagged as: ");
+                strbldr.Append(" |  tagged as: ");
                 foreach (String s in Tags)
                 {
                     strbldr.Append(s + ", ");
