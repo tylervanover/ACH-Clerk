@@ -62,15 +62,18 @@ namespace ACHClerk
         /// Loads the native Change forms. They are all PDF documents that contain
         /// information on switching ACH transfers between financial institutions.
         /// </summary>
-        /// <param name="path"></param>
-        /// <returns></returns>
+        /// <param name="path">Path to load the native forms from.</param>
+        /// <param name="SetNewParentDirectory">Set "True" to overwrite the current ParentDirectory.</param>
+        /// <returns>Void.</returns>
         public void LoadNativeChangeForms(String path, Boolean SetNewParentDirectory)
         {
-            if (SetNewParentDirectory)
-                ParentDirectory = path;
             // Check that the parent directory exists.
             if (Directory.Exists(path))
             {
+                // Overwrite the parent directory for future uses on this session.
+                if (SetNewParentDirectory)
+                    ParentDirectory = path;
+
                 // Get all 2nd tier directories. If no tables are present, then there should only be 1, called "Forms".
                 List<String> directories = Directory.GetDirectories(path).ToList<String>();
 
@@ -90,7 +93,7 @@ namespace ACHClerk
             }
             else
             {
-                throw new DirectoryNotFoundException("This directory is not found.");
+                throw new DirectoryNotFoundException("You did not select a directory. Please select a directory.");
             }
         }
 
@@ -130,7 +133,13 @@ namespace ACHClerk
                     company = FolderName(s);
 
                     // Import the native pdf document into our environment. Only take the first file (there should only be one!).
-                    PdfDocument NativePDF = PdfReader.Open(pdfs[0]);
+                    PdfDocument NativePDF = new PdfDocument();
+                    try
+                    {
+                        PdfReader.Open(pdfs[0], PdfDocumentOpenMode.Import);
+                    }
+                    catch (PdfReaderException) { }
+
                     NativePDF.Info.Title = company;
 
                     if (txts != null)

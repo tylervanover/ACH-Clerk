@@ -33,6 +33,7 @@
             this.btnTestLoad = new System.Windows.Forms.Button();
             this.btnTestChangeLoad = new System.Windows.Forms.Button();
             this.dlgFolderBrowser = new System.Windows.Forms.FolderBrowserDialog();
+            this.btnTestPreConfig = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // dlgPrintDiag
@@ -63,11 +64,22 @@
             this.btnTestChangeLoad.UseVisualStyleBackColor = true;
             this.btnTestChangeLoad.Click += new System.EventHandler(this.btnTestChangeLoad_Click);
             // 
+            // btnTestPreConfig
+            // 
+            this.btnTestPreConfig.Location = new System.Drawing.Point(12, 70);
+            this.btnTestPreConfig.Name = "btnTestPreConfig";
+            this.btnTestPreConfig.Size = new System.Drawing.Size(184, 23);
+            this.btnTestPreConfig.TabIndex = 2;
+            this.btnTestPreConfig.Text = "Test PreConfig Mechanic";
+            this.btnTestPreConfig.UseVisualStyleBackColor = true;
+            this.btnTestPreConfig.Click += new System.EventHandler(this.btnTestPreConfig_Click);
+            // 
             // ClerkForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(495, 358);
+            this.Controls.Add(this.btnTestPreConfig);
             this.Controls.Add(this.btnTestChangeLoad);
             this.Controls.Add(this.btnTestLoad);
             this.Name = "ClerkForm";
@@ -83,6 +95,7 @@
         private System.Windows.Forms.Button btnTestLoad;
         private System.Windows.Forms.Button btnTestChangeLoad;
         private System.Windows.Forms.FolderBrowserDialog dlgFolderBrowser;
+        private System.Windows.Forms.Button btnTestPreConfig;
     }
 }
 
