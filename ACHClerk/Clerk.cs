@@ -106,6 +106,66 @@ namespace ACHClerk
         }
 
         /// <summary>
+        /// Process the directory which contains the PDF directories.
+        /// </summary>
+        /// <param name="formsPath"></param>
+        private void ProcessFormDirectory(String formsPath)
+        {
+            String[] directories = Directory.GetDirectories(formsPath);
+            List<String> tags = new List<String>();
+
+            foreach (String s in directories)
+            {
+                String[] pdfs = Directory.GetFiles(s, "*.pdf");
+                String[] txts = Directory.GetFiles(s, "*.txt");
+
+                if (pdfs != null)
+                {
+                    // Import the native pdf document into our environment. Only take the first file (there should only be one!).
+                    PdfDocument PDFDocument = PdfReader.Open(pdfs[0], PdfDocumentOpenMode.Import);
+
+                    if (txts != null)
+                    {
+                        // Read the text file and process it for tags.
+                        tags = ProcessTags(txts[0]);
+
+                        AddPacketEntry(new PacketEntry(PacketID, PDFDocument, s.Substring(s.LastIndexOf('\\')), tags, false));
+                    }
+                    else
+                        throw new IOException("The text file containing tags was not valid. Does it exist?");
+                }
+                else
+                    throw new IOException("The PDF for this company was not found. Does it exist?");
+            }
+        }
+
+        /// <summary>
+        /// Read in the tags text file and process each tag.
+        /// </summary>
+        /// <param name="textFilePath"></param>
+        private List<String> ProcessTags(String textFilePath)
+        {
+            using (StreamReader txtfile = new StreamReader(textFilePath))
+            {
+                String line;
+                String[] pieces;
+                List<String> tags = new List<String>();
+
+                // Grab the file line by line.
+                while ((line = txtfile.ReadLine()) != null)
+                {
+                    // Split each tag from the others.
+                    pieces = line.Split(',');
+
+                    // Add the new tags to the tag list.
+                    tags.AddRange(pieces.ToList<String>());
+                }
+
+                return tags;
+            }
+        }
+
+        /// <summary>
         /// Adds a PacketEntry to the final ACH document collection.
         /// </summary>
         /// <param name="toAdd">A packet entry, of a PDF and some other ID information.</param>
@@ -131,55 +191,6 @@ namespace ACHClerk
             else
             {
                 throw new ArgumentException("Entry not found. Are you sure this PDF exists?");
-            }
-        }
-
-        /// <summary>
-        /// Process the directory which contains the PDF directories.
-        /// </summary>
-        /// <param name="formsPath"></param>
-        private void ProcessFormDirectory(String formsPath)
-        {
-            int packetID = PacketID;
-            String[] directories = Directory.GetDirectories(formsPath);
-            List<String> tags = new List<String>();
-
-            foreach (String s in directories)
-            {
-                String[] pdfs = Directory.GetFiles(s, "*.pdf");
-                String[] txts = Directory.GetFiles(s, "*.txt");
-
-                // Import the native pdf document into our environment. Only take the first file (there should only be one!).
-                PdfDocument pdf = PdfReader.Open( pdfs[0], PdfDocumentOpenMode.Import );
-
-                // Read the text file and process it for tags.
-                tags = ProcessTags(txts[0]);
-            }
-        }
-
-        /// <summary>
-        /// Read in the tags text file and process each tag.
-        /// </summary>
-        /// <param name="textFilePath"></param>
-        private List<String> ProcessTags(String textFilePath)
-        {
-            using( StreamReader txtfile = new StreamReader(textFilePath) )
-            {
-                String line;
-                String[] pieces;
-                List<String> tags = new List<String>();
-
-                // Grab the file line by line.
-                while( (line = txtfile.ReadLine()) != null )
-                {
-                    // Split each tag from the others.
-                    pieces = line.Split(',');
-
-                    // Add the new tags to the tag list.
-                    tags.AddRange(pieces.ToList<String>());
-                }
-
-                return tags;
             }
         }
 
