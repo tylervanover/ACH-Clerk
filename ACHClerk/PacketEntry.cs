@@ -20,7 +20,8 @@ namespace ACHClerk
     /// Created: 2014-06-26.
     /// Version: 1.0.
     /// </summary>
-    class PacketEntry
+    [Serializable]
+    public class PacketEntry
     {
         private int _packetID;
         private PdfDocument _nativeDoc;
@@ -31,13 +32,12 @@ namespace ACHClerk
 
         private StringBuilder strbldr;
 
-        public PacketEntry(int packetID, PdfDocument native, String company, List<String> tags, bool isTable) 
+        public PacketEntry(int packetID, PdfDocument native, String company, ref List<String> tags, bool isTable) 
         {
             PacketID = packetID;
             NativeDoc = native;
             Company = company;
-            _tags = new List<string>();
-            _tags.AddRange(tags);
+            Tags = tags;
             IsTable = isTable;
 
             strbldr = new StringBuilder();
@@ -117,11 +117,15 @@ namespace ACHClerk
         /// Returns an array of the various service tags applied to this packet entry.
         /// Will be used for a tree-based search.
         /// </summary>
-        public String[] Tags
+        public List<String> Tags
         {
             get
             {
-                return _tags.ToArray(); ;
+                return _tags;
+            }
+            private set
+            {
+                _tags = value;
             }
         }
 

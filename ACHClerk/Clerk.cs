@@ -41,20 +41,7 @@ namespace ACHClerk
         /// </summary>
         private List<PacketEntry> _nativeChangeForms;
 
-        /// <summary>
-        /// The path representing the parent directory of the collection of native change forms.
-        /// The parent directory will then contain numerous subdirectories, which will be walked
-        /// recursively to load the actual PDF, and to read the various tags associated to each.
-        /// </summary>
-        private String _parentDirectory;
-
-        /// <summary>
-        /// Allows a user to specify a non default path. This means that, upon being unserialized
-        /// by the system, the previous path will remain (as the constructor will not have to be reused).
-        /// Also, when the form starts for the first-time, the user will be asked if they would like to
-        /// use the default directory of the executable as their load path.
-        /// </summary>
-        private bool _nonDefaultLoadPath;
+        private string _parentDirectory;
 
         /// <summary>
         /// Default, public constructor. Sets the parent directory, and allocates memory
@@ -62,11 +49,7 @@ namespace ACHClerk
         /// </summary>
         public Clerk(String loadPath)
         {
-            if (NonDefaultLoadPath)
-                ParentDirectory = loadPath;
-            else
-                ParentDirectory = System.Reflection.Assembly.GetEntryAssembly().Location;
- 
+            _parentDirectory = loadPath;
             _selectedEntries = new List<PacketEntry>();
             _nativeChangeForms = new List<PacketEntry>();
 
@@ -78,7 +61,7 @@ namespace ACHClerk
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        private void LoadNativeChangeForms(String path)
+        public void LoadNativeChangeForms(String path)
         {
             // Check that the parent directory exists.
             if (Directory.Exists(path))
@@ -89,11 +72,11 @@ namespace ACHClerk
                 // Iterate each 2nd tier, and check that it is a valid entry for the 2nd tier. 
                 foreach (String s in directories)
                 {
-                    if ( s == "Forms" )
+                    if ( FolderName(s) == "Forms" )
                     {
                         ProcessFormDirectory(s);
                     }
-                    else if (s == "Tables")
+                    else if ( FolderName(s) == "Tables")
                     {
                         //ProcessTableDirectory();
                     }
@@ -106,30 +89,50 @@ namespace ACHClerk
         }
 
         /// <summary>
+        /// Gets the name of the folder at the end of the path.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        private String FolderName(String path)
+        {
+            return path.Substring(path.LastIndexOf('\\') + 1);
+        }
+
+        /// <summary>
         /// Process the directory which contains the PDF directories.
         /// </summary>
         /// <param name="formsPath"></param>
         private void ProcessFormDirectory(String formsPath)
         {
+            // Query the file system and get all of the directories from this forms path.
             String[] directories = Directory.GetDirectories(formsPath);
             List<String> tags = new List<String>();
+            
+            // Set a placeholder for the company name, so space does not have to be
+            // reallocated on each pass.
+            String company;
+            int packetID = 0;
 
             foreach (String s in directories)
             {
-                String[] pdfs = Directory.GetFiles(s, "*.pdf");
-                String[] txts = Directory.GetFiles(s, "*.txt");
+                String[] pdfs = Directory.GetFiles(s, "*.pdf");     // Query all files ending in .pdf
+                String[] txts = Directory.GetFiles(s, "*.txt");     // Query all files ending in .pdf
 
                 if (pdfs != null)
                 {
+                    // Set the company name.
+                    company = FolderName(s);
+
                     // Import the native pdf document into our environment. Only take the first file (there should only be one!).
-                    PdfDocument PDFDocument = PdfReader.Open(pdfs[0], PdfDocumentOpenMode.Import);
+                    PdfDocument NativePDF = PdfReader.Open(pdfs[0]);
+                    NativePDF.Info.Title = company;
 
                     if (txts != null)
                     {
                         // Read the text file and process it for tags.
                         tags = ProcessTags(txts[0]);
 
-                        AddPacketEntry(new PacketEntry(PacketID, PDFDocument, s.Substring(s.LastIndexOf('\\')), tags, false));
+                        AddNativeEntry(new PacketEntry(++packetID, NativePDF, company, ref tags, false));
                     }
                     else
                         throw new IOException("The text file containing tags was not valid. Does it exist?");
@@ -166,6 +169,15 @@ namespace ACHClerk
         }
 
         /// <summary>
+        /// Adds a native PDF entry to the native change forms.
+        /// </summary>
+        /// <param name="toAdd"></param>
+        private void AddNativeEntry(PacketEntry toAdd)
+        {
+            _nativeChangeForms.Add(toAdd);
+        }
+
+        /// <summary>
         /// Adds a PacketEntry to the final ACH document collection.
         /// </summary>
         /// <param name="toAdd">A packet entry, of a PDF and some other ID information.</param>
@@ -195,36 +207,6 @@ namespace ACHClerk
         }
 
         /// <summary>
-        /// Assign or return the parent directory, which houses the native change forms. 
-        /// </summary>
-        public String ParentDirectory
-        {
-            get
-            {
-                return _parentDirectory;
-            }
-            set
-            {
-                _parentDirectory = value;
-            }
-        }
-
-        /// <summary>
-        /// Member access modifier.
-        /// </summary>
-        public bool NonDefaultLoadPath
-        {
-            get
-            {
-                return _nonDefaultLoadPath;
-            }
-            set
-            {
-                _nonDefaultLoadPath = value;
-            }
-        }
-
-        /// <summary>
         /// Returns the selected ach packet entires as an array. This will make it
         /// easier to iterate through and compile the final document. 
         /// </summary>
@@ -248,11 +230,14 @@ namespace ACHClerk
             }
         }
 
-        public int PacketID
+        /// <summary>
+        /// Get the parent directory of the clerk file system.
+        /// </summary>
+        public String ParentDir
         {
             get
             {
-                return _nativeChangeForms.Count;
+                return _parentDirectory;
             }
         }
     }

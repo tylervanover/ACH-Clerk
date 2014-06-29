@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -21,9 +22,33 @@ namespace ACHClerk
 
         public ClerkForm()
         {
+            String parent = Path.GetFullPath(Application.ExecutablePath + "\\..");
+
             InitializeComponent();
-            _clerk = new Clerk("bin\\");
+            _clerk = new Clerk(parent);
         }
 
+        /// <summary>
+        /// TESTING FUNCTIONALITY OF FILE SYSTEM MANAGEMENT.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnTestLoad_Click(object sender, EventArgs e)
+        {
+            _clerk.LoadNativeChangeForms(_clerk.ParentDir);
+        }
+
+        /// <summary>
+        /// TESTING FUNCTIONALITY OF FILE SYSTEM MANAGEMENT.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnTestChangeLoad_Click(object sender, EventArgs e)
+        {
+            if( dlgOpenFileDiag.ShowDialog() == DialogResult.OK )
+            {
+                _clerk.LoadNativeChangeForms(dlgOpenFileDiag.FileName);
+            }
+        }
     }
 }
