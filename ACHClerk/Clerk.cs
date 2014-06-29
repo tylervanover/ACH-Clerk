@@ -41,6 +41,9 @@ namespace ACHClerk
         /// </summary>
         private List<PacketEntry> _nativeChangeForms;
 
+        /// <summary>
+        /// The parent directory of the project.
+        /// </summary>
         private string _parentDirectory;
 
         /// <summary>
@@ -49,7 +52,7 @@ namespace ACHClerk
         /// </summary>
         public Clerk(String loadPath)
         {
-            _parentDirectory = loadPath;
+            ParentDirectory = loadPath;
             _selectedEntries = new List<PacketEntry>();
             _nativeChangeForms = new List<PacketEntry>();
 
@@ -61,25 +64,28 @@ namespace ACHClerk
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public void LoadNativeChangeForms(String path)
+        public void LoadNativeChangeForms(String path, Boolean SetNewParentDirectory)
         {
+            if (SetNewParentDirectory)
+                ParentDirectory = path;
             // Check that the parent directory exists.
             if (Directory.Exists(path))
             {
                 // Get all 2nd tier directories. If no tables are present, then there should only be 1, called "Forms".
-                String[] directories = Directory.GetDirectories(path);
+                List<String> directories = Directory.GetDirectories(path).ToList<String>();
 
-                // Iterate each 2nd tier, and check that it is a valid entry for the 2nd tier. 
-                foreach (String s in directories)
+                // Use a lambda and find a folder that matches "Forms", and one that matches "Tables" (if so available).  
+                String forms = directories.Find(fe => FolderName(fe) == "Forms");
+                String tables = directories.Find(te => FolderName(te) == "Tables");
+
+                if (forms != null)
                 {
-                    if ( FolderName(s) == "Forms" )
-                    {
-                        ProcessFormDirectory(s);
-                    }
-                    else if ( FolderName(s) == "Tables")
-                    {
-                        //ProcessTableDirectory();
-                    }
+                    ProcessFormDirectory(forms);
+                }
+                if (tables != null)
+                {
+                    throw new NotImplementedException("Still working on this function.");
+                    //ProcessTableDirectory(tables);
                 }
             }
             else
@@ -231,13 +237,17 @@ namespace ACHClerk
         }
 
         /// <summary>
-        /// Get the parent directory of the clerk file system.
+        /// Get or set the parent directory of the clerk file system.
         /// </summary>
-        public String ParentDir
+        public String ParentDirectory
         {
             get
             {
                 return _parentDirectory;
+            }
+            private set
+            {
+                _parentDirectory = value;
             }
         }
     }

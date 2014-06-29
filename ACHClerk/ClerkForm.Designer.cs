@@ -32,6 +32,7 @@
             this.dlgOpenFileDiag = new System.Windows.Forms.OpenFileDialog();
             this.btnTestLoad = new System.Windows.Forms.Button();
             this.btnTestChangeLoad = new System.Windows.Forms.Button();
+            this.dlgFolderBrowser = new System.Windows.Forms.FolderBrowserDialog();
             this.SuspendLayout();
             // 
             // dlgPrintDiag
@@ -40,7 +41,7 @@
             // 
             // dlgOpenFileDiag
             // 
-            this.dlgOpenFileDiag.FileName = "openFileDialog1";
+            this.dlgOpenFileDiag.FileName = "some folder";
             // 
             // btnTestLoad
             // 
@@ -81,6 +82,7 @@
         private System.Windows.Forms.OpenFileDialog dlgOpenFileDiag;
         private System.Windows.Forms.Button btnTestLoad;
         private System.Windows.Forms.Button btnTestChangeLoad;
+        private System.Windows.Forms.FolderBrowserDialog dlgFolderBrowser;
     }
 }
 

@@ -35,7 +35,7 @@ namespace ACHClerk
         /// <param name="e"></param>
         private void btnTestLoad_Click(object sender, EventArgs e)
         {
-            _clerk.LoadNativeChangeForms(_clerk.ParentDir);
+            _clerk.LoadNativeChangeForms(_clerk.ParentDirectory, false);
         }
 
         /// <summary>
@@ -45,9 +45,9 @@ namespace ACHClerk
         /// <param name="e"></param>
         private void btnTestChangeLoad_Click(object sender, EventArgs e)
         {
-            if( dlgOpenFileDiag.ShowDialog() == DialogResult.OK )
+            if( dlgFolderBrowser.ShowDialog() == DialogResult.OK )
             {
-                _clerk.LoadNativeChangeForms(dlgOpenFileDiag.FileName);
+                _clerk.LoadNativeChangeForms(dlgFolderBrowser.SelectedPath, true);
             }
         }
     }
