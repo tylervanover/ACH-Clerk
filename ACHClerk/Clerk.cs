@@ -77,22 +77,8 @@ namespace ACHClerk
                     DisposeNativeChangeForms();
                 }
 
-                // Get all 2nd tier directories. If no tables are present, then there should only be 1, called "Forms".
-                List<String> directories = Directory.GetDirectories(path).ToList<String>();
-
-                // Use a lambda and find a folder that matches "Forms", and one that matches "Tables" (if so available).  
-                String forms = directories.Find(fe => FolderName(fe) == "Forms");
-                String tables = directories.Find(te => FolderName(te) == "Tables");
-
-                if (forms != null)
-                {
-                    ProcessFormDirectory(forms);
-                }
-                if (tables != null)
-                {
-                    throw new NotImplementedException("Still working on this function.");
-                    //ProcessTableDirectory(tables);
-                }
+                // Process forms. This will be done in a separate method to hide the functionality.
+                ProcessFormDirectory(path);
             }
             else
             {

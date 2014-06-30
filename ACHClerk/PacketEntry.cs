@@ -56,10 +56,12 @@ namespace ACHClerk
                 strbldr.Append("  | ");
                 strbldr.Append(Company);
                 strbldr.Append(" |  tagged as: ");
-                foreach (String s in Tags)
+                for (int i = 0; i < TagsCount - 1; ++i)
                 {
-                    strbldr.Append(s + ", ");
+                    strbldr.Append(Tags[i]);
+                    strbldr.Append(", ");
                 }
+                strbldr.Append(Tags[TagsCount - 1]);
                 strbldr.Append(".");
                 _toString = strbldr.ToString();
             }
@@ -126,6 +128,17 @@ namespace ACHClerk
             private set
             {
                 _tags = value;
+            }
+        }
+
+        /// <summary>
+        /// Returns the number of tags associated with each PDF packet.
+        /// </summary>
+        public int TagsCount
+        {
+            get
+            {
+                return _tags.Count;
             }
         }
 

@@ -81,6 +81,8 @@ namespace ACHClerk
         /// </summary>
         private void DisplayPacketInfo()
         {
+            // Wipe clean, the slate of items. 
+            listPacketList.Items.Clear();
             listPacketList.Items.AddRange(_clerk.NativeChangeForms);
             UpdateTextBoxes();
         }
