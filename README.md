@@ -9,7 +9,6 @@ What I intend to do is simple:
 	criteria the customer specifies, e.g., customer is only looking to switch their
 	gas and cable bills; however, they are unsure of the billing company (maybe they're
 	not the named party on the bill) so we filter by "Service Type" and let them pick the provider.
-	
 	That, or if the customer does know the name of the billing company, we can select
 	their specific ACH Account Change form.
 	
