@@ -12,3 +12,4 @@ D:\projects\ACH-Clerk\ACHClerk\bin\Debug\PdfSharp.Charting.dll
 D:\projects\ACH-Clerk\ACHClerk\bin\Debug\PdfSharp.dll
 D:\projects\ACH-Clerk\ACHClerk\obj\Debug\ACHClerk.exe
 D:\projects\ACH-Clerk\ACHClerk\obj\Debug\ACHClerk.pdb
+D:\projects\ACH-Clerk\ACHClerk\obj\Debug\ACHClerk.dlgSaveFolderDiag.resources

@@ -46,6 +46,11 @@ namespace ACHClerk
         private string _parentDirectory;
 
         /// <summary>
+        /// Clerk's preconfig file name.
+        /// </summary>
+        private String _preConfigName;
+
+        /// <summary>
         /// Default, public constructor. Sets the parent directory, and allocates memory
         /// for the class' collections. 
         /// </summary>
@@ -54,7 +59,6 @@ namespace ACHClerk
             ParentDirectory = loadPath;
             _selectedEntries = new List<PacketEntry>();
             _nativeChangeForms = new List<PacketEntry>();
-
         }
 
         /// <summary>
@@ -69,12 +73,13 @@ namespace ACHClerk
             // Check that the parent directory exists.
             if (Directory.Exists(path))
             {
-                // Overwrite the parent directory for future uses on this session.
                 // Dispose of the current selection of change forms.
+                DisposeNativeChangeForms();
+
+                // Overwrite the parent directory for future uses on this session.
                 if (SetNewParentDirectory)
                 {
                     ParentDirectory = path;
-                    DisposeNativeChangeForms();
                 }
 
                 // Process forms. This will be done in a separate method to hide the functionality.
@@ -86,9 +91,23 @@ namespace ACHClerk
             }
         }
 
-        public void DisposeNativeChangeForms()
+        /// <summary>
+        /// Dispose of all the native change forms.
+        /// </summary>
+        internal void DisposeNativeChangeForms()
         {
             _nativeChangeForms.RemoveRange(0, NativeFormsCount);
+        }
+
+        /// <summary>
+        /// Saves the preconfig information.
+        /// </summary>
+        internal void SavePreconfig()
+        {
+            using (TextWriter tw = new StreamWriter(PreConfig))
+            {
+                tw.Write(ParentDirectory);
+            }
         }
 
         /// <summary>
@@ -270,9 +289,24 @@ namespace ACHClerk
             {
                 return _parentDirectory;
             }
-            private set
+            internal set
             {
                 _parentDirectory = value;
+            }
+        }
+        
+        /// <summary>
+        /// Gets the preconfig name.
+        /// </summary>
+        public String PreConfig
+        {
+            get
+            {
+                return _preConfigName;
+            }
+            internal set
+            {
+                _preConfigName = value;
             }
         }
     }

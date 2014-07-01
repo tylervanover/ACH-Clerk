@@ -48,6 +48,7 @@ namespace ACHClerk
                     // Use a text reader to open, parse the contents, and apply them to the clerk.
                     String path = tr.ReadLine();
                     _clerk = new Clerk(path);
+                    _clerk.PreConfig = _configFileName;
 
                     // Go ahead and preload the forms for the user. If they wish to specify another
                     // folder at start time. They can, and can ask to "Save this location for future
@@ -58,19 +59,6 @@ namespace ACHClerk
             else
             {
                 _clerk = new Clerk(parent);
-            }
-            UpdateTextBoxes();
-        }
-
-        /// <summary>
-        /// Once a user has submitted changes to the clerk, they can opt to have them saved.
-        /// This will test this functionality.
-        /// </summary>
-        private void SavePreconfig()
-        {
-            using (TextWriter tw = new StreamWriter(_configFileName))
-            {
-                tw.Write(_clerk.ParentDirectory);
             }
             UpdateTextBoxes();
         }
@@ -126,9 +114,13 @@ namespace ACHClerk
         {
             if (dlgFolderBrowser.ShowDialog() == DialogResult.OK)
             {
+                String path = dlgFolderBrowser.SelectedPath;
+                dlgSaveFolderDiag saveFolderDiag = new dlgSaveFolderDiag(ref _clerk, path);
+                saveFolderDiag.ShowDialog();
+
                 try
                 {
-                    _clerk.LoadNativeChangeForms(dlgFolderBrowser.SelectedPath, true);
+                    _clerk.LoadNativeChangeForms(path, true);
                 }
                 catch (DirectoryNotFoundException dnf)
                 {
@@ -169,7 +161,7 @@ namespace ACHClerk
         /// <param name="e"></param>
         private void btnTestPreConfig_Click(object sender, EventArgs e)
         {
-            SavePreconfig();
+
         }
 
         /// <summary>
