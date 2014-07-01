@@ -84,6 +84,7 @@ namespace ACHClerk
             DisplayPacketInfo();
             clerkNativeFormsCount.Text = _clerk.NativeFormsCount.ToString();
             clerkDirectoryDisp.Text = _clerk.ParentDirectory;
+            txtSelectedEntriesCount.Text = _clerk.SelectedCount.ToString();
         }
 
         /// <summary>
@@ -167,7 +168,7 @@ namespace ACHClerk
         }
 
         /// <summary>
-        /// TESTING EVENT FUNCTIONALITY.
+        /// Testing Right-click preview pane window feature.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -176,7 +177,6 @@ namespace ACHClerk
             if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {
                 PreviewPaneForm preview = new PreviewPaneForm();
-                preview.Location = e.Location;
                 preview.ShowDialog();
             }
         }
@@ -188,43 +188,64 @@ namespace ACHClerk
         /// <param name="e"></param>
         private void listPacketList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Invalidate the form's rendered display, causing the
+            // listPacketList_DrawItem event to be raised.
             listPacketList.Invalidate();
         }
 
         /// <summary>
-        /// TESTING SELECTED ITEM HIGHLIGHT.
+        /// Highlights the selected item(s) in listPacketList.
+        /// Upon a form object invalidation (i.e., an item being selected), this
+        /// event will be called, passed a DrawItemEventArgs, and then
+        /// the state of the draw item e will have it's background updated.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void listPacketList_DrawItem(object sender, DrawItemEventArgs e)
         {
+            // Get the index of the calling item.
             int index = e.Index;
             Graphics g = e.Graphics;
 
+            // Get the indices of the selected items.
             var selected = listPacketList.SelectedIndices;
             foreach (int i in selected)
             {
+                // For the item that matches the index.
                 if (i == index)
                 {
+                    // Draw a new background on the calling item, and fill it with a color.
                     e.DrawBackground();
                     g.FillRectangle(new SolidBrush(Color.AliceBlue), e.Bounds);
                 }
             }
         }
 
+        /// <summary>
+        /// Adds a collection of selected packets to the final collection.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddSelected_Click(object sender, EventArgs e)
         {
             var selectedIndices = listPacketList.SelectedIndices;
-            List<PacketEntry> toAdd = new List<PacketEntry>();
+            PacketEntry toAdd;
             var native = _clerk.NativeChangeForms.ToList<PacketEntry>();
 
             foreach (int i in selectedIndices)
             {
-                toAdd.Add(native.Find(pe => pe.PacketID == i+1));
-            }
-            _clerk.AddPacketsToFinal(toAdd);
+                // Find the selected packet by index.
+                toAdd = (native.Find(pe => pe.PacketID == i+1));
 
-            DisplayPacketInfo();
+                // If the entry is already registerd in SelectedEntries, do not add it again.
+                if (!_clerk.SelectedContains(ref toAdd))
+                {
+                    _clerk.AddPacketsToFinal(toAdd);
+                }
+            }
+
+            // Update form information.
+            UpdateForm();
         }
     }
 }

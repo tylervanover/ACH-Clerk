@@ -206,12 +206,12 @@ namespace ACHClerk
         }
 
         /// <summary>
-        /// Adds a list of PacketEntry to the final ACH document collection.
+        /// Adds a PacketEntry to the final ACH document collection.
         /// </summary>
         /// <param name="toAdd">A packet entry, of a PDF and some other ID information.</param>
-        public void AddPacketsToFinal(List<PacketEntry> toAdd)
+        public void AddPacketsToFinal(PacketEntry toAdd)
         {
-            _selectedEntries.AddRange(toAdd);
+            _selectedEntries.Add(toAdd);
         }
 
         /// <summary>
@@ -232,6 +232,17 @@ namespace ACHClerk
             {
                 throw new ArgumentException("Entry not found. Are you sure this PDF exists?");
             }
+        }
+
+        /// <summary>
+        /// Checks if the selected packets already contain an item still marked as selected.
+        /// This will prevent from multiple copies of the same item.
+        /// </summary>
+        /// <param name="itemToAdd"></param>
+        /// <returns></returns>
+        internal bool SelectedContains(ref PacketEntry itemToAdd)
+        {
+            return SelectedEntries.ToList<PacketEntry>().Contains(itemToAdd);
         }
 
         /// <summary>

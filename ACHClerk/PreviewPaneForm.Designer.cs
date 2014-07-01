@@ -36,7 +36,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Name = "PreviewPaneForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PreviewPaneForm";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PreviewPaneForm_MouseDown);
             this.ResumeLayout(false);

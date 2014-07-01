@@ -31,7 +31,7 @@ namespace ACHClerk
 
         private StringBuilder strbldr;
 
-        public PacketEntry(int packetID, PdfDocument native, String company, ref List<String> tags, bool isTable) 
+        public PacketEntry(int packetID, PdfDocument native, String company, ref List<String> tags, bool isTable)
         {
             PacketID = packetID;
             NativeDoc = native;
