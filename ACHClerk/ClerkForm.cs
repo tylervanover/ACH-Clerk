@@ -71,7 +71,9 @@ namespace ACHClerk
         {
             // Wipe clean, the slate of items. 
             listPacketList.Items.Clear();
+            listSelectedList.Items.Clear();
             listPacketList.Items.AddRange(_clerk.NativeChangeForms);
+            listSelectedList.Items.AddRange(_clerk.SelectedEntries);
         }
 
         /// <summary>
@@ -186,7 +188,43 @@ namespace ACHClerk
         /// <param name="e"></param>
         private void listPacketList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            listPacketList.Invalidate();
+        }
 
+        /// <summary>
+        /// TESTING SELECTED ITEM HIGHLIGHT.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void listPacketList_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            int index = e.Index;
+            Graphics g = e.Graphics;
+
+            var selected = listPacketList.SelectedIndices;
+            foreach (int i in selected)
+            {
+                if (i == index)
+                {
+                    e.DrawBackground();
+                    g.FillRectangle(new SolidBrush(Color.AliceBlue), e.Bounds);
+                }
+            }
+        }
+
+        private void btnAddSelected_Click(object sender, EventArgs e)
+        {
+            var selectedIndices = listPacketList.SelectedIndices;
+            List<PacketEntry> toAdd = new List<PacketEntry>();
+            var native = _clerk.NativeChangeForms.ToList<PacketEntry>();
+
+            foreach (int i in selectedIndices)
+            {
+                toAdd.Add(native.Find(pe => pe.PacketID == i+1));
+            }
+            _clerk.AddPacketsToFinal(toAdd);
+
+            DisplayPacketInfo();
         }
     }
 }

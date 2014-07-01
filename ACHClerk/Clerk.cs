@@ -206,12 +206,12 @@ namespace ACHClerk
         }
 
         /// <summary>
-        /// Adds a PacketEntry to the final ACH document collection.
+        /// Adds a list of PacketEntry to the final ACH document collection.
         /// </summary>
         /// <param name="toAdd">A packet entry, of a PDF and some other ID information.</param>
-        private void AddPacketEntry(PacketEntry toAdd)
+        public void AddPacketsToFinal(List<PacketEntry> toAdd)
         {
-            _selectedEntries.Add(toAdd);
+            _selectedEntries.AddRange(toAdd);
         }
 
         /// <summary>
