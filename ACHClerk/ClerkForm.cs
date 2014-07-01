@@ -60,7 +60,7 @@ namespace ACHClerk
             {
                 _clerk = new Clerk(parent);
             }
-            UpdateTextBoxes();
+            UpdateForm();
         }
 
         /// <summary>
@@ -72,14 +72,14 @@ namespace ACHClerk
             // Wipe clean, the slate of items. 
             listPacketList.Items.Clear();
             listPacketList.Items.AddRange(_clerk.NativeChangeForms);
-            UpdateTextBoxes();
         }
 
         /// <summary>
         /// Updates the text boxes so that I can track functionality.
         /// </summary>
-        private void UpdateTextBoxes()
+        private void UpdateForm()
         {
+            DisplayPacketInfo();
             clerkNativeFormsCount.Text = _clerk.NativeFormsCount.ToString();
             clerkDirectoryDisp.Text = _clerk.ParentDirectory;
         }
@@ -103,7 +103,7 @@ namespace ACHClerk
             }
             finally
             {
-                UpdateTextBoxes();
+                UpdateForm();
             }
         }
 
@@ -131,7 +131,7 @@ namespace ACHClerk
                     MessageBox.Show(ioe.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-            UpdateTextBoxes();
+            UpdateForm();
         }
 
         /// <summary>
@@ -159,19 +159,34 @@ namespace ACHClerk
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnTestPreConfig_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        /// <summary>
-        /// TESTING FUNCTIONALITY.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnTestPacketDisplay_Click(object sender, EventArgs e)
         {
             DisplayPacketInfo();
+        }
+
+        /// <summary>
+        /// TESTING EVENT FUNCTIONALITY.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void listPacketList_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                PreviewPaneForm preview = new PreviewPaneForm();
+                preview.Location = e.Location;
+                preview.ShowDialog();
+            }
+        }
+
+        /// <summary>
+        /// TESTING EVENT FUNCTIONALITY.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void listPacketList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
