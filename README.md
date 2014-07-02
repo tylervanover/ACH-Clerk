@@ -19,6 +19,6 @@ their specific ACH Account Change form.
 
 4. IF no ACH Account Form exists for that company, or if we do not have it on file,
 we'll be able to search the web and pull phone numbers / URL's into a table for
-the customer to have.
+the customer to have. (future release)
 	
 	
