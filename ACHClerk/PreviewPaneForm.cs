@@ -34,7 +34,7 @@ namespace ACHClerk
         /// used to render a preview of the doc for the user.
         /// </summary>
         /// <param name="doc"></param>
-        public PreviewPaneForm(PdfDocument doc)
+        public PreviewPaneForm(ref PdfDocument doc)
             : this()
         {
             this._pdf = doc;
@@ -48,6 +48,17 @@ namespace ACHClerk
         private void PreviewPaneForm_MouseDown(object sender, MouseEventArgs e)
         {
             this.Close();
+        }
+        
+        /// <summary>
+        /// On form load, display the name of the PDF doc. This is to make sure that
+        /// the list box was indexed properly.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PreviewPaneForm_Load(object sender, EventArgs e)
+        {
+            this.Text = this._pdf.Info.Title;
         }
     }
 }

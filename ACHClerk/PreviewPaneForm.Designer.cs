@@ -38,6 +38,7 @@
             this.Name = "PreviewPaneForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PreviewPaneForm";
+            this.Load += new System.EventHandler(this.PreviewPaneForm_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PreviewPaneForm_MouseDown);
             this.ResumeLayout(false);
 

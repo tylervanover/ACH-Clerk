@@ -72,8 +72,8 @@ namespace ACHClerk
             // Wipe clean, the slate of items. 
             listPacketList.Items.Clear();
             listSelectedList.Items.Clear();
-            listPacketList.Items.AddRange(_clerk.NativeChangeForms);
-            listSelectedList.Items.AddRange(_clerk.SelectedEntries);
+            listPacketList.Items.AddRange(_clerk.NativeChangeForms.ToArray());
+            listSelectedList.Items.AddRange(_clerk.SelectedEntries.ToArray());
         }
 
         /// <summary>
@@ -85,6 +85,7 @@ namespace ACHClerk
             clerkNativeFormsCount.Text = _clerk.NativeFormsCount.ToString();
             clerkDirectoryDisp.Text = _clerk.ParentDirectory;
             txtSelectedEntriesCount.Text = _clerk.SelectedCount.ToString();
+            lblNativeCountDisp.Text = (_clerk.NativeFormsCount.ToString() + " forms found.");
         }
 
         /// <summary>
@@ -174,10 +175,19 @@ namespace ACHClerk
         /// <param name="e"></param>
         private void listPacketList_MouseClick(object sender, MouseEventArgs e)
         {
-            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            try
             {
-                PreviewPaneForm preview = new PreviewPaneForm();
-                preview.ShowDialog();
+                if (e.Button == System.Windows.Forms.MouseButtons.Right)
+                {
+                    int index = listPacketList.IndexFromPoint(e.X, e.Y);
+                    PdfDocument pdf = _clerk.NativeChangeForms.Find(p => p.PacketID == index).NativeDoc;
+                    PreviewPaneForm preview = new PreviewPaneForm(ref pdf);
+                    preview.ShowDialog();
+                }
+            }
+            catch (NullReferenceException nrf)
+            {
+                MessageBox.Show("Try clicking on a listed PDF!");
             }
         }
 
@@ -230,12 +240,12 @@ namespace ACHClerk
         {
             var selectedIndices = listPacketList.SelectedIndices;
             PacketEntry toAdd;
-            var native = _clerk.NativeChangeForms.ToList<PacketEntry>();
+            var native = _clerk.NativeChangeForms;
 
             foreach (int i in selectedIndices)
             {
                 // Find the selected packet by index.
-                toAdd = (native.Find(pe => pe.PacketID == i+1));
+                toAdd = (native.Find(pe => pe.PacketID == i));
 
                 // If the entry is already registerd in SelectedEntries, do not add it again.
                 if (!_clerk.SelectedContains(ref toAdd))

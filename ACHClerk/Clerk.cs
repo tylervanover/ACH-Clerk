@@ -160,7 +160,7 @@ namespace ACHClerk
                         // Read the text file and process it for tags.
                         tags = ProcessTags(txts[0]);
 
-                        AddNativeEntry(new PacketEntry(++packetID, NativePDF, company, ref tags, false));
+                        AddNativeEntry(new PacketEntry(packetID++, NativePDF, company, ref tags, false));
                     }
                     else
                         throw new IOException("The text file containing tags was not valid. Does it exist?");
@@ -249,11 +249,11 @@ namespace ACHClerk
         /// Returns the selected ach packet entires as an array. This will make it
         /// easier to iterate through and compile the final document. 
         /// </summary>
-        public PacketEntry[] SelectedEntries
+        public List<PacketEntry> SelectedEntries
         {
             get
             {
-                return _selectedEntries.ToArray();
+                return _selectedEntries;
             }
         }
 
@@ -261,11 +261,15 @@ namespace ACHClerk
         /// Returns the native change forms as an array. In case you need to iterate the
         /// raw PDF documents.
         /// </summary>
-        public PacketEntry[] NativeChangeForms
+        public List<PacketEntry> NativeChangeForms
         {
             get
             {
-                return _nativeChangeForms.ToArray();
+                return _nativeChangeForms;
+            }
+            internal set
+            {
+                _nativeChangeForms = value;
             }
         }
 
@@ -278,6 +282,7 @@ namespace ACHClerk
             {
                 return _nativeChangeForms.Count;
             }
+   
         }
 
         /// <summary>

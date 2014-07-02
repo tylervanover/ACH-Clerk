@@ -35,6 +35,7 @@ namespace ACHClerk
         {
             PacketID = packetID;
             NativeDoc = native;
+            NativeDoc.Info.Title = company;
             Company = company;
             Tags = tags;
             IsTable = isTable;
@@ -52,8 +53,6 @@ namespace ACHClerk
         {
             if (_toString == "")
             {
-                strbldr.Append(PacketID);
-                strbldr.Append("  | ");
                 strbldr.Append(Company);
                 strbldr.Append(" |  tagged as: ");
                 for (int i = 0; i < TagsCount - 1; ++i)
