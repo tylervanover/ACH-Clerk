@@ -59,6 +59,7 @@ namespace ACHClerk
             else
             {
                 _clerk = new Clerk(parent);
+                _clerk.PreConfig = _configFileName;
             }
             UpdateForm();
         }
