@@ -52,8 +52,27 @@ namespace StandardTrie.cs
         /// <returns></returns>
         public bool Insert(string word)
         {
-            int childIndex = lookup[word[0]];
-            throw new NotImplementedException();
+            // Get the index of the child we'll need to modify, based on the first character of the word. 
+            // Because the children represent all the letters of the English alphabet, there should be 26 children.
+            // We'll only want to work on the node with the equivalent index, i.e. 'a'-child == index 0,
+            // 'b'-child == index 1, and so on.
+            int cIndex = lookup[word[0]];
+
+            // Check if that particular child already exists or not.
+            if (RootNode.Children[cIndex] == null)
+            {
+                RootNode.Children[cIndex] = new PFTNode(word[0], false);
+            }
+
+            // Check that there is more to the word than just 1 character.
+            if (word.Length > 1)
+            {
+                // Then begin the recursive insertion by stripping off the first letter of the word,
+                // and letting the algorithm take care of the rest.
+                RootNode = rInsert(RootNode.Children[cIndex], word.Substring(1));
+            }
+
+            return RootNode != null;
         }
 
         /// <summary>
@@ -67,7 +86,21 @@ namespace StandardTrie.cs
         /// <returns></returns>
         private PFTNode rInsert(PFTNode root, string word)
         {
-            throw new NotImplementedException();
+            // Get the index of the child to populate the first character of
+            // this word to.
+            int cIndex = lookup[word[0]];
+
+            // If that particular child is null,
+            if (root.Children[cIndex] == null)
+            {
+                // Create a node for it with the first character of this word.
+                root.Children[cIndex] = (word.Length > 1) ? new PFTNode(word[0], false) : new PFTNode(word[0], true);
+            }
+
+            if (word.Length > 1)
+                root = rInsert(root.Children[cIndex], word.Substring(1));
+
+            return root;
         }
 
         /// <summary>
