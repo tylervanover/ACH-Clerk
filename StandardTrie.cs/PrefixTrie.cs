@@ -24,7 +24,7 @@ namespace StandardTrie.cs
         /// <summary>
         /// Alphabet used to index children from.
         /// </summary>
-        private const char[] alphabet = {  'a', 'b', 'c', 'd', 'e', 
+        private readonly char[] alphabet = {  'a', 'b', 'c', 'd', 'e', 
                                         'f', 'g', 'h', 'i', 'j', 
                                         'k', 'l', 'm', 'n', 'o',
                                         'p', 'q', 'r', 's', 't',
@@ -40,7 +40,7 @@ namespace StandardTrie.cs
         {
             // Create a new root node. Use the constant within PrefixTrieNode to
             // set the root node's Letter. 
-            RootNode = new PFTNode { Letter = PFTNode.RootChar, IsEnd = false };
+            RootNode = new PFTNode(PFTNode.RootChar, false);
             lookup = BuildLookup(alphabet);
         }
 
@@ -69,7 +69,7 @@ namespace StandardTrie.cs
             {
                 // Then begin the recursive insertion by stripping off the first letter of the word,
                 // and letting the algorithm take care of the rest.
-                RootNode = rInsert(RootNode.Children[cIndex], word.Substring(1));
+                RootNode.Children[cIndex] = rInsert(RootNode.Children[cIndex], word.Substring(1));
             }
 
             return RootNode != null;
@@ -98,7 +98,7 @@ namespace StandardTrie.cs
             }
 
             if (word.Length > 1)
-                root = rInsert(root.Children[cIndex], word.Substring(1));
+                root.Children[cIndex] = rInsert(root.Children[cIndex], word.Substring(1));
 
             return root;
         }
