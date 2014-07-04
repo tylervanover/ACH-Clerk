@@ -25,15 +25,5 @@ namespace StandardTrie.cs
             // set the root node's Letter. 
             RootNode = new PrefixTrieNode { Letter = PrefixTrieNode.Root };
         }
-
-        public void Add(string word)
-        {
-            word = word.ToLowerInvariant() + PrefixTrieNode.EndOfWord;
-            PrefixTrieNode currentNode = RootNode;
-            foreach (char c in word)
-            {
-                currentNode = currentNode.AddChild(c);
-            }
-        }
     }
 }
