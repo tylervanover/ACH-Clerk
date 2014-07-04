@@ -42,6 +42,7 @@
             this.lblNativeCount = new System.Windows.Forms.Label();
             this.lblSelectedCount = new System.Windows.Forms.Label();
             this.lblNativeCountDisp = new System.Windows.Forms.Label();
+            this.btnTestRmvSelected = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // dlgPrintDiag
@@ -123,9 +124,11 @@
             this.listSelectedList.FormattingEnabled = true;
             this.listSelectedList.Location = new System.Drawing.Point(212, 76);
             this.listSelectedList.Name = "listSelectedList";
-            this.listSelectedList.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.listSelectedList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.listSelectedList.Size = new System.Drawing.Size(365, 108);
             this.listSelectedList.TabIndex = 9;
+            this.listSelectedList.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listSelectedList_DrawItem);
+            this.listSelectedList.SelectedIndexChanged += new System.EventHandler(this.listSelectedList_SelectedIndexChanged);
             // 
             // txtSelectedEntriesCount
             // 
@@ -166,11 +169,22 @@
             this.lblNativeCountDisp.Size = new System.Drawing.Size(15, 13);
             this.lblNativeCountDisp.TabIndex = 13;
             // 
+            // btnTestRmvSelected
+            // 
+            this.btnTestRmvSelected.Location = new System.Drawing.Point(11, 76);
+            this.btnTestRmvSelected.Name = "btnTestRmvSelected";
+            this.btnTestRmvSelected.Size = new System.Drawing.Size(185, 23);
+            this.btnTestRmvSelected.TabIndex = 14;
+            this.btnTestRmvSelected.Text = "Test Remove Selected";
+            this.btnTestRmvSelected.UseVisualStyleBackColor = true;
+            this.btnTestRmvSelected.Click += new System.EventHandler(this.btnTestRmvSelected_Click);
+            // 
             // ClerkForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(763, 460);
+            this.Controls.Add(this.btnTestRmvSelected);
             this.Controls.Add(this.lblNativeCountDisp);
             this.Controls.Add(this.lblSelectedCount);
             this.Controls.Add(this.lblNativeCount);
@@ -205,6 +219,7 @@
         private System.Windows.Forms.Label lblNativeCount;
         private System.Windows.Forms.Label lblSelectedCount;
         private System.Windows.Forms.Label lblNativeCountDisp;
+        private System.Windows.Forms.Button btnTestRmvSelected;
     }
 }
 

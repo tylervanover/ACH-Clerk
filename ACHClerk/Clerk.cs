@@ -209,9 +209,14 @@ namespace ACHClerk
         /// Adds a PacketEntry to the final ACH document collection.
         /// </summary>
         /// <param name="toAdd">A packet entry, of a PDF and some other ID information.</param>
-        public void AddPacketsToFinal(PacketEntry toAdd)
+        internal void AddPacketToFinal(int addPacketID)
         {
-            _selectedEntries.Add(toAdd);
+            PacketEntry p = _nativeChangeForms.Find(pe => pe.PacketID == addPacketID);
+
+            if (p != null)
+            {
+                _selectedEntries.Add(p);
+            }
         }
 
         /// <summary>
@@ -219,14 +224,14 @@ namespace ACHClerk
         /// should the user request to not print this document (maybe an erroneous selection?).
         /// </summary>
         /// <param name="toRemove">The packet entry which will be removed.</param>
-        private void RemovePacketEntry(int removePacketID)
+        internal void RemovePacketFromFinal(int removePacketID)
         {
             // Use lambda to find the packet by ID.
             PacketEntry p = _selectedEntries.Find(pe => (pe.PacketID == removePacketID));
 
             if (p != null)
             {
-                _selectedEntries.RemoveAll(pe => pe.PacketID == removePacketID);
+                _selectedEntries.Remove(p);
             }
             else
             {
@@ -238,11 +243,11 @@ namespace ACHClerk
         /// Checks if the selected packets already contain an item still marked as selected.
         /// This will prevent from multiple copies of the same item.
         /// </summary>
-        /// <param name="itemToAdd"></param>
+        /// <param name="addPacketID"></param>
         /// <returns></returns>
-        internal bool SelectedContains(ref PacketEntry itemToAdd)
+        internal bool SelectedContains(int addPacketID)
         {
-            return SelectedEntries.ToList<PacketEntry>().Contains(itemToAdd);
+            return (SelectedEntries.Find(pe => (pe.PacketID == addPacketID)) != null);
         }
 
         /// <summary>

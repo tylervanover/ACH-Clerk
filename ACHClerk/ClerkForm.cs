@@ -140,6 +140,61 @@ namespace ACHClerk
         }
 
         /// <summary>
+        /// Add items selected in the listPacketList box to the listSelectedList box.
+        /// </summary>
+        private void AddSelectedToListBox()
+        {
+            var selectedIndices = listPacketList.SelectedIndices;
+            int toAdd;
+            var native = _clerk.NativeChangeForms;
+
+            foreach (int i in selectedIndices)
+            {
+                // Find the selected packet by index.
+                toAdd = (native.Find(pe => pe.PacketID == i)).PacketID;
+
+                // If the entry is already registerd in SelectedEntries, do not add it again.
+                if (!_clerk.SelectedContains(toAdd))
+                {
+                    _clerk.AddPacketToFinal(toAdd);
+                }
+            }
+
+            // Update form information.
+            UpdateForm();  
+        }
+
+        /// <summary>
+        /// Removes items selected in the listSelectedList box from itself.
+        /// Useful for if the user changes their mind.
+        /// </summary>
+        private void RemoveSelectedItems()
+        {
+            var selected_items = listSelectedList.SelectedItems;
+            int toRemove;
+            var final = _clerk.SelectedEntries;
+
+            foreach (PacketEntry p in selected_items)
+            {
+                // Bit of a hack, but this will work for now.
+                toRemove = (final.Find(pe => pe.PacketID == p.PacketID)).PacketID;
+
+                // Remove the entry.
+                try
+                {
+                    _clerk.RemovePacketFromFinal(toRemove);
+                }
+                catch(ArgumentException arge)
+                {
+                    MessageBox.Show("Something went wrong! We couldn't find that file to remove. Has the folder been moved or changed? Please check, and then try again.",
+                        "Whoops!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+
+            UpdateForm();
+        }
+
+        /// <summary>
         /// TESTING FUNCTIONALITY OF FILE SYSTEM MANAGEMENT.
         /// </summary>
         /// <param name="sender"></param>
@@ -193,7 +248,8 @@ namespace ACHClerk
         }
 
         /// <summary>
-        /// TESTING EVENT FUNCTIONALITY.
+        /// Allows for the user to select a specific section of the listPacketList box,
+        /// and then will raise an even to repaint the selected items' bounds.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -233,30 +289,56 @@ namespace ACHClerk
         }
 
         /// <summary>
-        /// Adds a collection of selected packets to the final collection.
+        /// Allows for the user to select a specific section of the selectedPackets box,
+        /// and then will raise an even to repaint the selected item's bounds.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void listSelectedList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Invalidate the form's rendered display,
+            // causing the listPacketList_DrawItem event to be raised.
+            listSelectedList.Invalidate();
+        }
+
+        /// <summary>
+        /// Highlights the selected item(s), and paints in it's bounds. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void listSelectedList_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            // Get the index of the calling item.
+            int index = e.Index;
+            Graphics g = e.Graphics;
+
+            // Get the indices of the selected items.
+            var selected = listSelectedList.SelectedIndices;
+            foreach (int i in selected)
+            {
+                // For the item that matches the index.
+                if (i == index)
+                {
+                    // Draw a new background on the calling item, and fill it with a color.
+                    e.DrawBackground();
+                    g.FillRectangle(new SolidBrush(Color.MistyRose), e.Bounds);
+                }
+            }
+        }
+
+        /// <summary>
+        /// TESTS THE FUNCTIONALITY OF AddSelectedToListBox().
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnAddSelected_Click(object sender, EventArgs e)
         {
-            var selectedIndices = listPacketList.SelectedIndices;
-            PacketEntry toAdd;
-            var native = _clerk.NativeChangeForms;
+            AddSelectedToListBox();
+        }
 
-            foreach (int i in selectedIndices)
-            {
-                // Find the selected packet by index.
-                toAdd = (native.Find(pe => pe.PacketID == i));
-
-                // If the entry is already registerd in SelectedEntries, do not add it again.
-                if (!_clerk.SelectedContains(ref toAdd))
-                {
-                    _clerk.AddPacketsToFinal(toAdd);
-                }
-            }
-
-            // Update form information.
-            UpdateForm();
+        private void btnTestRmvSelected_Click(object sender, EventArgs e)
+        {
+            RemoveSelectedItems();
         }
     }
 }
