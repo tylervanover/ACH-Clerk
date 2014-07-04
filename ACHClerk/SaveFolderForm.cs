@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ACHClerk
 {
-    public partial class dlgSaveFolderDiag : Form
+    public partial class SaveFolderDiag : Form
     {
         /// <summary>
         /// Holds the status of the checkbox button.
@@ -30,7 +30,7 @@ namespace ACHClerk
         /// <summary>
         /// Public, default constructor.
         /// </summary>
-        public dlgSaveFolderDiag()
+        public SaveFolderDiag()
         {
             InitializeComponent();
         }
@@ -40,7 +40,7 @@ namespace ACHClerk
         /// information back from the dialog. 
         /// </summary>
         /// <param name="clerk"></param>
-        public dlgSaveFolderDiag(ref Clerk clerk, String path)
+        public SaveFolderDiag(ref Clerk clerk, String path)
             : this()
         {
             _clerk = clerk;

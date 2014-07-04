@@ -1,6 +1,6 @@
 ﻿namespace ACHClerk
 {
-    partial class dlgSaveFolderDiag
+    partial class SaveFolderDiag
     {
         /// <summary>
         /// Required designer variable.

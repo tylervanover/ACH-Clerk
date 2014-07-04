@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace StandardTrie.cs
 {
+    /// <summary>
+    /// The parent class for a Prefix Trie structure. Contained within the StandardTrie namespace.
+    /// 
+    /// This variation of a Trie will allow the user to search each node using prefixes to strings.
+    /// It will help with an auto-complete function, such that only portions of a string can be searched.
+    /// </summary>
     public class PrefixTrie
     {
         public PrefixTrieNode RootNode { get; private set; }

@@ -124,6 +124,10 @@ namespace StandardTrie.cs
             return (PrefixTrieNode)Children[letter];
         }
 
+        /// <summary>
+        /// Returns a to string version of the prefix trie node.
+        /// </summary>
+        /// <returns>All we need to return in this case is just the letter contained within the data of the node.</returns>
         public override string ToString()
         {
             return this.Letter.ToString();

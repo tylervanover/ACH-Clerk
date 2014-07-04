@@ -120,7 +120,7 @@ namespace ACHClerk
             if (dlgFolderBrowser.ShowDialog() == DialogResult.OK)
             {
                 String path = dlgFolderBrowser.SelectedPath;
-                dlgSaveFolderDiag saveFolderDiag = new dlgSaveFolderDiag(ref _clerk, path);
+                SaveFolderDiag saveFolderDiag = new SaveFolderDiag(ref _clerk, path);
                 saveFolderDiag.ShowDialog();
 
                 try

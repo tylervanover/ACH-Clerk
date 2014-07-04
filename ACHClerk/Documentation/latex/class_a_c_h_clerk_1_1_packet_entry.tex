@@ -1,0 +1,105 @@
+\hypertarget{class_a_c_h_clerk_1_1_packet_entry}{\section{A\+C\+H\+Clerk.\+Packet\+Entry Class Reference}
+\label{class_a_c_h_clerk_1_1_packet_entry}\index{A\+C\+H\+Clerk.\+Packet\+Entry@{A\+C\+H\+Clerk.\+Packet\+Entry}}
+}
+
+
+Public class Packet\+Entry.\+cs. Part of the \hyperlink{namespace_a_c_h_clerk}{A\+C\+H\+Clerk} namespace, which represents a program capbable delivering an easy way for employees of the bank to provide A\+C\+H transition packets to customers.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_a_c_h_clerk_1_1_packet_entry_ac7d87dd3e746dc246c08fb42fd9e733d}{{\bfseries Packet\+Entry} (int packet\+I\+D, Pdf\+Document native, String company, ref List$<$ String $>$ tags, bool is\+Table)}\label{class_a_c_h_clerk_1_1_packet_entry_ac7d87dd3e746dc246c08fb42fd9e733d}
+
+\item 
+override String \hyperlink{class_a_c_h_clerk_1_1_packet_entry_a08b5203632609dad4bc69c1251d8f444}{To\+String} ()
+\begin{DoxyCompactList}\small\item\em Overrides the To\+String function, returning the \hyperlink{class_a_c_h_clerk_1_1_packet_entry}{Packet\+Entry} as a string. This is very rough, as of now, and will require refinement as the project progresses. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+Pdf\+Document \hyperlink{class_a_c_h_clerk_1_1_packet_entry_ab19c84887a206d860b73e2a1ac418459}{Native\+Doc}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Assigns or returns the native Pdf\+Document attached to this packet entry. Will allow for rendering of individual packet entries as applied to a list box/combo box on a viewing pane. \end{DoxyCompactList}\item 
+int \hyperlink{class_a_c_h_clerk_1_1_packet_entry_a1a2d184afd1ab9b8aaccf0ac9bdb5d62}{Packet\+I\+D}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Assigns or returns the packet entry's I\+D number. \end{DoxyCompactList}\item 
+String \hyperlink{class_a_c_h_clerk_1_1_packet_entry_adc6526f8427f62955cf5353e7067fff5}{Company}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Assigns or returns the packet entry's company. \end{DoxyCompactList}\item 
+List$<$ String $>$ \hyperlink{class_a_c_h_clerk_1_1_packet_entry_aa0e26c66a7884c983e91a014b6766f5e}{Tags}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Returns an array of the various service tags applied to this packet entry. Will be used for a tree-\/based search. \end{DoxyCompactList}\item 
+int \hyperlink{class_a_c_h_clerk_1_1_packet_entry_ae73ddc1eccfe1906754fbf36101e66eb}{Tags\+Count}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Returns the number of tags associated with each P\+D\+F packet. \end{DoxyCompactList}\item 
+bool \hyperlink{class_a_c_h_clerk_1_1_packet_entry_a4a1c4084b79b907b6a4f8ef9b91ba042}{Is\+Table}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Determines if the packet entry is a table. Will allow for easier manipulation later on when compiling tables. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Public class Packet\+Entry.\+cs. Part of the \hyperlink{namespace_a_c_h_clerk}{A\+C\+H\+Clerk} namespace, which represents a program capbable delivering an easy way for employees of the bank to provide A\+C\+H transition packets to customers. 
+
+A \hyperlink{class_a_c_h_clerk_1_1_packet_entry}{Packet\+Entry} is simply a collection of features regarding a single P\+D\+F document. Each \hyperlink{class_a_c_h_clerk_1_1_packet_entry}{Packet\+Entry} has a unique I\+D, a company name, and a list of tags -- the list of tags will the user to type in a string in the search bar and have a number of documents show as a result.
+
+Author\+: Tyler Vanover. Created\+: 2014-\/06-\/26. Version\+: 1.\+0. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_a_c_h_clerk_1_1_packet_entry_a08b5203632609dad4bc69c1251d8f444}{\index{A\+C\+H\+Clerk\+::\+Packet\+Entry@{A\+C\+H\+Clerk\+::\+Packet\+Entry}!To\+String@{To\+String}}
+\index{To\+String@{To\+String}!A\+C\+H\+Clerk\+::\+Packet\+Entry@{A\+C\+H\+Clerk\+::\+Packet\+Entry}}
+\subsubsection[{To\+String}]{\setlength{\rightskip}{0pt plus 5cm}override String A\+C\+H\+Clerk.\+Packet\+Entry.\+To\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_a_c_h_clerk_1_1_packet_entry_a08b5203632609dad4bc69c1251d8f444}
+
+
+Overrides the To\+String function, returning the \hyperlink{class_a_c_h_clerk_1_1_packet_entry}{Packet\+Entry} as a string. This is very rough, as of now, and will require refinement as the project progresses. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\subsection{Property Documentation}
+\hypertarget{class_a_c_h_clerk_1_1_packet_entry_adc6526f8427f62955cf5353e7067fff5}{\index{A\+C\+H\+Clerk\+::\+Packet\+Entry@{A\+C\+H\+Clerk\+::\+Packet\+Entry}!Company@{Company}}
+\index{Company@{Company}!A\+C\+H\+Clerk\+::\+Packet\+Entry@{A\+C\+H\+Clerk\+::\+Packet\+Entry}}
+\subsubsection[{Company}]{\setlength{\rightskip}{0pt plus 5cm}String A\+C\+H\+Clerk.\+Packet\+Entry.\+Company\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_a_c_h_clerk_1_1_packet_entry_adc6526f8427f62955cf5353e7067fff5}
+
+
+Assigns or returns the packet entry's company. 
+
+\hypertarget{class_a_c_h_clerk_1_1_packet_entry_a4a1c4084b79b907b6a4f8ef9b91ba042}{\index{A\+C\+H\+Clerk\+::\+Packet\+Entry@{A\+C\+H\+Clerk\+::\+Packet\+Entry}!Is\+Table@{Is\+Table}}
+\index{Is\+Table@{Is\+Table}!A\+C\+H\+Clerk\+::\+Packet\+Entry@{A\+C\+H\+Clerk\+::\+Packet\+Entry}}
+\subsubsection[{Is\+Table}]{\setlength{\rightskip}{0pt plus 5cm}bool A\+C\+H\+Clerk.\+Packet\+Entry.\+Is\+Table\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_a_c_h_clerk_1_1_packet_entry_a4a1c4084b79b907b6a4f8ef9b91ba042}
+
+
+Determines if the packet entry is a table. Will allow for easier manipulation later on when compiling tables. 
+
+\hypertarget{class_a_c_h_clerk_1_1_packet_entry_ab19c84887a206d860b73e2a1ac418459}{\index{A\+C\+H\+Clerk\+::\+Packet\+Entry@{A\+C\+H\+Clerk\+::\+Packet\+Entry}!Native\+Doc@{Native\+Doc}}
+\index{Native\+Doc@{Native\+Doc}!A\+C\+H\+Clerk\+::\+Packet\+Entry@{A\+C\+H\+Clerk\+::\+Packet\+Entry}}
+\subsubsection[{Native\+Doc}]{\setlength{\rightskip}{0pt plus 5cm}Pdf\+Document A\+C\+H\+Clerk.\+Packet\+Entry.\+Native\+Doc\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_a_c_h_clerk_1_1_packet_entry_ab19c84887a206d860b73e2a1ac418459}
+
+
+Assigns or returns the native Pdf\+Document attached to this packet entry. Will allow for rendering of individual packet entries as applied to a list box/combo box on a viewing pane. 
+
+\hypertarget{class_a_c_h_clerk_1_1_packet_entry_a1a2d184afd1ab9b8aaccf0ac9bdb5d62}{\index{A\+C\+H\+Clerk\+::\+Packet\+Entry@{A\+C\+H\+Clerk\+::\+Packet\+Entry}!Packet\+I\+D@{Packet\+I\+D}}
+\index{Packet\+I\+D@{Packet\+I\+D}!A\+C\+H\+Clerk\+::\+Packet\+Entry@{A\+C\+H\+Clerk\+::\+Packet\+Entry}}
+\subsubsection[{Packet\+I\+D}]{\setlength{\rightskip}{0pt plus 5cm}int A\+C\+H\+Clerk.\+Packet\+Entry.\+Packet\+I\+D\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_a_c_h_clerk_1_1_packet_entry_a1a2d184afd1ab9b8aaccf0ac9bdb5d62}
+
+
+Assigns or returns the packet entry's I\+D number. 
+
+\hypertarget{class_a_c_h_clerk_1_1_packet_entry_aa0e26c66a7884c983e91a014b6766f5e}{\index{A\+C\+H\+Clerk\+::\+Packet\+Entry@{A\+C\+H\+Clerk\+::\+Packet\+Entry}!Tags@{Tags}}
+\index{Tags@{Tags}!A\+C\+H\+Clerk\+::\+Packet\+Entry@{A\+C\+H\+Clerk\+::\+Packet\+Entry}}
+\subsubsection[{Tags}]{\setlength{\rightskip}{0pt plus 5cm}List$<$String$>$ A\+C\+H\+Clerk.\+Packet\+Entry.\+Tags\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_a_c_h_clerk_1_1_packet_entry_aa0e26c66a7884c983e91a014b6766f5e}
+
+
+Returns an array of the various service tags applied to this packet entry. Will be used for a tree-\/based search. 
+
+\hypertarget{class_a_c_h_clerk_1_1_packet_entry_ae73ddc1eccfe1906754fbf36101e66eb}{\index{A\+C\+H\+Clerk\+::\+Packet\+Entry@{A\+C\+H\+Clerk\+::\+Packet\+Entry}!Tags\+Count@{Tags\+Count}}
+\index{Tags\+Count@{Tags\+Count}!A\+C\+H\+Clerk\+::\+Packet\+Entry@{A\+C\+H\+Clerk\+::\+Packet\+Entry}}
+\subsubsection[{Tags\+Count}]{\setlength{\rightskip}{0pt plus 5cm}int A\+C\+H\+Clerk.\+Packet\+Entry.\+Tags\+Count\hspace{0.3cm}{\ttfamily [get]}}}\label{class_a_c_h_clerk_1_1_packet_entry_ae73ddc1eccfe1906754fbf36101e66eb}
+
+
+Returns the number of tags associated with each P\+D\+F packet. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Packet\+Entry.\+cs\end{DoxyCompactItemize}
