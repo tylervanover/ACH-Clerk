@@ -101,8 +101,8 @@ namespace StandardTrie.cs
         /// path along the PrefixTrie, and then will return the primary node to the entry
         /// function. 
         /// </summary>
-        /// <param name="root"></param>
-        /// <param name="word"></param>
+        /// <param name="root">The current root of this iteration.</param>
+        /// <param name="word">The word, as it appears during this iteration.</param>
         /// <returns></returns>
         private PFTNode rInsert(PFTNode root, string word)
         {
@@ -125,10 +125,35 @@ namespace StandardTrie.cs
         }
 
         /// <summary>
+        /// The entry point to searching if an particular word exists within this tree.
+        /// Uses a helper recursive function to perform a search on all nodes. 
+        /// </summary>
+        /// <param name="word">The string we're searching for.</param>
+        /// <returns>True if the word is contained, false if otherwise.</returns>
+        public bool Contains(string word)
+        {
+            // If the root node has children, you can begin searching.
+            if (!RootNode.EndOfPath())
+            {
+
+            }
+            // Otherwise, if the root has no children, there's no words to search.
+            else
+            {
+                return false;
+            }
+        }
+
+        private bool rContains(PFTNode root, string word)
+        {
+
+        }
+
+        /// <summary>
         /// Builds a looup for the alphabet.
         /// </summary>
-        /// <param name="values"></param>
-        /// <returns></returns>
+        /// <param name="values">An array of characters to build the lookup against.</param>
+        /// <returns>A new (char,int) lookup.</returns>
         private Grid BuildLookup(char[] values)
         {
             return new Grid(values);

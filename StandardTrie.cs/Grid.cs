@@ -9,7 +9,7 @@ namespace StandardTrie.cs
     /// <summary>
     /// A helper class for the search functionality.
     /// </summary>
-    internal class Grid
+    public class Grid
     {
         /// <summary>
         /// The alphabet will be stored as a dictionary, such that one can
