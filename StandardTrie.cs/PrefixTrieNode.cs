@@ -9,6 +9,12 @@ using System.Threading.Tasks;
 namespace StandardTrie.cs
 {
     /// <summary>
+    /// Author: Tyler Vanover
+    /// Created: 2014-07-04
+    /// Version: 1.0
+    /// 
+    /// Part of StandardTrie.cs namespace.
+    /// 
     /// A node of a prefix tree. The prefix tree will allow the user
     /// to build a structure of characters such that they can perform traversals
     /// of complete words, and of prefixes to words during a search.
@@ -73,6 +79,10 @@ namespace StandardTrie.cs
             {
                 return Children[index];
             }
+            set
+            {
+                Children[index] = value;
+            }
         }
 
         /// <summary>
@@ -84,7 +94,7 @@ namespace StandardTrie.cs
         public bool EndOfPath()
         {
             bool allNull = true;
-            foreach( PrefixTrieNode p in this.Children )
+            foreach (PrefixTrieNode p in this.Children)
             {
                 if (p != null)
                 {

@@ -127,6 +127,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a1a0d75e738c1127df3ecdd3a4ea0832b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The entry point insertion method. This will then call a private, recursive function to finish the insertion of the word.  <a href="#a1a0d75e738c1127df3ecdd3a4ea0832b">More...</a><br /></td></tr>
 <tr class="separator:a1a0d75e738c1127df3ecdd3a4ea0832b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67c2be3c49cc8fbbf6f505e896faba8c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie.html#a67c2be3c49cc8fbbf6f505e896faba8c">Contains</a> (string word)</td></tr>
+<tr class="memdesc:a67c2be3c49cc8fbbf6f505e896faba8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The entry point to searching if an particular word exists within this tree. Uses a helper recursive function to perform a search on all nodes.  <a href="#a67c2be3c49cc8fbbf6f505e896faba8c">More...</a><br /></td></tr>
 <tr class="separator:a67c2be3c49cc8fbbf6f505e896faba8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
@@ -140,6 +141,9 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a32f20bfb37744a4906416f13615d4887"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_standard_trie_1_1cs.html#aa483b09021ea5ce4e538952c38107bf5">PFTNode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie.html#a32f20bfb37744a4906416f13615d4887">rInsert</a> (<a class="el" href="namespace_standard_trie_1_1cs.html#aa483b09021ea5ce4e538952c38107bf5">PFTNode</a> root, string word)</td></tr>
 <tr class="memdesc:a32f20bfb37744a4906416f13615d4887"><td class="mdescLeft">&#160;</td><td class="mdescRight">A recursive function to insert a word into the <a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie.html" title="Author: Tyler Vanover Created: 2014-07-04 Version: 1.0 ">PrefixTrie</a>. It must be called by the entry function, Insert. The function will continue to build the word path along the <a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie.html" title="Author: Tyler Vanover Created: 2014-07-04 Version: 1.0 ">PrefixTrie</a>, and then will return the primary node to the entry function.  <a href="#a32f20bfb37744a4906416f13615d4887">More...</a><br /></td></tr>
 <tr class="separator:a32f20bfb37744a4906416f13615d4887"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1873e839748b594e12473fa0fbedde9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie.html#ad1873e839748b594e12473fa0fbedde9">rContains</a> (<a class="el" href="namespace_standard_trie_1_1cs.html#aa483b09021ea5ce4e538952c38107bf5">PFTNode</a> root, string word)</td></tr>
+<tr class="memdesc:ad1873e839748b594e12473fa0fbedde9"><td class="mdescLeft">&#160;</td><td class="mdescRight">A recursive function to search the exisiting <a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie.html" title="Author: Tyler Vanover Created: 2014-07-04 Version: 1.0 ">PrefixTrie</a> for a given string. It is called by the entry function, <a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie.html#a67c2be3c49cc8fbbf6f505e896faba8c" title="The entry point to searching if an particular word exists within this tree. Uses a helper recursive f...">PrefixTrie.Contains()</a> and performs an iterative search until the valid end of a path is or isn't found.  <a href="#ad1873e839748b594e12473fa0fbedde9">More...</a><br /></td></tr>
+<tr class="separator:ad1873e839748b594e12473fa0fbedde9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88793f7a26ba7042a9772db679f26765"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_standard_trie_1_1cs_1_1_grid.html">Grid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie.html#a88793f7a26ba7042a9772db679f26765">BuildLookup</a> (char[] values)</td></tr>
 <tr class="memdesc:a88793f7a26ba7042a9772db679f26765"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a looup for the alphabet.  <a href="#a88793f7a26ba7042a9772db679f26765">More...</a><br /></td></tr>
 <tr class="separator:a88793f7a26ba7042a9772db679f26765"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -223,14 +227,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p></p>
+<p>The entry point to searching if an particular word exists within this tree. Uses a helper recursive function to perform a search on all nodes. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">word</td><td></td></tr>
+    <tr><td class="paramname">word</td><td>The string we're searching for.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the word is contained, false if otherwise.</dd></dl>
 
 </div>
 </div>
@@ -251,11 +255,55 @@ Private Attributes</h2></td></tr>
 <p>The entry point insertion method. This will then call a private, recursive function to finish the insertion of the word. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">word</td><td></td></tr>
+    <tr><td class="paramname">word</td><td>A given string to insert into the <a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie.html" title="Author: Tyler Vanover Created: 2014-07-04 Version: 1.0 ">PrefixTrie</a>.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the word was inserted properly. False otherwise.</dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad1873e839748b594e12473fa0fbedde9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StandardTrie.cs.PrefixTrie.rContains </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_standard_trie_1_1cs.html#aa483b09021ea5ce4e538952c38107bf5">PFTNode</a>&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>word</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A recursive function to search the exisiting <a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie.html" title="Author: Tyler Vanover Created: 2014-07-04 Version: 1.0 ">PrefixTrie</a> for a given string. It is called by the entry function, <a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie.html#a67c2be3c49cc8fbbf6f505e896faba8c" title="The entry point to searching if an particular word exists within this tree. Uses a helper recursive f...">PrefixTrie.Contains()</a> and performs an iterative search until the valid end of a path is or isn't found. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>The current root node of a given iteration.</td></tr>
+    <tr><td class="paramname">word</td><td>The current word to search.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A true/false chain, all the way back up to the entry function.</dd></dl>
 
 </div>
 </div>
@@ -294,12 +342,12 @@ Private Attributes</h2></td></tr>
 <p>A recursive function to insert a word into the <a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie.html" title="Author: Tyler Vanover Created: 2014-07-04 Version: 1.0 ">PrefixTrie</a>. It must be called by the entry function, Insert. The function will continue to build the word path along the <a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie.html" title="Author: Tyler Vanover Created: 2014-07-04 Version: 1.0 ">PrefixTrie</a>, and then will return the primary node to the entry function. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">root</td><td></td></tr>
-    <tr><td class="paramname">word</td><td></td></tr>
+    <tr><td class="paramname">root</td><td>The current root of this iteration.</td></tr>
+    <tr><td class="paramname">word</td><td>The word, as it appears during this iteration.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The node created to tag onto the end of each parent node. The recursion causes a chain of nodes to be created and then reverse-linked up through the <a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie.html" title="Author: Tyler Vanover Created: 2014-07-04 Version: 1.0 ">PrefixTrie</a>.</dd></dl>
 
 </div>
 </div>
@@ -386,7 +434,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_standard_trie.html">StandardTrie</a></li><li class="navelem"><a class="el" href="namespace_standard_trie_1_1cs.html">cs</a></li><li class="navelem"><a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie.html">PrefixTrie</a></li>
-    <li class="footer">Generated on Fri Jul 4 2014 23:00:24 for StandardTrie by
+    <li class="footer">Generated on Sat Jul 5 2014 16:26:36 for StandardTrie by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

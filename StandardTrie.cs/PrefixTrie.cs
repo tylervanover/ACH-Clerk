@@ -57,8 +57,8 @@ namespace StandardTrie.cs
         /// The entry point insertion method. This will then call a private, recursive function
         /// to finish the insertion of the word. 
         /// </summary>
-        /// <param name="word"></param>
-        /// <returns></returns>
+        /// <param name="word">A given string to insert into the PrefixTrie.</param>
+        /// <returns>True if the word was inserted properly. False otherwise.</returns>
         public bool Insert(string word)
         {
             // Uncapitalize the entire phrase. This saves space and brainwork, as you don't have to manage
@@ -76,10 +76,10 @@ namespace StandardTrie.cs
             int cIndex = this.lookup[word[0]];
 
             // Check if that particular child already exists or not.
-            if (RootNode.Children[cIndex] == null)
+            if (RootNode[cIndex] == null)
             {
                 // If not, create a new node in its place.
-                RootNode.Children[cIndex] = new PFTNode(word[0], false);
+                RootNode[cIndex] = new PFTNode(word[0], false);
             }
 
             // Check that there is more to the word than just 1 character.
@@ -88,11 +88,11 @@ namespace StandardTrie.cs
                 // Then begin the recursive insertion by stripping off the first letter of the word,
                 // and letting the algorithm take care of the rest. Return the indexed child created
                 // (and its subsequent nodes) into the indexed child of the root.
-                RootNode.Children[cIndex] = rInsert(RootNode.Children[cIndex], word.Substring(1));
+                RootNode[cIndex] = rInsert(RootNode[cIndex], word.Substring(1));
             }
 
             // If the node was not null, then return true to the calling function. Used for validation of insert.
-            return RootNode != null;
+            return RootNode[cIndex] != null;
         }
 
         /// <summary>
@@ -103,7 +103,9 @@ namespace StandardTrie.cs
         /// </summary>
         /// <param name="root">The current root of this iteration.</param>
         /// <param name="word">The word, as it appears during this iteration.</param>
-        /// <returns></returns>
+        /// <returns>The node created to tag onto the end of each parent node. The 
+        /// recursion causes a chain of nodes to be created and then reverse-linked up through
+        /// the PrefixTrie.</returns>
         private PFTNode rInsert(PFTNode root, string word)
         {
             // Get the index of the child to populate the first character of
@@ -111,15 +113,15 @@ namespace StandardTrie.cs
             int cIndex = this.lookup[word[0]];
 
             // If that particular child is null,
-            if (root.Children[cIndex] == null)
+            if (root[cIndex] == null)
             {
                 // Create a node for it with the first character of this word.
-                root.Children[cIndex] = (word.Length > 1) ? new PFTNode(word[0], false) : new PFTNode(word[0], true);
+                root[cIndex] = (word.Length > 1) ? new PFTNode(word[0], false) : new PFTNode(word[0], true);
             }
 
             // If there is more to the word than the first character, recursively insert the rest.
             if (word.Length > 1)
-                root.Children[cIndex] = rInsert(root.Children[cIndex], word.Substring(1));
+                root[cIndex] = rInsert(root[cIndex], word.Substring(1));
 
             return root;
         }
@@ -139,6 +141,7 @@ namespace StandardTrie.cs
             // If the root node has children, you can begin searching.
             if (!RootNode.EndOfPath())
             {
+                // Begin the recursive search.
                 return rContains(this.RootNode, word);
             }
             // Otherwise, if the root has no children, there's no words to search.
@@ -148,16 +151,39 @@ namespace StandardTrie.cs
             }
         }
 
+        /// <summary>
+        /// A recursive function to search the exisiting PrefixTrie for a given string.
+        /// It is called by the entry function, PrefixTrie.Contains() and performs
+        /// an iterative search until the valid end of a path is or isn't found.
+        /// </summary>
+        /// <param name="root">The current root node of a given iteration.</param>
+        /// <param name="word">The current word to search.</param>
+        /// <returns>A true/false chain, all the way back up to the entry function.</returns>
         private bool rContains(PFTNode root, string word)
         {
-            // Get the child index of the first letter at this iteration.
+            // Lookup the index of the child for the first character in the word.
             int cIndex = this.lookup[word[0]];
 
+            // If there exists a child for that particular character,
             if (root[cIndex] != null)
             {
-                // Need to check for valid strength length on next iteration.
-                return rContains(root[cIndex], word.Substring(1));
+                // And if the word has more than this character in it,
+                if (word.Length > 1)
+                {
+                    return rContains(root[cIndex], word.Substring(1));
+                }
+                // Or if that child node root represents the end of a valid search path,
+                else if (root[cIndex].IsEnd)
+                {
+                    return true;
+                }
+                // Otherwise, this is an invalid term.
+                else
+                {
+                    return false;
+                }
             }
+            // Otherwise, return false. This term is not in the search path. 
             else
             {
                 return false;

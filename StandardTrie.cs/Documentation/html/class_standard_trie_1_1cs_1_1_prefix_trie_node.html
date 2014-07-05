@@ -114,7 +114,7 @@ $(document).ready(function(){initNavTree('class_standard_trie_1_1cs_1_1_prefix_t
 </div><!--header-->
 <div class="contents">
 
-<p>A node of a prefix tree. The prefix tree will allow the user to build a structure of characters such that they can perform traversals of complete words, and of prefixes to words during a search.  
+<p>Author: Tyler Vanover Created: 2014-07-04 Version: 1.0  
  <a href="class_standard_trie_1_1cs_1_1_prefix_trie_node.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -135,7 +135,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ab28f6d74c3d79ae8c8f4924832c3f400"><td class="memItemLeft" align="right" valign="top">const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie_node.html#ab28f6d74c3d79ae8c8f4924832c3f400">RootChar</a> = ' '</td></tr>
-<tr class="memdesc:ab28f6d74c3d79ae8c8f4924832c3f400"><td class="mdescLeft">&#160;</td><td class="mdescRight">A character denoting the node is the root of the entire tree. It will be written in this class so that automatic object initializers may be used in future releases, e.g., new <a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie_node.html" title="A node of a prefix tree. The prefix tree will allow the user to build a structure of characters such ...">PrefixTrieNode</a> { Letter = <a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie_node.html#ab28f6d74c3d79ae8c8f4924832c3f400" title="A character denoting the node is the root of the entire tree. It will be written in this class so tha...">PrefixTrieNode.RootChar</a>; }  <a href="#ab28f6d74c3d79ae8c8f4924832c3f400">More...</a><br /></td></tr>
+<tr class="memdesc:ab28f6d74c3d79ae8c8f4924832c3f400"><td class="mdescLeft">&#160;</td><td class="mdescRight">A character denoting the node is the root of the entire tree. It will be written in this class so that automatic object initializers may be used in future releases, e.g., new <a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie_node.html" title="Author: Tyler Vanover Created: 2014-07-04 Version: 1.0 ">PrefixTrieNode</a> { Letter = <a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie_node.html#ab28f6d74c3d79ae8c8f4924832c3f400" title="A character denoting the node is the root of the entire tree. It will be written in this class so tha...">PrefixTrieNode.RootChar</a>; }  <a href="#ab28f6d74c3d79ae8c8f4924832c3f400">More...</a><br /></td></tr>
 <tr class="separator:ab28f6d74c3d79ae8c8f4924832c3f400"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22b16f3d269d6ffa66a0464b844eea87"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie_node.html">PrefixTrieNode</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie_node.html#a22b16f3d269d6ffa66a0464b844eea87">Children</a></td></tr>
 <tr class="memdesc:a22b16f3d269d6ffa66a0464b844eea87"><td class="mdescLeft">&#160;</td><td class="mdescRight">A collection of children nodes.  <a href="#a22b16f3d269d6ffa66a0464b844eea87">More...</a><br /></td></tr>
@@ -149,12 +149,14 @@ Properties</h2></td></tr>
 <tr class="memitem:a43b8ffaa056783bdd7c0ceeb39e7ba60"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie_node.html#a43b8ffaa056783bdd7c0ceeb39e7ba60">IsEnd</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:a43b8ffaa056783bdd7c0ceeb39e7ba60"><td class="mdescLeft">&#160;</td><td class="mdescRight">True/False value indicating if this node is the end of a valid word in the inserted set. May not reflect the end of a search path, however, as an example of inserting "flower" and then "flowers" would mean that both this 'r'-child and this 'r'-child's 's'-child would be marked IsEnd, as they are valid words. Only if all children are null is this the true end of a search path.  <a href="#a43b8ffaa056783bdd7c0ceeb39e7ba60">More...</a><br /></td></tr>
 <tr class="separator:a43b8ffaa056783bdd7c0ceeb39e7ba60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc752b0cbd4cea448f1f0e47c6c82c38"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie_node.html">PrefixTrieNode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie_node.html#adc752b0cbd4cea448f1f0e47c6c82c38">this[int index]</a><code> [get]</code></td></tr>
+<tr class="memitem:adc752b0cbd4cea448f1f0e47c6c82c38"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie_node.html">PrefixTrieNode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie_node.html#adc752b0cbd4cea448f1f0e47c6c82c38">this[int index]</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:adc752b0cbd4cea448f1f0e47c6c82c38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloading [] so that children can be accessed like an array.  <a href="#adc752b0cbd4cea448f1f0e47c6c82c38">More...</a><br /></td></tr>
 <tr class="separator:adc752b0cbd4cea448f1f0e47c6c82c38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A node of a prefix tree. The prefix tree will allow the user to build a structure of characters such that they can perform traversals of complete words, and of prefixes to words during a search. </p>
+<div class="textblock"><p>Author: Tyler Vanover Created: 2014-07-04 Version: 1.0 </p>
+<p>Part of <a class="el" href="namespace_standard_trie_1_1cs.html">StandardTrie.cs</a> namespace.</p>
+<p>A node of a prefix tree. The prefix tree will allow the user to build a structure of characters such that they can perform traversals of complete words, and of prefixes to words during a search. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="acef2f489b91ac81f47e54b0006d0e7a7"></a>
 <div class="memitem">
@@ -270,7 +272,7 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>A character denoting the node is the root of the entire tree. It will be written in this class so that automatic object initializers may be used in future releases, e.g., new <a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie_node.html" title="A node of a prefix tree. The prefix tree will allow the user to build a structure of characters such ...">PrefixTrieNode</a> { Letter = <a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie_node.html#ab28f6d74c3d79ae8c8f4924832c3f400" title="A character denoting the node is the root of the entire tree. It will be written in this class so tha...">PrefixTrieNode.RootChar</a>; } </p>
+<p>A character denoting the node is the root of the entire tree. It will be written in this class so that automatic object initializers may be used in future releases, e.g., new <a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie_node.html" title="Author: Tyler Vanover Created: 2014-07-04 Version: 1.0 ">PrefixTrieNode</a> { Letter = <a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie_node.html#ab28f6d74c3d79ae8c8f4924832c3f400" title="A character denoting the node is the root of the entire tree. It will be written in this class so tha...">PrefixTrieNode.RootChar</a>; } </p>
 
 </div>
 </div>
@@ -332,7 +334,7 @@ Properties</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -357,7 +359,7 @@ Properties</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_standard_trie.html">StandardTrie</a></li><li class="navelem"><a class="el" href="namespace_standard_trie_1_1cs.html">cs</a></li><li class="navelem"><a class="el" href="class_standard_trie_1_1cs_1_1_prefix_trie_node.html">PrefixTrieNode</a></li>
-    <li class="footer">Generated on Fri Jul 4 2014 23:00:24 for StandardTrie by
+    <li class="footer">Generated on Sat Jul 5 2014 16:26:36 for StandardTrie by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>
