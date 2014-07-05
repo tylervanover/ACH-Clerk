@@ -73,7 +73,7 @@ namespace StandardTrie.cs
             // Because the children represent all the letters of the English alphabet, there should be 26 children.
             // We'll only want to work on the node with the equivalent index, i.e. 'a'-child == index 0,
             // 'b'-child == index 1, and so on.
-            int cIndex = lookup[word[0]];
+            int cIndex = this.lookup[word[0]];
 
             // Check if that particular child already exists or not.
             if (RootNode.Children[cIndex] == null)
@@ -108,7 +108,7 @@ namespace StandardTrie.cs
         {
             // Get the index of the child to populate the first character of
             // this word to.
-            int cIndex = lookup[word[0]];
+            int cIndex = this.lookup[word[0]];
 
             // If that particular child is null,
             if (root.Children[cIndex] == null)
@@ -132,10 +132,14 @@ namespace StandardTrie.cs
         /// <returns>True if the word is contained, false if otherwise.</returns>
         public bool Contains(string word)
         {
+            // Trim and send to lowercase.
+            word = word.ToLower();
+            word = word.Trim();
+
             // If the root node has children, you can begin searching.
             if (!RootNode.EndOfPath())
             {
-
+                return rContains(this.RootNode, word);
             }
             // Otherwise, if the root has no children, there's no words to search.
             else
@@ -146,7 +150,18 @@ namespace StandardTrie.cs
 
         private bool rContains(PFTNode root, string word)
         {
+            // Get the child index of the first letter at this iteration.
+            int cIndex = this.lookup[word[0]];
 
+            if (root[cIndex] != null)
+            {
+                // Need to check for valid strength length on next iteration.
+                return rContains(root[cIndex], word.Substring(1));
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /// <summary>

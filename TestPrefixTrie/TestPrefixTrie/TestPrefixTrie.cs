@@ -19,6 +19,12 @@ namespace TestPrefixTrie
             tree.Insert("goal");
             tree.Insert("seventeen");
             tree.Insert("flame");
+
+            Console.WriteLine("Checking if tree contains 'flame'.");
+            if (tree.Contains("flame"))
+                Console.WriteLine("Yes");
+            else
+                Console.WriteLine("No");
         }
     }
 }

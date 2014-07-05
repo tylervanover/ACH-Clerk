@@ -83,7 +83,17 @@ namespace StandardTrie.cs
         /// <returns>If all the children are null, this node is the end of a complete path.</returns>
         public bool EndOfPath()
         {
-            return Children.All(pe => pe.Children == null);
+            bool allNull = true;
+            foreach( PrefixTrieNode p in this.Children )
+            {
+                if (p != null)
+                {
+                    allNull = false;
+                    break;
+                }
+            }
+
+            return allNull;
         }
 
         /// <summary>
