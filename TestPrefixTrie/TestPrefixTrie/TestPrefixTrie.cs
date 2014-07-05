@@ -15,6 +15,10 @@ namespace TestPrefixTrie
             PrefixTrie tree = new PrefixTrie();
 
             tree.Insert("flower");
+            tree.Insert("fire");
+            tree.Insert("goal");
+            tree.Insert("seventeen");
+            tree.Insert("flame");
         }
     }
 }

@@ -10,6 +10,12 @@ namespace StandardTrie.cs
     using PFTNode = StandardTrie.cs.PrefixTrieNode;
 
     /// <summary>
+    /// Author: Tyler Vanover
+    /// Created: 2014-07-04
+    /// Version: 1.0
+    /// 
+    /// Part of StandardTrie.cs namespace. 
+    /// 
     /// The PrefixTrie structure. This class will handle the manipulation of
     /// nodes within the trie. It has a single root node, from which the
     /// rest of the insertion, contains, and removal methods can be initiated.
@@ -31,6 +37,9 @@ namespace StandardTrie.cs
                                         'u', 'v', 'w', 'x', 'y',
                                         'z' };
 
+        /// <summary>
+        /// A custom lookup table of characters in the alphabet, and their indexes.
+        /// </summary>
         private Grid lookup;
 
         /// <summary>
@@ -52,6 +61,14 @@ namespace StandardTrie.cs
         /// <returns></returns>
         public bool Insert(string word)
         {
+            // Uncapitalize the entire phrase. This saves space and brainwork, as you don't have to manage
+            // both capital and lower case letters.
+            word = word.ToLower();
+
+            // Trim any whitespace. You do not have any children to represent gaps in words, so just juxtapose
+            // pairs of words into a single one. The same methodology applies.
+            word = word.Trim();
+
             // Get the index of the child we'll need to modify, based on the first character of the word. 
             // Because the children represent all the letters of the English alphabet, there should be 26 children.
             // We'll only want to work on the node with the equivalent index, i.e. 'a'-child == index 0,
@@ -61,6 +78,7 @@ namespace StandardTrie.cs
             // Check if that particular child already exists or not.
             if (RootNode.Children[cIndex] == null)
             {
+                // If not, create a new node in its place.
                 RootNode.Children[cIndex] = new PFTNode(word[0], false);
             }
 
@@ -68,10 +86,12 @@ namespace StandardTrie.cs
             if (word.Length > 1)
             {
                 // Then begin the recursive insertion by stripping off the first letter of the word,
-                // and letting the algorithm take care of the rest.
+                // and letting the algorithm take care of the rest. Return the indexed child created
+                // (and its subsequent nodes) into the indexed child of the root.
                 RootNode.Children[cIndex] = rInsert(RootNode.Children[cIndex], word.Substring(1));
             }
 
+            // If the node was not null, then return true to the calling function. Used for validation of insert.
             return RootNode != null;
         }
 
@@ -97,6 +117,7 @@ namespace StandardTrie.cs
                 root.Children[cIndex] = (word.Length > 1) ? new PFTNode(word[0], false) : new PFTNode(word[0], true);
             }
 
+            // If there is more to the word than the first character, recursively insert the rest.
             if (word.Length > 1)
                 root.Children[cIndex] = rInsert(root.Children[cIndex], word.Substring(1));
 
