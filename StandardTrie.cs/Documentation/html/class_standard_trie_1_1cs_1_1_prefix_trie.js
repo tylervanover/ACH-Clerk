@@ -8,5 +8,6 @@ var class_standard_trie_1_1cs_1_1_prefix_trie =
     [ "rInsert", "class_standard_trie_1_1cs_1_1_prefix_trie.html#a32f20bfb37744a4906416f13615d4887", null ],
     [ "alphabet", "class_standard_trie_1_1cs_1_1_prefix_trie.html#a0130316b28224cc36a18e10b489ce0a4", null ],
     [ "lookup", "class_standard_trie_1_1cs_1_1_prefix_trie.html#ab27ae3319124b8a432936e41f2db6864", null ],
-    [ "RootNode", "class_standard_trie_1_1cs_1_1_prefix_trie.html#ab76552a8b520b915afd68452332f81f3", null ]
+    [ "RootNode", "class_standard_trie_1_1cs_1_1_prefix_trie.html#ab76552a8b520b915afd68452332f81f3", null ],
+    [ "UniqueCount", "class_standard_trie_1_1cs_1_1_prefix_trie.html#a82986e28b3191486a98cf874a1ae1b06", null ]
 ];

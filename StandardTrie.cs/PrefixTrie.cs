@@ -28,6 +28,11 @@ namespace StandardTrie.cs
         public PFTNode RootNode { get; private set; }
 
         /// <summary>
+        /// Lets the user know the number of unique search strings.
+        /// </summary>
+        public int UniqueCount { get; set; }
+
+        /// <summary>
         /// Alphabet used to index children from.
         /// </summary>
         private readonly char[] alphabet = {  'a', 'b', 'c', 'd', 'e', 
@@ -92,7 +97,14 @@ namespace StandardTrie.cs
             }
 
             // If the node was not null, then return true to the calling function. Used for validation of insert.
-            return RootNode[cIndex] != null;
+            // Add one to the count of unique search strings.
+            if (RootNode[cIndex] != null)
+            {
+                UniqueCount++;
+                return true;
+            }
+            else
+                return false;
         }
 
         /// <summary>
