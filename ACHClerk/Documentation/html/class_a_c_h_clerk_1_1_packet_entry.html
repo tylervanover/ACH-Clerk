@@ -120,11 +120,14 @@ $(document).ready(function(){initNavTree('class_a_c_h_clerk_1_1_packet_entry.htm
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac7d87dd3e746dc246c08fb42fd9e733d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac7d87dd3e746dc246c08fb42fd9e733d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PacketEntry</b> (int packetID, PdfDocument native, String company, ref List&lt; String &gt; tags, bool isTable)</td></tr>
+<tr class="memitem:ac7d87dd3e746dc246c08fb42fd9e733d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_c_h_clerk_1_1_packet_entry.html#ac7d87dd3e746dc246c08fb42fd9e733d">PacketEntry</a> (int packetID, PdfDocument native, String company, ref List&lt; String &gt; tags, bool isTable)</td></tr>
+<tr class="memdesc:ac7d87dd3e746dc246c08fb42fd9e733d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public, non-default constructor.  <a href="#ac7d87dd3e746dc246c08fb42fd9e733d">More...</a><br /></td></tr>
 <tr class="separator:ac7d87dd3e746dc246c08fb42fd9e733d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a507eeaaf3f2ce9098a66fc8dca6d8cae"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_c_h_clerk_1_1_packet_entry.html#a507eeaaf3f2ce9098a66fc8dca6d8cae">ContainsSearchTerm</a> (string word)</td></tr>
+<tr class="memdesc:a507eeaaf3f2ce9098a66fc8dca6d8cae"><td class="mdescLeft">&#160;</td><td class="mdescRight">The packet will invoke its PrefixTrie's "Contains" entry method for a given search term.  <a href="#a507eeaaf3f2ce9098a66fc8dca6d8cae">More...</a><br /></td></tr>
+<tr class="separator:a507eeaaf3f2ce9098a66fc8dca6d8cae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08b5203632609dad4bc69c1251d8f444"><td class="memItemLeft" align="right" valign="top">override String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_c_h_clerk_1_1_packet_entry.html#a08b5203632609dad4bc69c1251d8f444">ToString</a> ()</td></tr>
-<tr class="memdesc:a08b5203632609dad4bc69c1251d8f444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overrides the ToString function, returning the <a class="el" href="class_a_c_h_clerk_1_1_packet_entry.html" title="Public class PacketEntry.cs. Part of the ACHClerk namespace, which represents a program capbable deli...">PacketEntry</a> as a string. This is very rough, as of now, and will require refinement as the project progresses.  <a href="#a08b5203632609dad4bc69c1251d8f444">More...</a><br /></td></tr>
+<tr class="memdesc:a08b5203632609dad4bc69c1251d8f444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overrides the ToString function, returning the <a class="el" href="class_a_c_h_clerk_1_1_packet_entry.html" title="Public class PacketEntry.cs. Part of the ACHClerk namespace, which represents a program capbable deli...">PacketEntry</a> as a string. Build the string once, and store it. Never rebuild the string, as the tags won't change.  <a href="#a08b5203632609dad4bc69c1251d8f444">More...</a><br /></td></tr>
 <tr class="separator:a08b5203632609dad4bc69c1251d8f444"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
@@ -144,9 +147,6 @@ Properties</h2></td></tr>
 <tr class="memitem:ae73ddc1eccfe1906754fbf36101e66eb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_c_h_clerk_1_1_packet_entry.html#ae73ddc1eccfe1906754fbf36101e66eb">TagsCount</a><code> [get]</code></td></tr>
 <tr class="memdesc:ae73ddc1eccfe1906754fbf36101e66eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of tags associated with each PDF packet.  <a href="#ae73ddc1eccfe1906754fbf36101e66eb">More...</a><br /></td></tr>
 <tr class="separator:ae73ddc1eccfe1906754fbf36101e66eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a965f9750426c5e5a7f81c5fda9f75f59"><td class="memItemLeft" align="right" valign="top">PFT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_c_h_clerk_1_1_packet_entry.html#a965f9750426c5e5a7f81c5fda9f75f59">TagTree</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:a965f9750426c5e5a7f81c5fda9f75f59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the tag prefix trie.  <a href="#a965f9750426c5e5a7f81c5fda9f75f59">More...</a><br /></td></tr>
-<tr class="separator:a965f9750426c5e5a7f81c5fda9f75f59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a1c4084b79b907b6a4f8ef9b91ba042"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_c_h_clerk_1_1_packet_entry.html#a4a1c4084b79b907b6a4f8ef9b91ba042">IsTable</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:a4a1c4084b79b907b6a4f8ef9b91ba042"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if the packet entry is a table. Will allow for easier manipulation later on when compiling tables.  <a href="#a4a1c4084b79b907b6a4f8ef9b91ba042">More...</a><br /></td></tr>
 <tr class="separator:a4a1c4084b79b907b6a4f8ef9b91ba042"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -154,7 +154,7 @@ Properties</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a6a6015d1e59b966d18fde50d80c3e5ab"><td class="memItemLeft" align="right" valign="top">PFT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_c_h_clerk_1_1_packet_entry.html#a6a6015d1e59b966d18fde50d80c3e5ab">BuildTagTree</a> ()</td></tr>
-<tr class="memdesc:a6a6015d1e59b966d18fde50d80c3e5ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a PrefixTrie out of the list of tags read in intially.  <a href="#a6a6015d1e59b966d18fde50d80c3e5ab">More...</a><br /></td></tr>
+<tr class="memdesc:a6a6015d1e59b966d18fde50d80c3e5ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a PrefixTrie out of the list of tags read in intially. The tree will be built such that the search term "banking" will insert "b", "ba", "ban", etc. This will perform like an autocomplete.  <a href="#a6a6015d1e59b966d18fde50d80c3e5ab">More...</a><br /></td></tr>
 <tr class="separator:a6a6015d1e59b966d18fde50d80c3e5ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -188,7 +188,64 @@ StringBuilder&#160;</td><td class="memItemRight" valign="bottom"><b>strbldr</b><
 <div class="textblock"><p>Public class PacketEntry.cs. Part of the <a class="el" href="namespace_a_c_h_clerk.html">ACHClerk</a> namespace, which represents a program capbable delivering an easy way for employees of the bank to provide ACH transition packets to customers. </p>
 <p>A <a class="el" href="class_a_c_h_clerk_1_1_packet_entry.html" title="Public class PacketEntry.cs. Part of the ACHClerk namespace, which represents a program capbable deli...">PacketEntry</a> is simply a collection of features regarding a single PDF document. Each <a class="el" href="class_a_c_h_clerk_1_1_packet_entry.html" title="Public class PacketEntry.cs. Part of the ACHClerk namespace, which represents a program capbable deli...">PacketEntry</a> has a unique ID, a company name, and a list of tags &ndash; the list of tags will the user to type in a string in the search bar and have a number of documents show as a result.</p>
 <p>Author: Tyler Vanover. Created: 2014-06-26. Version: 1.0. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ac7d87dd3e746dc246c08fb42fd9e733d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ACHClerk.PacketEntry.PacketEntry </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>packetID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PdfDocument&#160;</td>
+          <td class="paramname"><em>native</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>company</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ref List&lt; String &gt;&#160;</td>
+          <td class="paramname"><em>tags</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isTable</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Public, non-default constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">packetID</td><td>A packet ID, to track the packet without sending all objects.</td></tr>
+    <tr><td class="paramname">native</td><td>The pdf this packet entry will represent.</td></tr>
+    <tr><td class="paramname">company</td><td>The company name associated with this packet entry.</td></tr>
+    <tr><td class="paramname">tags</td><td>A list of tags.</td></tr>
+    <tr><td class="paramname">isTable</td><td>Whether this packet is a table entry or not.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a6a6015d1e59b966d18fde50d80c3e5ab"></a>
 <div class="memitem">
 <div class="memproto">
@@ -210,8 +267,33 @@ StringBuilder&#160;</td><td class="memItemRight" valign="bottom"><b>strbldr</b><
 </table>
 </div><div class="memdoc">
 
-<p>Builds a PrefixTrie out of the list of tags read in intially. </p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>Builds a PrefixTrie out of the list of tags read in intially. The tree will be built such that the search term "banking" will insert "b", "ba", "ban", etc. This will perform like an autocomplete. </p>
+<dl class="section return"><dt>Returns</dt><dd>Privately returns a PrefixTrie of tags.</dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a507eeaaf3f2ce9098a66fc8dca6d8cae"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ACHClerk.PacketEntry.ContainsSearchTerm </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>word</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The packet will invoke its PrefixTrie's "Contains" entry method for a given search term. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">word</td><td>The string to search for.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the PrefixTrie contains the term as a valid word. False otherwise.</dd></dl>
 
 </div>
 </div>
@@ -228,8 +310,8 @@ StringBuilder&#160;</td><td class="memItemRight" valign="bottom"><b>strbldr</b><
       </table>
 </div><div class="memdoc">
 
-<p>Overrides the ToString function, returning the <a class="el" href="class_a_c_h_clerk_1_1_packet_entry.html" title="Public class PacketEntry.cs. Part of the ACHClerk namespace, which represents a program capbable deli...">PacketEntry</a> as a string. This is very rough, as of now, and will require refinement as the project progresses. </p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>Overrides the ToString function, returning the <a class="el" href="class_a_c_h_clerk_1_1_packet_entry.html" title="Public class PacketEntry.cs. Part of the ACHClerk namespace, which represents a program capbable deli...">PacketEntry</a> as a string. Build the string once, and store it. Never rebuild the string, as the tags won't change. </p>
+<dl class="section return"><dt>Returns</dt><dd>A string representing a packet entry.</dd></dl>
 
 </div>
 </div>
@@ -366,28 +448,6 @@ StringBuilder&#160;</td><td class="memItemRight" valign="bottom"><b>strbldr</b><
 
 </div>
 </div>
-<a class="anchor" id="a965f9750426c5e5a7f81c5fda9f75f59"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">PFT ACHClerk.PacketEntry.TagTree</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets or sets the tag prefix trie. </p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>PacketEntry.cs</li>
 </ul>
@@ -397,7 +457,7 @@ StringBuilder&#160;</td><td class="memItemRight" valign="bottom"><b>strbldr</b><
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_a_c_h_clerk.html">ACHClerk</a></li><li class="navelem"><a class="el" href="class_a_c_h_clerk_1_1_packet_entry.html">PacketEntry</a></li>
-    <li class="footer">Generated on Sat Jul 5 2014 22:16:05 for ACH-Clerk by
+    <li class="footer">Generated on Sun Jul 6 2014 14:26:05 for ACH-Clerk by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

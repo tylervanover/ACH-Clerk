@@ -49,6 +49,7 @@ namespace ACHClerk
         public ClerkForm()
         {
             InitializeComponent();
+            _displayable = new List<PacketEntry>();
             CheckPreconfig();
         }
 
@@ -76,16 +77,37 @@ namespace ACHClerk
                     // Go ahead and preload the forms for the user. If they wish to specify another
                     // folder at start time. They can, and can ask to "Save this location for future
                     // loads."
-                    _clerk.LoadNativeChangeForms(_clerk.ParentDirectory, false);
+                    try
+                    {
+                        _clerk.LoadNativeChangeForms(_clerk.ParentDirectory, false);
+                    }
+                    catch (ArgumentException arge)
+                    {
+                        MessageBox.Show(arge.Message, "Select New Directory", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ChangeLoadDirectory();
+                    }
+                    finally
+                    {
+                    }
                 }
             }
             else
             {
                 _clerk = new Clerk(parent);
                 _clerk.PreConfig = _configFileName;
+                try
+                {
+                    _clerk.LoadNativeChangeForms(_clerk.ParentDirectory, false);
+                }
+                catch (ArgumentException arge)
+                {
+                    MessageBox.Show(arge.Message, "Select New Directory", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ChangeLoadDirectory();
+                }
+                finally
+                {
+                }
             }
-            _displayable = _clerk.NativeChangeForms;
-            UpdateForm();
         }
 
         /// <summary>
@@ -114,29 +136,6 @@ namespace ACHClerk
         }
 
         /// <summary>
-        /// Sets the clerk's load directory to the default. 
-        /// </summary>
-        private void DefaultLoadDirectory()
-        {
-            try
-            {
-                _clerk.LoadNativeChangeForms(_clerk.ParentDirectory, false);
-            }
-            catch (DirectoryNotFoundException dnf)
-            {
-                MessageBox.Show(dnf.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            catch (IOException ioe)
-            {
-                MessageBox.Show(ioe.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            finally
-            {
-                UpdateForm();
-            }
-        }
-
-        /// <summary>
         /// Set the clerk's load directory to the user specified location.
         /// </summary>
         private void ChangeLoadDirectory()
@@ -159,8 +158,12 @@ namespace ACHClerk
                 {
                     MessageBox.Show(ioe.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
+                finally
+                {
+                    _displayable = _clerk.NativeChangeForms;
+                    UpdateForm();
+                }
             }
-            UpdateForm();
         }
 
         /// <summary>
@@ -249,16 +252,6 @@ namespace ACHClerk
                 _displayable = _clerk.NativeChangeForms;
             }
             UpdateForm();
-        }
-
-        /// <summary>
-        /// TESTING FUNCTIONALITY OF FILE SYSTEM MANAGEMENT.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnTestLoad_Click(object sender, EventArgs e)
-        {
-            DefaultLoadDirectory();
         }
 
         /// <summary>

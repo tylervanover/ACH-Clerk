@@ -83,7 +83,11 @@ namespace ACHClerk
                 }
 
                 // Process forms. This will be done in a separate method to hide the functionality.
-                ProcessFormDirectory(path);
+                int loaded = ProcessFormDirectory(path);
+                if (loaded == 0)
+                {
+                    throw new ArgumentException("There were no forms found. Please select a new directory.");
+                }
             }
             else
             {
@@ -132,7 +136,7 @@ namespace ACHClerk
         /// Process the directory which contains the PDF directories.
         /// </summary>
         /// <param name="formsPath"></param>
-        private void ProcessFormDirectory(String formsPath)
+        private int ProcessFormDirectory(String formsPath)
         {
             // Query the file system and get all of the directories from this forms path.
             String[] directories = Directory.GetDirectories(formsPath);
@@ -176,6 +180,8 @@ namespace ACHClerk
                 else
                     throw new IOException("The PDF for this company was not found. Does it exist?");
             }
+
+            return NativeFormsCount;
         }
 
         /// <summary>

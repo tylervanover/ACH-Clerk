@@ -2,6 +2,7 @@ var class_a_c_h_clerk_1_1_packet_entry =
 [
     [ "PacketEntry", "class_a_c_h_clerk_1_1_packet_entry.html#ac7d87dd3e746dc246c08fb42fd9e733d", null ],
     [ "BuildTagTree", "class_a_c_h_clerk_1_1_packet_entry.html#a6a6015d1e59b966d18fde50d80c3e5ab", null ],
+    [ "ContainsSearchTerm", "class_a_c_h_clerk_1_1_packet_entry.html#a507eeaaf3f2ce9098a66fc8dca6d8cae", null ],
     [ "ToString", "class_a_c_h_clerk_1_1_packet_entry.html#a08b5203632609dad4bc69c1251d8f444", null ],
     [ "_company", "class_a_c_h_clerk_1_1_packet_entry.html#ad7e87a662d7b72ab4f0df2320b148b5e", null ],
     [ "_isTable", "class_a_c_h_clerk_1_1_packet_entry.html#abc75e87f635fb0fa69427b338e6908b3", null ],

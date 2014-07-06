@@ -2,6 +2,7 @@ var searchData=
 [
   ['_5fclerk',['_clerk',['../class_a_c_h_clerk_1_1_clerk_form.html#abea4fc77fc68a960d7497bd14de45326',1,'ACHClerk.ClerkForm._clerk()'],['../class_a_c_h_clerk_1_1_save_folder_diag.html#a2403e05404cc14449e10607939ee209f',1,'ACHClerk.SaveFolderDiag._clerk()']]],
   ['_5fconfigfilename',['_configFileName',['../class_a_c_h_clerk_1_1_clerk_form.html#ad52e9f53929e3a2be9a0fd738dcc6ed4',1,'ACHClerk::ClerkForm']]],
+  ['_5fdisplayable',['_displayable',['../class_a_c_h_clerk_1_1_clerk_form.html#aa1dffeeb29537650cd50716e2461accc',1,'ACHClerk::ClerkForm']]],
   ['_5fischecked',['_isChecked',['../class_a_c_h_clerk_1_1_save_folder_diag.html#a9dedda7aae22bc591a7b9820987d6026',1,'ACHClerk::SaveFolderDiag']]],
   ['_5fnativechangeforms',['_nativeChangeForms',['../class_a_c_h_clerk_1_1_clerk.html#a715ed3128a82dd831af3fc874ffe9560',1,'ACHClerk::Clerk']]],
   ['_5fparentdirectory',['_parentDirectory',['../class_a_c_h_clerk_1_1_clerk.html#a5a52f505f837ccc4682afb04723cfcac',1,'ACHClerk::Clerk']]],
