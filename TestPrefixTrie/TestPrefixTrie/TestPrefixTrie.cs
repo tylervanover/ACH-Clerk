@@ -15,18 +15,21 @@ namespace TestPrefixTrie
         {
             string largeDictionaryFilename = "en_US.dic";
 
-            var watch1 = System.Diagnostics.Stopwatch.StartNew();
-            TestSmallTrie();
-            watch1.Stop();
-            var elapsed1MS = watch1.ElapsedMilliseconds;
-            Console.WriteLine("Small trie executes in {0} ms, one pass.\n", elapsed1MS);
+            for (int i = 0; i < 200; ++i)
+            {
+                var watch1 = System.Diagnostics.Stopwatch.StartNew();
+                TestSmallTrie();
+                watch1.Stop();
+                var elapsed1MS = watch1.ElapsedMilliseconds;
+                Console.WriteLine("Small trie executes in {0} ms, {1} passes.\n", elapsed1MS, i+1);
 
-            watch1.Reset();
-            watch1.Start();
-            TestLargeTrie(largeDictionaryFilename);
-            watch1.Stop();
-            elapsed1MS = watch1.ElapsedMilliseconds;
-            Console.WriteLine("Large trie executes in {0} ms, one pass.\n", elapsed1MS);
+                watch1.Reset();
+                watch1.Start();
+                TestLargeTrie(largeDictionaryFilename);
+                watch1.Stop();
+                elapsed1MS = watch1.ElapsedMilliseconds;
+                Console.WriteLine("Large trie executes in {0} ms, {1} passes.\n", elapsed1MS, i+1);
+            }
 
             Console.Read();
         }

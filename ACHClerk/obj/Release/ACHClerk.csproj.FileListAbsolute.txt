@@ -10,7 +10,7 @@ D:\projects\ACH-Clerk\ACHClerk\obj\Release\ACHClerk.csprojResolveAssemblyReferen
 D:\projects\ACH-Clerk\ACHClerk\obj\Release\ACHClerk.ClerkForm.resources
 D:\projects\ACH-Clerk\ACHClerk\obj\Release\ACHClerk.PreviewPaneForm.resources
 D:\projects\ACH-Clerk\ACHClerk\obj\Release\ACHClerk.Properties.Resources.resources
-D:\projects\ACH-Clerk\ACHClerk\obj\Release\ACHClerk.dlgSaveFolderDiag.resources
 D:\projects\ACH-Clerk\ACHClerk\obj\Release\ACHClerk.csproj.GenerateResource.Cache
 D:\projects\ACH-Clerk\ACHClerk\obj\Release\ACHClerk.exe
 D:\projects\ACH-Clerk\ACHClerk\obj\Release\ACHClerk.pdb
+D:\projects\ACH-Clerk\ACHClerk\obj\Release\ACHClerk.SaveFolderDiag.resources
