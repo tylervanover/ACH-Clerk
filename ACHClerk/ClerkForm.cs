@@ -18,9 +18,26 @@ using PdfSharp.Forms;
 
 namespace ACHClerk
 {
+    /// <summary>
+    /// Author: Tyler Vanover
+    /// Created: 2014-07-04
+    /// Version: 1.0
+    /// 
+    /// Part of StandardTrie.cs namespace. 
+    /// 
+    /// Represents the actual user interface.
+    ///</summary>
     public partial class ClerkForm : Form
     {   
+        /// <summary>
+        /// A reference to the clerk managing a user's session.
+        /// </summary>
         private Clerk _clerk;
+
+        /// <summary>
+        /// The configuration filename; this is where preconfig settings will
+        /// looked for.
+        /// </summary>
         private String _configFileName = "CLERK.CFG";
 
         public ClerkForm()
@@ -72,9 +89,9 @@ namespace ACHClerk
         {
             // Wipe clean, the slate of items. 
             listPacketList.Items.Clear();
-            listSelectedList.Items.Clear();
+            listFinalList.Items.Clear();
             listPacketList.Items.AddRange(_clerk.NativeChangeForms.ToArray());
-            listSelectedList.Items.AddRange(_clerk.SelectedEntries.ToArray());
+            listFinalList.Items.AddRange(_clerk.SelectedEntries.ToArray());
         }
 
         /// <summary>
@@ -170,7 +187,7 @@ namespace ACHClerk
         /// </summary>
         private void RemoveSelectedItems()
         {
-            var selected_items = listSelectedList.SelectedItems;
+            var selected_items = listFinalList.SelectedItems;
             int toRemove;
             var final = _clerk.SelectedEntries;
 
@@ -190,7 +207,15 @@ namespace ACHClerk
                         "Whoops!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
+            UpdateForm();
+        }
 
+        /// <summary>
+        /// Remove everything from the listFinalList pane.
+        /// </summary>
+        private void RemoveAllFinalItems()
+        {
+            _clerk.DisposeAllSelectedForms();
             UpdateForm();
         }
 
@@ -233,10 +258,16 @@ namespace ACHClerk
         {
             try
             {
+                // On a right click
                 if (e.Button == System.Windows.Forms.MouseButtons.Right)
                 {
+                    // Get the index from the location of the mouse pointer
                     int index = listPacketList.IndexFromPoint(e.X, e.Y);
+
+                    // Retrieve the associated pdf.
                     PdfDocument pdf = _clerk.NativeChangeForms.Find(p => p.PacketID == index).NativeDoc;
+
+                    // Send it to the preview pane, and show the dialog.
                     PreviewPaneForm preview = new PreviewPaneForm(ref pdf);
                     preview.ShowDialog();
                 }
@@ -298,7 +329,7 @@ namespace ACHClerk
         {
             // Invalidate the form's rendered display,
             // causing the listPacketList_DrawItem event to be raised.
-            listSelectedList.Invalidate();
+            listFinalList.Invalidate();
         }
 
         /// <summary>
@@ -313,7 +344,7 @@ namespace ACHClerk
             Graphics g = e.Graphics;
 
             // Get the indices of the selected items.
-            var selected = listSelectedList.SelectedIndices;
+            var selected = listFinalList.SelectedIndices;
             foreach (int i in selected)
             {
                 // For the item that matches the index.
@@ -339,6 +370,11 @@ namespace ACHClerk
         private void btnTestRmvSelected_Click(object sender, EventArgs e)
         {
             RemoveSelectedItems();
+        }
+
+        private void btnTestRmvAllFinal_Click(object sender, EventArgs e)
+        {
+            RemoveAllFinalItems();
         }
     }
 }

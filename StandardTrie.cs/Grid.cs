@@ -7,6 +7,12 @@ using System.Threading.Tasks;
 namespace StandardTrie.cs
 {
     /// <summary>
+    /// Author: Tyler Vanover
+    /// Created: 2014-07-04
+    /// Version: 1.0
+    /// 
+    /// Part of StandardTrie.cs namespace. 
+    /// 
     /// A helper class for the search functionality.
     /// </summary>
     public class Grid

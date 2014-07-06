@@ -37,12 +37,13 @@
             this.clerkDirectoryDisp = new System.Windows.Forms.TextBox();
             this.dispSplit = new System.Windows.Forms.Splitter();
             this.btnAddSelected = new System.Windows.Forms.Button();
-            this.listSelectedList = new System.Windows.Forms.ListBox();
+            this.listFinalList = new System.Windows.Forms.ListBox();
             this.txtSelectedEntriesCount = new System.Windows.Forms.TextBox();
             this.lblNativeCount = new System.Windows.Forms.Label();
             this.lblSelectedCount = new System.Windows.Forms.Label();
             this.lblNativeCountDisp = new System.Windows.Forms.Label();
             this.btnTestRmvSelected = new System.Windows.Forms.Button();
+            this.btnTestRmvAllFinal = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // dlgPrintDiag
@@ -120,15 +121,15 @@
             // 
             // listSelectedList
             // 
-            this.listSelectedList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.listSelectedList.FormattingEnabled = true;
-            this.listSelectedList.Location = new System.Drawing.Point(212, 76);
-            this.listSelectedList.Name = "listSelectedList";
-            this.listSelectedList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listSelectedList.Size = new System.Drawing.Size(365, 108);
-            this.listSelectedList.TabIndex = 9;
-            this.listSelectedList.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listSelectedList_DrawItem);
-            this.listSelectedList.SelectedIndexChanged += new System.EventHandler(this.listSelectedList_SelectedIndexChanged);
+            this.listFinalList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.listFinalList.FormattingEnabled = true;
+            this.listFinalList.Location = new System.Drawing.Point(212, 76);
+            this.listFinalList.Name = "listSelectedList";
+            this.listFinalList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.listFinalList.Size = new System.Drawing.Size(365, 108);
+            this.listFinalList.TabIndex = 9;
+            this.listFinalList.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listSelectedList_DrawItem);
+            this.listFinalList.SelectedIndexChanged += new System.EventHandler(this.listSelectedList_SelectedIndexChanged);
             // 
             // txtSelectedEntriesCount
             // 
@@ -179,17 +180,28 @@
             this.btnTestRmvSelected.UseVisualStyleBackColor = true;
             this.btnTestRmvSelected.Click += new System.EventHandler(this.btnTestRmvSelected_Click);
             // 
+            // btnTestRmvAllFinal
+            // 
+            this.btnTestRmvAllFinal.Location = new System.Drawing.Point(12, 106);
+            this.btnTestRmvAllFinal.Name = "btnTestRmvAllFinal";
+            this.btnTestRmvAllFinal.Size = new System.Drawing.Size(183, 23);
+            this.btnTestRmvAllFinal.TabIndex = 15;
+            this.btnTestRmvAllFinal.Text = "Test Remove All Final";
+            this.btnTestRmvAllFinal.UseVisualStyleBackColor = true;
+            this.btnTestRmvAllFinal.Click += new System.EventHandler(this.btnTestRmvAllFinal_Click);
+            // 
             // ClerkForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(763, 460);
+            this.Controls.Add(this.btnTestRmvAllFinal);
             this.Controls.Add(this.btnTestRmvSelected);
             this.Controls.Add(this.lblNativeCountDisp);
             this.Controls.Add(this.lblSelectedCount);
             this.Controls.Add(this.lblNativeCount);
             this.Controls.Add(this.txtSelectedEntriesCount);
-            this.Controls.Add(this.listSelectedList);
+            this.Controls.Add(this.listFinalList);
             this.Controls.Add(this.btnAddSelected);
             this.Controls.Add(this.dispSplit);
             this.Controls.Add(this.clerkDirectoryDisp);
@@ -214,12 +226,13 @@
         private System.Windows.Forms.TextBox clerkDirectoryDisp;
         private System.Windows.Forms.Splitter dispSplit;
         private System.Windows.Forms.Button btnAddSelected;
-        private System.Windows.Forms.ListBox listSelectedList;
+        private System.Windows.Forms.ListBox listFinalList;
         private System.Windows.Forms.TextBox txtSelectedEntriesCount;
         private System.Windows.Forms.Label lblNativeCount;
         private System.Windows.Forms.Label lblSelectedCount;
         private System.Windows.Forms.Label lblNativeCountDisp;
         private System.Windows.Forms.Button btnTestRmvSelected;
+        private System.Windows.Forms.Button btnTestRmvAllFinal;
     }
 }
 

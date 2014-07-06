@@ -2,6 +2,7 @@ var class_a_c_h_clerk_1_1_clerk =
 [
     [ "Clerk", "class_a_c_h_clerk_1_1_clerk.html#ac06ec127e87e71de32d5b9290a6e3a81", null ],
     [ "AddNativeEntry", "class_a_c_h_clerk_1_1_clerk.html#ae8a17b92bf82bec072a6d750c309e264", null ],
+    [ "DisposeAllSelectedForms", "class_a_c_h_clerk_1_1_clerk.html#a94816cf9c062c72067785a1225cc05e2", null ],
     [ "FolderName", "class_a_c_h_clerk_1_1_clerk.html#a04de972e3088144ed5ae3d2bb9d044d1", null ],
     [ "LoadNativeChangeForms", "class_a_c_h_clerk_1_1_clerk.html#a8448ab55cbb9a45181a8edb101fa9e95", null ],
     [ "ProcessFormDirectory", "class_a_c_h_clerk_1_1_clerk.html#a613ae658230d9f7df03f7cfced938e62", null ],

@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace StandardTrie.cs
 {
+    using System.Text.RegularExpressions;
+
     // Shorten up the typing, just a tad.
     using PFTNode = StandardTrie.cs.PrefixTrieNode;
 
@@ -72,7 +74,7 @@ namespace StandardTrie.cs
 
             // Trim any whitespace. You do not have any children to represent gaps in words, so just juxtapose
             // pairs of words into a single one. The same methodology applies.
-            word = word.Trim();
+            word = Regex.Replace(word, @"\s", "");
 
             // Get the index of the child we'll need to modify, based on the first character of the word. 
             // Because the children represent all the letters of the English alphabet, there should be 26 children.
@@ -148,7 +150,7 @@ namespace StandardTrie.cs
         {
             // Trim and send to lowercase.
             word = word.ToLower();
-            word = word.Trim();
+            word = Regex.Replace(word, @"\s", "");
 
             // If the root node has children, you can begin searching.
             if (!RootNode.EndOfPath())

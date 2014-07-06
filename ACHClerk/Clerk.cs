@@ -100,6 +100,14 @@ namespace ACHClerk
         }
 
         /// <summary>
+        /// Dispose of all the selected change forms.
+        /// </summary>
+        public void DisposeAllSelectedForms()
+        {
+            _selectedEntries.RemoveRange(0, SelectedCount);
+        }
+
+        /// <summary>
         /// Saves the preconfig information.
         /// </summary>
         internal void SavePreconfig()

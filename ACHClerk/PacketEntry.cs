@@ -4,8 +4,12 @@ using System.Linq;
 using System.Text;
 using PdfSharp.Pdf;
 
+using StandardTrie.cs;
+
 namespace ACHClerk
 {
+    using PFT = PrefixTrie;
+
     /// <summary>
     /// Public class PacketEntry.cs.
     /// Part of the ACHClerk namespace, which represents a program capbable delivering
@@ -28,6 +32,7 @@ namespace ACHClerk
         private List<String> _tags;
         private String _toString;
         private bool _isTable;
+        private PFT _tagTree;
 
         private StringBuilder strbldr;
 
@@ -38,6 +43,7 @@ namespace ACHClerk
             NativeDoc.Info.Title = company;
             Company = company;
             Tags = tags;
+            TagTree = BuildTagTree();
             IsTable = isTable;
             _toString = "";
 
@@ -65,6 +71,20 @@ namespace ACHClerk
                 _toString = strbldr.ToString();
             }
             return _toString;
+        }
+
+        /// <summary>
+        /// Builds a PrefixTrie out of the list of tags read in intially.
+        /// </summary>
+        /// <returns></returns>
+        private PFT BuildTagTree()
+        {
+            PFT trie = new PFT();
+            foreach (String s in Tags)
+            {
+                trie.Insert(s);
+            }
+            return trie;
         }
 
         /// <summary>
@@ -138,6 +158,21 @@ namespace ACHClerk
             get
             {
                 return _tags.Count;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the tag prefix trie.
+        /// </summary>
+        public PFT TagTree
+        {
+            get
+            {
+                return _tagTree;
+            }
+            private set
+            {
+                _tagTree = value;
             }
         }
 

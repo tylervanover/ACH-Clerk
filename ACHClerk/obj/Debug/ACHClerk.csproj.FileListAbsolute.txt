@@ -14,3 +14,5 @@ D:\projects\ACH-Clerk\ACHClerk\obj\Debug\ACHClerk.exe
 D:\projects\ACH-Clerk\ACHClerk\obj\Debug\ACHClerk.pdb
 D:\projects\ACH-Clerk\ACHClerk\obj\Debug\ACHClerk.PreviewPaneForm.resources
 D:\projects\ACH-Clerk\ACHClerk\obj\Debug\ACHClerk.SaveFolderDiag.resources
+D:\projects\ACH-Clerk\ACHClerk\bin\Debug\StandardTrie.cs.dll
+D:\projects\ACH-Clerk\ACHClerk\bin\Debug\StandardTrie.cs.pdb
