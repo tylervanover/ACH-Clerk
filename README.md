@@ -12,8 +12,7 @@ gas and cable bills; however, they are unsure of the billing company (maybe they
 not the named party on the bill) so we filter by "Service Type" and let them pick the provider.
 That, or if the customer does know the name of the billing company, we can select
 their specific ACH Account Change form.
->>>>>>> search
-	
+
 2. Allow the employee to merge all the ACH Account Change forms into a single .PDF.
 
 3. Print the .PDF packet for the customer to take and switch.
