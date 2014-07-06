@@ -88,6 +88,7 @@ namespace ACHClerk
                     }
                     finally
                     {
+                        UpdateForm();
                     }
                 }
             }
@@ -106,6 +107,7 @@ namespace ACHClerk
                 }
                 finally
                 {
+                    UpdateForm();
                 }
             }
         }
