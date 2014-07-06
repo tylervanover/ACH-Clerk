@@ -1,0 +1,128 @@
+\hypertarget{class_a_c_h_clerk_1_1_clerk}{\section{A\+C\+H\+Clerk.\+Clerk Class Reference}
+\label{class_a_c_h_clerk_1_1_clerk}\index{A\+C\+H\+Clerk.\+Clerk@{A\+C\+H\+Clerk.\+Clerk}}
+}
+
+
+Public class Clerk.\+cs. Part of the \hyperlink{namespace_a_c_h_clerk}{A\+C\+H\+Clerk} namespace, which represents a program capbable delivering an easy way for employees of the bank to provide A\+C\+H transition packets to customers.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_a_c_h_clerk_1_1_clerk_ac06ec127e87e71de32d5b9290a6e3a81}{Clerk} (String load\+Path)
+\begin{DoxyCompactList}\small\item\em Default, public constructor. Sets the parent directory, and allocates memory for the class' collections. \end{DoxyCompactList}\item 
+void \hyperlink{class_a_c_h_clerk_1_1_clerk_a8448ab55cbb9a45181a8edb101fa9e95}{Load\+Native\+Change\+Forms} (String path, Boolean Set\+New\+Parent\+Directory)
+\begin{DoxyCompactList}\small\item\em Loads the native Change forms. They are all P\+D\+F documents that contain information on switching A\+C\+H transfers between financial institutions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \hyperlink{class_a_c_h_clerk_1_1_packet_entry}{Packet\+Entry} $>$ \hyperlink{class_a_c_h_clerk_1_1_clerk_a6008f6df10bc7cfeef39781e346138b9}{Selected\+Entries}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Returns the selected ach packet entires as an array. This will make it easier to iterate through and compile the final document. \end{DoxyCompactList}\item 
+List$<$ \hyperlink{class_a_c_h_clerk_1_1_packet_entry}{Packet\+Entry} $>$ \hyperlink{class_a_c_h_clerk_1_1_clerk_afbfeb34af163cd64ec151b344953d79f}{Native\+Change\+Forms}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Returns the native change forms as an array. In case you need to iterate the raw P\+D\+F documents. \end{DoxyCompactList}\item 
+int \hyperlink{class_a_c_h_clerk_1_1_clerk_a1c410f7a2fb912b3e62873b5da40323a}{Native\+Forms\+Count}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Number of elements in the native change forms collection. \end{DoxyCompactList}\item 
+int \hyperlink{class_a_c_h_clerk_1_1_clerk_a030ee3e580ed999b00e4fd4f4988a5a6}{Selected\+Count}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Number of elements in the selected change forms collection. \end{DoxyCompactList}\item 
+String \hyperlink{class_a_c_h_clerk_1_1_clerk_ac896f8970b723c849fb728bbc4fbdefd}{Parent\+Directory}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Get or set the parent directory of the clerk file system. \end{DoxyCompactList}\item 
+String \hyperlink{class_a_c_h_clerk_1_1_clerk_a1a2f218890be1feeb47819743528531b}{Pre\+Config}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the preconfig name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Public class Clerk.\+cs. Part of the \hyperlink{namespace_a_c_h_clerk}{A\+C\+H\+Clerk} namespace, which represents a program capbable delivering an easy way for employees of the bank to provide A\+C\+H transition packets to customers. 
+
+The \hyperlink{class_a_c_h_clerk_1_1_clerk}{Clerk} represents the main brain of the A\+C\+H packet operation. It is what handles all document manipulation, conversion, presentation, etc.
+
+It is realized, as of v1.\+0, by Clerk\+Form.\+cs.
+
+Author\+: Tyler Vanover. Created\+: 2014-\/06-\/26. Version\+: 1.\+0. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_a_c_h_clerk_1_1_clerk_ac06ec127e87e71de32d5b9290a6e3a81}{\index{A\+C\+H\+Clerk\+::\+Clerk@{A\+C\+H\+Clerk\+::\+Clerk}!Clerk@{Clerk}}
+\index{Clerk@{Clerk}!A\+C\+H\+Clerk\+::\+Clerk@{A\+C\+H\+Clerk\+::\+Clerk}}
+\subsubsection[{Clerk}]{\setlength{\rightskip}{0pt plus 5cm}A\+C\+H\+Clerk.\+Clerk.\+Clerk (
+\begin{DoxyParamCaption}
+\item[{String}]{load\+Path}
+\end{DoxyParamCaption}
+)}}\label{class_a_c_h_clerk_1_1_clerk_ac06ec127e87e71de32d5b9290a6e3a81}
+
+
+Default, public constructor. Sets the parent directory, and allocates memory for the class' collections. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_a_c_h_clerk_1_1_clerk_a8448ab55cbb9a45181a8edb101fa9e95}{\index{A\+C\+H\+Clerk\+::\+Clerk@{A\+C\+H\+Clerk\+::\+Clerk}!Load\+Native\+Change\+Forms@{Load\+Native\+Change\+Forms}}
+\index{Load\+Native\+Change\+Forms@{Load\+Native\+Change\+Forms}!A\+C\+H\+Clerk\+::\+Clerk@{A\+C\+H\+Clerk\+::\+Clerk}}
+\subsubsection[{Load\+Native\+Change\+Forms}]{\setlength{\rightskip}{0pt plus 5cm}void A\+C\+H\+Clerk.\+Clerk.\+Load\+Native\+Change\+Forms (
+\begin{DoxyParamCaption}
+\item[{String}]{path, }
+\item[{Boolean}]{Set\+New\+Parent\+Directory}
+\end{DoxyParamCaption}
+)}}\label{class_a_c_h_clerk_1_1_clerk_a8448ab55cbb9a45181a8edb101fa9e95}
+
+
+Loads the native Change forms. They are all P\+D\+F documents that contain information on switching A\+C\+H transfers between financial institutions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Path to load the native forms from.\\
+\hline
+{\em Set\+New\+Parent\+Directory} & Set \char`\"{}\+True\char`\"{} to overwrite the current Parent\+Directory.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Void.
+\end{DoxyReturn}
+
+
+\subsection{Property Documentation}
+\hypertarget{class_a_c_h_clerk_1_1_clerk_afbfeb34af163cd64ec151b344953d79f}{\index{A\+C\+H\+Clerk\+::\+Clerk@{A\+C\+H\+Clerk\+::\+Clerk}!Native\+Change\+Forms@{Native\+Change\+Forms}}
+\index{Native\+Change\+Forms@{Native\+Change\+Forms}!A\+C\+H\+Clerk\+::\+Clerk@{A\+C\+H\+Clerk\+::\+Clerk}}
+\subsubsection[{Native\+Change\+Forms}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf Packet\+Entry}$>$ A\+C\+H\+Clerk.\+Clerk.\+Native\+Change\+Forms\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_a_c_h_clerk_1_1_clerk_afbfeb34af163cd64ec151b344953d79f}
+
+
+Returns the native change forms as an array. In case you need to iterate the raw P\+D\+F documents. 
+
+\hypertarget{class_a_c_h_clerk_1_1_clerk_a1c410f7a2fb912b3e62873b5da40323a}{\index{A\+C\+H\+Clerk\+::\+Clerk@{A\+C\+H\+Clerk\+::\+Clerk}!Native\+Forms\+Count@{Native\+Forms\+Count}}
+\index{Native\+Forms\+Count@{Native\+Forms\+Count}!A\+C\+H\+Clerk\+::\+Clerk@{A\+C\+H\+Clerk\+::\+Clerk}}
+\subsubsection[{Native\+Forms\+Count}]{\setlength{\rightskip}{0pt plus 5cm}int A\+C\+H\+Clerk.\+Clerk.\+Native\+Forms\+Count\hspace{0.3cm}{\ttfamily [get]}}}\label{class_a_c_h_clerk_1_1_clerk_a1c410f7a2fb912b3e62873b5da40323a}
+
+
+Number of elements in the native change forms collection. 
+
+\hypertarget{class_a_c_h_clerk_1_1_clerk_ac896f8970b723c849fb728bbc4fbdefd}{\index{A\+C\+H\+Clerk\+::\+Clerk@{A\+C\+H\+Clerk\+::\+Clerk}!Parent\+Directory@{Parent\+Directory}}
+\index{Parent\+Directory@{Parent\+Directory}!A\+C\+H\+Clerk\+::\+Clerk@{A\+C\+H\+Clerk\+::\+Clerk}}
+\subsubsection[{Parent\+Directory}]{\setlength{\rightskip}{0pt plus 5cm}String A\+C\+H\+Clerk.\+Clerk.\+Parent\+Directory\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_a_c_h_clerk_1_1_clerk_ac896f8970b723c849fb728bbc4fbdefd}
+
+
+Get or set the parent directory of the clerk file system. 
+
+\hypertarget{class_a_c_h_clerk_1_1_clerk_a1a2f218890be1feeb47819743528531b}{\index{A\+C\+H\+Clerk\+::\+Clerk@{A\+C\+H\+Clerk\+::\+Clerk}!Pre\+Config@{Pre\+Config}}
+\index{Pre\+Config@{Pre\+Config}!A\+C\+H\+Clerk\+::\+Clerk@{A\+C\+H\+Clerk\+::\+Clerk}}
+\subsubsection[{Pre\+Config}]{\setlength{\rightskip}{0pt plus 5cm}String A\+C\+H\+Clerk.\+Clerk.\+Pre\+Config\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}}\label{class_a_c_h_clerk_1_1_clerk_a1a2f218890be1feeb47819743528531b}
+
+
+Gets the preconfig name. 
+
+\hypertarget{class_a_c_h_clerk_1_1_clerk_a030ee3e580ed999b00e4fd4f4988a5a6}{\index{A\+C\+H\+Clerk\+::\+Clerk@{A\+C\+H\+Clerk\+::\+Clerk}!Selected\+Count@{Selected\+Count}}
+\index{Selected\+Count@{Selected\+Count}!A\+C\+H\+Clerk\+::\+Clerk@{A\+C\+H\+Clerk\+::\+Clerk}}
+\subsubsection[{Selected\+Count}]{\setlength{\rightskip}{0pt plus 5cm}int A\+C\+H\+Clerk.\+Clerk.\+Selected\+Count\hspace{0.3cm}{\ttfamily [get]}}}\label{class_a_c_h_clerk_1_1_clerk_a030ee3e580ed999b00e4fd4f4988a5a6}
+
+
+Number of elements in the selected change forms collection. 
+
+\hypertarget{class_a_c_h_clerk_1_1_clerk_a6008f6df10bc7cfeef39781e346138b9}{\index{A\+C\+H\+Clerk\+::\+Clerk@{A\+C\+H\+Clerk\+::\+Clerk}!Selected\+Entries@{Selected\+Entries}}
+\index{Selected\+Entries@{Selected\+Entries}!A\+C\+H\+Clerk\+::\+Clerk@{A\+C\+H\+Clerk\+::\+Clerk}}
+\subsubsection[{Selected\+Entries}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf Packet\+Entry}$>$ A\+C\+H\+Clerk.\+Clerk.\+Selected\+Entries\hspace{0.3cm}{\ttfamily [get]}}}\label{class_a_c_h_clerk_1_1_clerk_a6008f6df10bc7cfeef39781e346138b9}
+
+
+Returns the selected ach packet entires as an array. This will make it easier to iterate through and compile the final document. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Clerk.\+cs\end{DoxyCompactItemize}

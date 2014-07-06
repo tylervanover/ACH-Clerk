@@ -46,6 +46,11 @@ namespace ACHClerk
         private string _parentDirectory;
 
         /// <summary>
+        /// Clerk's preconfig file name.
+        /// </summary>
+        private String _preConfigName;
+
+        /// <summary>
         /// Default, public constructor. Sets the parent directory, and allocates memory
         /// for the class' collections. 
         /// </summary>
@@ -54,7 +59,6 @@ namespace ACHClerk
             ParentDirectory = loadPath;
             _selectedEntries = new List<PacketEntry>();
             _nativeChangeForms = new List<PacketEntry>();
-
         }
 
         /// <summary>
@@ -69,29 +73,20 @@ namespace ACHClerk
             // Check that the parent directory exists.
             if (Directory.Exists(path))
             {
-                // Overwrite the parent directory for future uses on this session.
                 // Dispose of the current selection of change forms.
+                DisposeNativeChangeForms();
+
+                // Overwrite the parent directory for future uses on this session.
                 if (SetNewParentDirectory)
                 {
                     ParentDirectory = path;
-                    DisposeNativeChangeForms();
                 }
 
-                // Get all 2nd tier directories. If no tables are present, then there should only be 1, called "Forms".
-                List<String> directories = Directory.GetDirectories(path).ToList<String>();
-
-                // Use a lambda and find a folder that matches "Forms", and one that matches "Tables" (if so available).  
-                String forms = directories.Find(fe => FolderName(fe) == "Forms");
-                String tables = directories.Find(te => FolderName(te) == "Tables");
-
-                if (forms != null)
+                // Process forms. This will be done in a separate method to hide the functionality.
+                int loaded = ProcessFormDirectory(path);
+                if (loaded == 0)
                 {
-                    ProcessFormDirectory(forms);
-                }
-                if (tables != null)
-                {
-                    throw new NotImplementedException("Still working on this function.");
-                    //ProcessTableDirectory(tables);
+                    throw new ArgumentException("There were no forms found. Please select a new directory.");
                 }
             }
             else
@@ -100,9 +95,31 @@ namespace ACHClerk
             }
         }
 
-        public void DisposeNativeChangeForms()
+        /// <summary>
+        /// Dispose of all the native change forms.
+        /// </summary>
+        internal void DisposeNativeChangeForms()
         {
             _nativeChangeForms.RemoveRange(0, NativeFormsCount);
+        }
+
+        /// <summary>
+        /// Dispose of all the selected change forms.
+        /// </summary>
+        public void DisposeAllSelectedForms()
+        {
+            _selectedEntries.RemoveRange(0, SelectedCount);
+        }
+
+        /// <summary>
+        /// Saves the preconfig information.
+        /// </summary>
+        internal void SavePreconfig()
+        {
+            using (TextWriter tw = new StreamWriter(PreConfig))
+            {
+                tw.Write(ParentDirectory);
+            }
         }
 
         /// <summary>
@@ -119,7 +136,7 @@ namespace ACHClerk
         /// Process the directory which contains the PDF directories.
         /// </summary>
         /// <param name="formsPath"></param>
-        private void ProcessFormDirectory(String formsPath)
+        private int ProcessFormDirectory(String formsPath)
         {
             // Query the file system and get all of the directories from this forms path.
             String[] directories = Directory.GetDirectories(formsPath);
@@ -155,7 +172,7 @@ namespace ACHClerk
                         // Read the text file and process it for tags.
                         tags = ProcessTags(txts[0]);
 
-                        AddNativeEntry(new PacketEntry(++packetID, NativePDF, company, ref tags, false));
+                        AddNativeEntry(new PacketEntry(packetID++, NativePDF, company, ref tags, false));
                     }
                     else
                         throw new IOException("The text file containing tags was not valid. Does it exist?");
@@ -163,6 +180,8 @@ namespace ACHClerk
                 else
                     throw new IOException("The PDF for this company was not found. Does it exist?");
             }
+
+            return NativeFormsCount;
         }
 
         /// <summary>
@@ -204,9 +223,14 @@ namespace ACHClerk
         /// Adds a PacketEntry to the final ACH document collection.
         /// </summary>
         /// <param name="toAdd">A packet entry, of a PDF and some other ID information.</param>
-        private void AddPacketEntry(PacketEntry toAdd)
+        internal void AddPacketToFinal(int addPacketID)
         {
-            _selectedEntries.Add(toAdd);
+            PacketEntry p = _nativeChangeForms.Find(pe => pe.PacketID == addPacketID);
+
+            if (p != null)
+            {
+                _selectedEntries.Add(p);
+            }
         }
 
         /// <summary>
@@ -214,14 +238,14 @@ namespace ACHClerk
         /// should the user request to not print this document (maybe an erroneous selection?).
         /// </summary>
         /// <param name="toRemove">The packet entry which will be removed.</param>
-        private void RemovePacketEntry(int removePacketID)
+        internal void RemovePacketFromFinal(int removePacketID)
         {
             // Use lambda to find the packet by ID.
             PacketEntry p = _selectedEntries.Find(pe => (pe.PacketID == removePacketID));
 
             if (p != null)
             {
-                _selectedEntries.RemoveAll(pe => pe.PacketID == removePacketID);
+                _selectedEntries.Remove(p);
             }
             else
             {
@@ -230,14 +254,25 @@ namespace ACHClerk
         }
 
         /// <summary>
+        /// Checks if the selected packets already contain an item still marked as selected.
+        /// This will prevent from multiple copies of the same item.
+        /// </summary>
+        /// <param name="addPacketID"></param>
+        /// <returns></returns>
+        internal bool SelectedContains(int addPacketID)
+        {
+            return (SelectedEntries.Find(pe => (pe.PacketID == addPacketID)) != null);
+        }
+
+        /// <summary>
         /// Returns the selected ach packet entires as an array. This will make it
         /// easier to iterate through and compile the final document. 
         /// </summary>
-        public PacketEntry[] SelectedEntries
+        public List<PacketEntry> SelectedEntries
         {
             get
             {
-                return _selectedEntries.ToArray();
+                return _selectedEntries;
             }
         }
 
@@ -245,11 +280,15 @@ namespace ACHClerk
         /// Returns the native change forms as an array. In case you need to iterate the
         /// raw PDF documents.
         /// </summary>
-        public PacketEntry[] NativeChangeForms
+        public List<PacketEntry> NativeChangeForms
         {
             get
             {
-                return _nativeChangeForms.ToArray();
+                return _nativeChangeForms;
+            }
+            internal set
+            {
+                _nativeChangeForms = value;
             }
         }
 
@@ -262,6 +301,7 @@ namespace ACHClerk
             {
                 return _nativeChangeForms.Count;
             }
+   
         }
 
         /// <summary>
@@ -284,9 +324,24 @@ namespace ACHClerk
             {
                 return _parentDirectory;
             }
-            private set
+            internal set
             {
                 _parentDirectory = value;
+            }
+        }
+        
+        /// <summary>
+        /// Gets the preconfig name.
+        /// </summary>
+        public String PreConfig
+        {
+            get
+            {
+                return _preConfigName;
+            }
+            internal set
+            {
+                _preConfigName = value;
             }
         }
     }

@@ -47,6 +47,9 @@
     <Reference Include="PdfSharp.Charting">
       <HintPath>C:\Users\Tyler\Documents\Visual Studio 2013\DLLs\PDFSharp\PdfSharp.Charting.dll</HintPath>
     </Reference>
+    <Reference Include="StandardTrie.cs">
+      <HintPath>..\StandardTrie.cs\bin\Debug\StandardTrie.cs.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -67,10 +70,25 @@
       <DependentUpon>ClerkForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PacketEntry.cs" />
+    <Compile Include="PreviewPaneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PreviewPaneForm.Designer.cs">
+      <DependentUpon>PreviewPaneForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaveFolderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaveFolderForm.Designer.cs">
+      <DependentUpon>SaveFolderForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ClerkForm.resx">
       <DependentUpon>ClerkForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PreviewPaneForm.resx">
+      <DependentUpon>PreviewPaneForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -81,6 +99,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SaveFolderForm.resx">
+      <DependentUpon>SaveFolderForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

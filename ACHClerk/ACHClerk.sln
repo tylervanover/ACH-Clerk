@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACHClerk", "ACHClerk.csproj", "{29F2E490-0D73-4A9E-AC57-E99EDA073B04}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StandardTrie.cs", "..\StandardTrie.cs\StandardTrie.cs.csproj", "{8B03870B-3C53-44CF-B315-367A8480BC4C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{29F2E490-0D73-4A9E-AC57-E99EDA073B04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29F2E490-0D73-4A9E-AC57-E99EDA073B04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29F2E490-0D73-4A9E-AC57-E99EDA073B04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B03870B-3C53-44CF-B315-367A8480BC4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B03870B-3C53-44CF-B315-367A8480BC4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B03870B-3C53-44CF-B315-367A8480BC4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B03870B-3C53-44CF-B315-367A8480BC4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

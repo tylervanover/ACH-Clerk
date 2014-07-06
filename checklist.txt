@@ -1,0 +1,7 @@
+1. Build a "remove selected packet" and "remove all selected" function.
+2. Render the native doc to the PreviewPaneForm (it should be resizable, scrollable, etc.).
+3. Fix the PreviewPaneForm_Load function so that it loads natively docked to the right side of the parent form.
+4. Tables?
+5. Search functionality to filter through tags. Remember, this should be for HUNDREDs of forms, not 8.
+6. Need to put in menu tools for eliminating clunky buttons, but still have tools accessible from a tool strip.
+7. Put in a Text/Font editor for the user so they can edit the size of the listPacketList text being presented.
