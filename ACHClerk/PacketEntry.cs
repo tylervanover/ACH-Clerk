@@ -36,6 +36,14 @@ namespace ACHClerk
 
         private StringBuilder strbldr;
 
+        /// <summary>
+        /// Public, non-default constructor. 
+        /// </summary>
+        /// <param name="packetID">A packet ID, to track the packet without sending all objects.</param>
+        /// <param name="native">The pdf this packet entry will represent.</param>
+        /// <param name="company">The company name associated with this packet entry.</param>
+        /// <param name="tags">A list of tags.</param>
+        /// <param name="isTable">Whether this packet is a table entry or not.</param>
         public PacketEntry(int packetID, PdfDocument native, String company, ref List<String> tags, bool isTable)
         {
             PacketID = packetID;
@@ -51,10 +59,21 @@ namespace ACHClerk
         }
 
         /// <summary>
-        /// Overrides the ToString function, returning the PacketEntry as a string.
-        /// This is very rough, as of now, and will require refinement as the project progresses.
+        /// The packet will invoke its PrefixTrie's "Contains"
+        /// entry method for a given search term.
         /// </summary>
-        /// <returns></returns>
+        /// <param name="word">The string to search for.</param>
+        /// <returns>True if the PrefixTrie contains the term as a valid word. False otherwise.</returns>
+        public bool ContainsSearchTerm(string word)
+        {
+            return TagTree.Contains(word);
+        }
+
+        /// <summary>
+        /// Overrides the ToString function, returning the PacketEntry as a string.
+        /// Build the string once, and store it. Never rebuild the string, as the tags won't change.
+        /// </summary>
+        /// <returns>A string representing a packet entry.</returns>
         public override String ToString()
         {
             if (_toString == "")
@@ -75,14 +94,20 @@ namespace ACHClerk
 
         /// <summary>
         /// Builds a PrefixTrie out of the list of tags read in intially.
+        /// The tree will be built such that the search term "banking" will
+        /// insert "b", "ba", "ban", etc. This will perform like an autocomplete.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Privately returns a PrefixTrie of tags.</returns>
         private PFT BuildTagTree()
         {
             PFT trie = new PFT();
             foreach (String s in Tags)
             {
-                trie.Insert(s);
+                int sLength = s.Length;
+                for (int i = 0; i < sLength; ++i)
+                {
+                    trie.Insert(s.Substring(0, i+1));
+                }
             }
             return trie;
         }
@@ -162,9 +187,9 @@ namespace ACHClerk
         }
 
         /// <summary>
-        /// Gets or sets the tag prefix trie.
+        /// Sets the tag prefix trie.
         /// </summary>
-        public PFT TagTree
+        internal PFT TagTree
         {
             get
             {

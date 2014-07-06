@@ -40,6 +40,12 @@ namespace ACHClerk
         /// </summary>
         private String _configFileName = "CLERK.CFG";
 
+        /// <summary>
+        /// The list of displayable packet entries. If there is a search performed, you must limit
+        /// the displayable to the search criteria.
+        /// </summary>
+        private List<PacketEntry> _displayable;
+
         public ClerkForm()
         {
             InitializeComponent();
@@ -78,6 +84,7 @@ namespace ACHClerk
                 _clerk = new Clerk(parent);
                 _clerk.PreConfig = _configFileName;
             }
+            _displayable = _clerk.NativeChangeForms;
             UpdateForm();
         }
 
@@ -90,7 +97,7 @@ namespace ACHClerk
             // Wipe clean, the slate of items. 
             listPacketList.Items.Clear();
             listFinalList.Items.Clear();
-            listPacketList.Items.AddRange(_clerk.NativeChangeForms.ToArray());
+            listPacketList.Items.AddRange(_displayable.ToArray());
             listFinalList.Items.AddRange(_clerk.SelectedEntries.ToArray());
         }
 
@@ -100,10 +107,10 @@ namespace ACHClerk
         private void UpdateForm()
         {
             DisplayPacketInfo();
-            clerkNativeFormsCount.Text = _clerk.NativeFormsCount.ToString();
+            clerkNativeFormsCount.Text = _displayable.Count.ToString();
             clerkDirectoryDisp.Text = _clerk.ParentDirectory;
             txtSelectedEntriesCount.Text = _clerk.SelectedCount.ToString();
-            lblNativeCountDisp.Text = (_clerk.NativeFormsCount.ToString() + " forms found.");
+            lblNativeCountDisp.Text = (_displayable.Count.ToString() + " forms found.");
         }
 
         /// <summary>
@@ -163,7 +170,7 @@ namespace ACHClerk
         {
             var selectedIndices = listPacketList.SelectedIndices;
             int toAdd;
-            var native = _clerk.NativeChangeForms;
+            var native = _displayable;
 
             foreach (int i in selectedIndices)
             {
@@ -216,6 +223,31 @@ namespace ACHClerk
         private void RemoveAllFinalItems()
         {
             _clerk.DisposeAllSelectedForms();
+            UpdateForm();
+        }
+
+        /// <summary>
+        /// Performs a search for the packet entries containing the search term.
+        /// </summary>
+        /// <param name="p"></param>
+        private void PerformSearch(string word)
+        {
+            // Trim off any non-alphabetic characters. 
+            var arr = word.ToCharArray();
+            arr = Array.FindAll<char>(arr, (ce => (char.IsLetter(ce))));
+            word = new string(arr);
+            
+            // Check that the entered search phrase is not an empty string.
+            if(word.Length > 0)
+            {
+                txtSearchBar.Text = word;
+                _displayable = _clerk.NativeChangeForms.FindAll(pe => pe.ContainsSearchTerm(word));
+            }
+            // If it is, just load the native change forms.
+            else
+            {
+                _displayable = _clerk.NativeChangeForms;
+            }
             UpdateForm();
         }
 
@@ -375,6 +407,11 @@ namespace ACHClerk
         private void btnTestRmvAllFinal_Click(object sender, EventArgs e)
         {
             RemoveAllFinalItems();
+        }
+
+        private void txtSearchBar_TextChanged(object sender, EventArgs e)
+        {
+            PerformSearch(txtSearchBar.Text);
         }
     }
 }

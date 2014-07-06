@@ -1,8 +1,9 @@
-D:\projects\ACH-Clerk\ACHClerk\bin\Debug\ACHClerk.exe.config
-D:\projects\ACH-Clerk\ACHClerk\obj\Debug\ACHClerk.csprojResolveAssemblyReference.cache
 D:\projects\ACH-Clerk\ACHClerk\obj\Debug\ACHClerk.ClerkForm.resources
+D:\projects\ACH-Clerk\ACHClerk\obj\Debug\ACHClerk.PreviewPaneForm.resources
 D:\projects\ACH-Clerk\ACHClerk\obj\Debug\ACHClerk.Properties.Resources.resources
+D:\projects\ACH-Clerk\ACHClerk\obj\Debug\ACHClerk.SaveFolderDiag.resources
 D:\projects\ACH-Clerk\ACHClerk\obj\Debug\ACHClerk.csproj.GenerateResource.Cache
+D:\projects\ACH-Clerk\ACHClerk\bin\Debug\ACHClerk.exe.config
 D:\projects\ACH-Clerk\ACHClerk\bin\Debug\ACHClerk.exe
 D:\projects\ACH-Clerk\ACHClerk\bin\Debug\ACHClerk.pdb
 D:\projects\ACH-Clerk\ACHClerk\bin\Debug\MigraDoc.DocumentObjectModel.dll
@@ -10,9 +11,8 @@ D:\projects\ACH-Clerk\ACHClerk\bin\Debug\MigraDoc.Rendering.dll
 D:\projects\ACH-Clerk\ACHClerk\bin\Debug\MigraDoc.RtfRendering.dll
 D:\projects\ACH-Clerk\ACHClerk\bin\Debug\PdfSharp.Charting.dll
 D:\projects\ACH-Clerk\ACHClerk\bin\Debug\PdfSharp.dll
-D:\projects\ACH-Clerk\ACHClerk\obj\Debug\ACHClerk.exe
-D:\projects\ACH-Clerk\ACHClerk\obj\Debug\ACHClerk.pdb
-D:\projects\ACH-Clerk\ACHClerk\obj\Debug\ACHClerk.PreviewPaneForm.resources
-D:\projects\ACH-Clerk\ACHClerk\obj\Debug\ACHClerk.SaveFolderDiag.resources
 D:\projects\ACH-Clerk\ACHClerk\bin\Debug\StandardTrie.cs.dll
 D:\projects\ACH-Clerk\ACHClerk\bin\Debug\StandardTrie.cs.pdb
+D:\projects\ACH-Clerk\ACHClerk\obj\Debug\ACHClerk.csprojResolveAssemblyReference.cache
+D:\projects\ACH-Clerk\ACHClerk\obj\Debug\ACHClerk.exe
+D:\projects\ACH-Clerk\ACHClerk\obj\Debug\ACHClerk.pdb

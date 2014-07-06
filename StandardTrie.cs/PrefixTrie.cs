@@ -85,8 +85,10 @@ namespace StandardTrie.cs
             // Check if that particular child already exists or not.
             if (RootNode[cIndex] == null)
             {
-                // If not, create a new node in its place.
-                RootNode[cIndex] = new PFTNode(word[0], false);
+                // If not, create a new node in its place. Since this is an auto-complete function,
+                // you can have just one character be a valid word.
+                bool isEnd = (word.Length > 1) ? false : true;
+                RootNode[cIndex] = new PFTNode(word[0], isEnd);
             }
 
             // Check that there is more to the word than just 1 character.

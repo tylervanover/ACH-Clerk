@@ -44,6 +44,7 @@
             this.lblNativeCountDisp = new System.Windows.Forms.Label();
             this.btnTestRmvSelected = new System.Windows.Forms.Button();
             this.btnTestRmvAllFinal = new System.Windows.Forms.Button();
+            this.txtSearchBar = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // dlgPrintDiag
@@ -83,7 +84,7 @@
             // clerkNativeFormsCount
             // 
             this.clerkNativeFormsCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.clerkNativeFormsCount.Location = new System.Drawing.Point(323, 17);
+            this.clerkNativeFormsCount.Location = new System.Drawing.Point(497, 17);
             this.clerkNativeFormsCount.Name = "clerkNativeFormsCount";
             this.clerkNativeFormsCount.Size = new System.Drawing.Size(56, 20);
             this.clerkNativeFormsCount.TabIndex = 5;
@@ -91,7 +92,7 @@
             // clerkDirectoryDisp
             // 
             this.clerkDirectoryDisp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.clerkDirectoryDisp.Location = new System.Drawing.Point(212, 46);
+            this.clerkDirectoryDisp.Location = new System.Drawing.Point(386, 46);
             this.clerkDirectoryDisp.Name = "clerkDirectoryDisp";
             this.clerkDirectoryDisp.Size = new System.Drawing.Size(365, 20);
             this.clerkDirectoryDisp.TabIndex = 6;
@@ -119,12 +120,12 @@
             this.btnAddSelected.UseVisualStyleBackColor = true;
             this.btnAddSelected.Click += new System.EventHandler(this.btnAddSelected_Click);
             // 
-            // listSelectedList
+            // listFinalList
             // 
             this.listFinalList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.listFinalList.FormattingEnabled = true;
-            this.listFinalList.Location = new System.Drawing.Point(212, 76);
-            this.listFinalList.Name = "listSelectedList";
+            this.listFinalList.Location = new System.Drawing.Point(386, 76);
+            this.listFinalList.Name = "listFinalList";
             this.listFinalList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.listFinalList.Size = new System.Drawing.Size(365, 108);
             this.listFinalList.TabIndex = 9;
@@ -134,7 +135,7 @@
             // txtSelectedEntriesCount
             // 
             this.txtSelectedEntriesCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSelectedEntriesCount.Location = new System.Drawing.Point(514, 17);
+            this.txtSelectedEntriesCount.Location = new System.Drawing.Point(688, 17);
             this.txtSelectedEntriesCount.Name = "txtSelectedEntriesCount";
             this.txtSelectedEntriesCount.Size = new System.Drawing.Size(63, 20);
             this.txtSelectedEntriesCount.TabIndex = 10;
@@ -143,7 +144,7 @@
             // 
             this.lblNativeCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNativeCount.AutoSize = true;
-            this.lblNativeCount.Location = new System.Drawing.Point(209, 20);
+            this.lblNativeCount.Location = new System.Drawing.Point(383, 20);
             this.lblNativeCount.Name = "lblNativeCount";
             this.lblNativeCount.Size = new System.Drawing.Size(108, 13);
             this.lblNativeCount.TabIndex = 11;
@@ -155,7 +156,7 @@
             // 
             this.lblSelectedCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSelectedCount.AutoSize = true;
-            this.lblSelectedCount.Location = new System.Drawing.Point(385, 20);
+            this.lblSelectedCount.Location = new System.Drawing.Point(559, 20);
             this.lblSelectedCount.Name = "lblSelectedCount";
             this.lblSelectedCount.Size = new System.Drawing.Size(123, 13);
             this.lblSelectedCount.TabIndex = 12;
@@ -190,11 +191,21 @@
             this.btnTestRmvAllFinal.UseVisualStyleBackColor = true;
             this.btnTestRmvAllFinal.Click += new System.EventHandler(this.btnTestRmvAllFinal_Click);
             // 
+            // txtSearchBar
+            // 
+            this.txtSearchBar.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
+            this.txtSearchBar.Location = new System.Drawing.Point(12, 163);
+            this.txtSearchBar.Name = "txtSearchBar";
+            this.txtSearchBar.Size = new System.Drawing.Size(274, 20);
+            this.txtSearchBar.TabIndex = 16;
+            this.txtSearchBar.TextChanged += new System.EventHandler(this.txtSearchBar_TextChanged);
+            // 
             // ClerkForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(763, 460);
+            this.Controls.Add(this.txtSearchBar);
             this.Controls.Add(this.btnTestRmvAllFinal);
             this.Controls.Add(this.btnTestRmvSelected);
             this.Controls.Add(this.lblNativeCountDisp);
@@ -233,6 +244,7 @@
         private System.Windows.Forms.Label lblNativeCountDisp;
         private System.Windows.Forms.Button btnTestRmvSelected;
         private System.Windows.Forms.Button btnTestRmvAllFinal;
+        private System.Windows.Forms.TextBox txtSearchBar;
     }
 }
 
