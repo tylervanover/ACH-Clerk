@@ -88,6 +88,7 @@ namespace ACHClerk
                     }
                     finally
                     {
+                        _displayable = _clerk.NativeChangeForms;
                         UpdateForm();
                     }
                 }
@@ -107,6 +108,7 @@ namespace ACHClerk
                 }
                 finally
                 {
+                    _displayable = _clerk.NativeChangeForms;
                     UpdateForm();
                 }
             }
