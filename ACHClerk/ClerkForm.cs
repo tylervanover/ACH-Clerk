@@ -294,10 +294,11 @@ namespace ACHClerk
                     int index = listPacketList.IndexFromPoint(e.X, e.Y);
 
                     // Retrieve the associated pdf.
-                    PdfDocument pdf = _clerk.NativeChangeForms.Find(p => p.PacketID == index).NativeDoc;
+                    PacketEntry doc = _clerk.NativeChangeForms.Find(p => p.PacketID == index);
 
                     // Send it to the preview pane, and show the dialog.
-                    PreviewPaneForm preview = new PreviewPaneForm(ref pdf);
+                    // Align the preview form based on the right hand panel of the parent container.
+                    PreviewPaneForm preview = new PreviewPaneForm(ref doc, this.Height, new System.Drawing.Point(this.Left + this.Width, this.Top));
                     preview.ShowDialog();
                 }
             }

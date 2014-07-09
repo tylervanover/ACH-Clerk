@@ -28,22 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PreviewPaneForm));
+            this.axAdobePane = new AxAcroPDFLib.AxAcroPDF();
+            ((System.ComponentModel.ISupportInitialize)(this.axAdobePane)).BeginInit();
             this.SuspendLayout();
+            // 
+            // axAdobePane
+            // 
+            this.axAdobePane.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.axAdobePane.Enabled = true;
+            this.axAdobePane.Location = new System.Drawing.Point(0, 0);
+            this.axAdobePane.Name = "axAdobePane";
+            this.axAdobePane.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAdobePane.OcxState")));
+            this.axAdobePane.Size = new System.Drawing.Size(284, 261);
+            this.axAdobePane.TabIndex = 0;
             // 
             // PreviewPaneForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.axAdobePane);
             this.Name = "PreviewPaneForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "PreviewPaneForm";
             this.Load += new System.EventHandler(this.PreviewPaneForm_Load);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PreviewPaneForm_MouseDown);
+            ((System.ComponentModel.ISupportInitialize)(this.axAdobePane)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private AxAcroPDFLib.AxAcroPDF axAdobePane;
     }
 }

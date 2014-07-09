@@ -19,7 +19,7 @@ namespace ACHClerk
         /// <summary>
         /// The PdfDocument to display on this form.
         /// </summary>
-        private PdfDocument _pdf;
+        private PacketEntry _entry;
 
         /// <summary>
         /// Public, default constructor.
@@ -34,10 +34,14 @@ namespace ACHClerk
         /// used to render a preview of the doc for the user.
         /// </summary>
         /// <param name="doc"></param>
-        public PreviewPaneForm(ref PdfDocument doc)
+        public PreviewPaneForm(ref PacketEntry doc, int height, Point leftLoc)
             : this()
         {
-            this._pdf = doc;
+            this._entry = doc;
+
+            // Square off the forms display. User can resize later.
+            this.Height = this.Width = height;
+            this.Location = leftLoc;
         }
 
         /// <summary>
@@ -47,7 +51,6 @@ namespace ACHClerk
         /// <param name="e"></param>
         private void PreviewPaneForm_MouseDown(object sender, MouseEventArgs e)
         {
-            this.Close();
         }
         
         /// <summary>
@@ -58,7 +61,18 @@ namespace ACHClerk
         /// <param name="e"></param>
         private void PreviewPaneForm_Load(object sender, EventArgs e)
         {
-            this.Text = this._pdf.Info.Title;
+            this.Text = this._entry.NativeDoc.Info.Title;
+            RenderPDFandPanel();
+        }
+
+        /// <summary>
+        /// Render the PDF to the preview pane, using the ActiveX COM control.
+        /// Set the preview pane size to match the height of the parent pane,
+        /// and then snap this panel to the right side of the parent pane (by default).
+        /// </summary>
+        private void RenderPDFandPanel()
+        {
+            axAdobePane.LoadFile(this._entry.FullPath);
         }
     }
 }

@@ -26,14 +26,49 @@ namespace ACHClerk
     /// </summary>
     public class PacketEntry
     {
+        /// <summary>
+        /// An integer representing the packet ID within a list of pdf.
+        /// </summary>
         private int _packetID;
+
+        /// <summary>
+        /// The native document held by this packet entry.
+        /// </summary>
         private PdfDocument _nativeDoc;
+
+        /// <summary>
+        /// The company representing this packet entry.
+        /// </summary>
         private String _company;
+
+        /// <summary>
+        /// The full path of the pdf doc.
+        /// </summary>
+        private String _fullpath;
+
+        /// <summary>
+        /// The tags describing this particular document.
+        /// </summary>
         private List<String> _tags;
+
+        /// <summary>
+        /// String representation of this document.
+        /// </summary>
         private String _toString;
+
+        /// <summary>
+        /// Whether this is a table, or not [still unimplemented]
+        /// </summary>
         private bool _isTable;
+
+        /// <summary>
+        /// A prefix trie of tags. Used for a quick, auto-complete search.
+        /// </summary>
         private PFT _tagTree;
 
+        /// <summary>
+        /// String builder to construct the string representation of the document.
+        /// </summary>
         private StringBuilder strbldr;
 
         /// <summary>
@@ -44,11 +79,12 @@ namespace ACHClerk
         /// <param name="company">The company name associated with this packet entry.</param>
         /// <param name="tags">A list of tags.</param>
         /// <param name="isTable">Whether this packet is a table entry or not.</param>
-        public PacketEntry(int packetID, PdfDocument native, String company, ref List<String> tags, bool isTable)
+        public PacketEntry(int packetID, PdfDocument native, String company, String path, ref List<String> tags, bool isTable)
         {
             PacketID = packetID;
             NativeDoc = native;
             NativeDoc.Info.Title = company;
+            FullPath = path;
             Company = company;
             Tags = tags;
             TagTree = BuildTagTree();
@@ -142,6 +178,22 @@ namespace ACHClerk
             {
                 _packetID = value;
             }
+        }
+
+        /// <summary>
+        /// Assigns or returns the packet entry's pdf's full path on disk.
+        /// </summary>
+        public String FullPath
+        {
+            get
+            {
+                return _fullpath;
+            }
+            private set
+            {
+                _fullpath = value;
+            }
+
         }
 
         /// <summary>

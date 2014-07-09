@@ -172,7 +172,7 @@ namespace ACHClerk
                         // Read the text file and process it for tags.
                         tags = ProcessTags(txts[0]);
 
-                        AddNativeEntry(new PacketEntry(packetID++, NativePDF, company, ref tags, false));
+                        AddNativeEntry(new PacketEntry(packetID++, NativePDF, company, pdfs[0], ref tags, false));
                     }
                     else
                         throw new IOException("The text file containing tags was not valid. Does it exist?");

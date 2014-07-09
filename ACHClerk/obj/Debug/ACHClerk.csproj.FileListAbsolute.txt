@@ -16,3 +16,8 @@ D:\projects\ACH-Clerk\ACHClerk\bin\Debug\StandardTrie.cs.pdb
 D:\projects\ACH-Clerk\ACHClerk\obj\Debug\ACHClerk.csprojResolveAssemblyReference.cache
 D:\projects\ACH-Clerk\ACHClerk\obj\Debug\ACHClerk.exe
 D:\projects\ACH-Clerk\ACHClerk\obj\Debug\ACHClerk.pdb
+D:\projects\ACH-Clerk\ACHClerk\bin\Debug\Interop.AcroPDFLib.dll
+D:\projects\ACH-Clerk\ACHClerk\bin\Debug\AxInterop.AcroPDFLib.dll
+D:\projects\ACH-Clerk\ACHClerk\obj\Debug\Interop.AcroPDFLib.dll
+D:\projects\ACH-Clerk\ACHClerk\obj\Debug\AxInterop.AcroPDFLib.dll
+D:\projects\ACH-Clerk\ACHClerk\obj\Debug\ACHClerk.csproj.ResolveComReference.cache
