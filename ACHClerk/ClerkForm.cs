@@ -299,7 +299,7 @@ namespace ACHClerk
                     // Send it to the preview pane, and show the dialog.
                     // Align the preview form based on the right hand panel of the parent container.
                     PreviewPaneForm preview = new PreviewPaneForm(ref doc, this.Height, new System.Drawing.Point(this.Left + this.Width, this.Top));
-                    preview.ShowDialog();
+                    preview.Show();
                 }
             }
             catch (NullReferenceException nrf)

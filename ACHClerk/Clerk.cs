@@ -265,7 +265,27 @@ namespace ACHClerk
         }
 
         /// <summary>
-        /// Returns the selected ach packet entires as an array. This will make it
+        /// Builds the final ACH document and prompts the user to save or print.
+        /// </summary>
+        /// <returns></returns>
+        internal PdfDocument CompileFinalDocument()
+        {
+            // NOT YET COMPLETE
+            PdfDocument finalPacket = new PdfDocument();
+            foreach (PacketEntry p in SelectedEntries)
+            {
+                PdfDocument doc = p.NativeDoc;
+                int pages = doc.PageCount;
+                for (int i = 0; i < pages; ++i )
+                {
+                    finalPacket.AddPage(doc.Pages[i]);
+                }
+            }
+            return finalPacket;
+        }
+
+        /// <summary>
+        /// Returns the selected ach packet entires as list. This will make it
         /// easier to iterate through and compile the final document. 
         /// </summary>
         public List<PacketEntry> SelectedEntries
