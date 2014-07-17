@@ -175,14 +175,17 @@ namespace ACHClerk
         /// </summary>
         private void PreviewFinalPacket()
         {
-            PdfDocument doc = _clerk.CompileFinalDocument();
-            doc.Save("temp.pdf");
-            List<string> finalTag = new List<string>();
-            finalTag.Add("final");
+            if (_clerk.SelectedCount > 0)
+            {
+                PdfDocument doc = _clerk.CompileFinalDocument();
+                doc.Save("temp.pdf");
+                List<string> finalTag = new List<string>();
+                finalTag.Add("final");
 
-            PacketEntry packet = new PacketEntry(_clerk.NativeFormsCount + 1, doc, "FINAL", "temp.pdf", ref finalTag, false);
-            PreviewPaneForm preview = new PreviewPaneForm(ref packet, this.Height, new System.Drawing.Point(this.Left + this.Width, this.Top));
-            preview.ShowDialog();
+                PacketEntry packet = new PacketEntry(_clerk.NativeFormsCount + 1, doc, "FINAL", "temp.pdf", ref finalTag, false);
+                PreviewPaneForm preview = new PreviewPaneForm(ref packet, this.Height, new System.Drawing.Point(this.Left + this.Width, this.Top));
+                preview.ShowDialog();
+            }
         }
 
         /// <summary>

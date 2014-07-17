@@ -46,6 +46,7 @@
             this.btnTestRmvAllFinal = new System.Windows.Forms.Button();
             this.txtSearchBar = new System.Windows.Forms.TextBox();
             this.btnBuildFinal = new System.Windows.Forms.Button();
+            this.dlgSaveFileDiag = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
             // dlgPrintDiag
@@ -258,6 +259,7 @@
         private System.Windows.Forms.Button btnTestRmvAllFinal;
         private System.Windows.Forms.TextBox txtSearchBar;
         private System.Windows.Forms.Button btnBuildFinal;
+        private System.Windows.Forms.SaveFileDialog dlgSaveFileDiag;
     }
 }
 

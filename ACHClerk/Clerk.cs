@@ -7,6 +7,9 @@ using System.IO;
 
 using PdfSharp.Pdf;
 using PdfSharp.Pdf.IO;
+using PdfSharp.Drawing;
+using MigraDoc.DocumentObjectModel;
+using MigraDoc.DocumentObjectModel.Tables;
 
 namespace ACHClerk
 {
@@ -270,20 +273,135 @@ namespace ACHClerk
         /// <returns></returns>
         internal PdfDocument CompileFinalDocument()
         {
-            // Allocate space for the final packet. 
+            // Allocate space for the final packet, and generate the front page. 
             PdfDocument finalPacket = new PdfDocument();
+            CreateFrontPage(ref finalPacket);
+
+            // Prepare information for the table of contents.
+            int[] indices = new int[SelectedCount];
+            string[] headings = new string[SelectedCount];
+            
+            // Keep track of headings and pages; used to add indices of new documents.
+            // Welcome page, followed by table of contents. Use page two as starter.
+            int j = 0, k = 3;
 
             // For ever page in every packet, add that page to the final document.
             foreach (PacketEntry p in SelectedEntries)
             {
                 PdfDocument doc = p.NativeDoc;
                 int pages = doc.PageCount;
+                
+                // Set the index of the first page of the current doc.
+                indices[j] = k;
+                headings[j++] = doc.Info.Title;
+                k += pages; // Advance the page counter by the number of pages in this doc.
+
+                PdfPage page;
                 for (int i = 0; i < pages; ++i )
                 {
                     finalPacket.AddPage(doc.Pages[i]);
                 }
             }
+
+            CreateTableOfContents(ref finalPacket, indices, headings);
+
             return finalPacket;
+        }
+
+        /// <summary>
+        /// Creates the front page of the PDF document. 
+        /// </summary>
+        /// <returns>A reference to the final ACH packet.</returns>
+        private void CreateFrontPage(ref PdfDocument doc)
+        {
+            // Add a new page. 
+            PdfPage page = doc.AddPage();
+
+            // Set up the graphics object. 
+            XGraphics gfx = XGraphics.FromPdfPage(page);
+            XFont font = new XFont("Verdana", 16, XFontStyle.Bold);
+            gfx.MUH = PdfFontEncoding.Unicode;
+            gfx.MFEH = PdfFontEmbedding.Default;
+
+            // Front page title.
+            gfx.DrawString("Welcome, New Member!", font, XBrushes.Black, 
+                new XRect(100, 100, page.Width - 200, 300), XStringFormats.Center);
+            
+            // Section Doc, need MigraDoc for rendering.
+            MigraDoc.DocumentObjectModel.Document secDoc = new Document();
+            Section sec = secDoc.AddSection();
+            Paragraph para = sec.AddParagraph();
+            para.Format.Alignment = ParagraphAlignment.Justify;
+            para.Format.Font.Name = "Verdana";
+            para.Format.Font.Size = 12;
+            para.Format.Font.Color = Colors.DarkSlateGray;
+
+            // Welcome text.
+            para.AddText(
+                " Hello, and thank you for choosing Sunflower Bank to meet your financial needs! We've " +
+                "created a packet of forms specifically for you! We hope this will aid your transition from " +
+                "your previous bank to us.\n\n" + 
+                "All of those automatic payments you have tied to your previous " +
+                "account number will slowly have to be switched to your new one. This packet will give you " +
+                "the forms necessary to switch those payments, for each of your registered services.");
+            para.Format.Borders.Distance = "5pt";
+
+            // Create a renderer, and prepare the document.
+            MigraDoc.Rendering.DocumentRenderer docRenderer = new MigraDoc.Rendering.DocumentRenderer(secDoc);
+            docRenderer.PrepareDocument();
+
+            // Render the paragraph.
+            docRenderer.RenderObject(gfx, XUnit.FromCentimeter(5), XUnit.FromCentimeter(10), "12cm", para);
+        }
+
+        /// <summary>
+        /// Create a table of contents within the final ACH packet. 
+        /// </summary>
+        /// <param name="doc">A reference to the final ACH packet.</param>
+        private void CreateTableOfContents(ref PdfDocument doc, int[] indices, string[] headings)
+        {
+            // Add a new page.
+            PdfPage page = doc.AddPage();
+
+            // Set up the graphics object. 
+            XGraphics gfx = XGraphics.FromPdfPage(page);
+            XFont font = new XFont("Arial", 12);
+            gfx.MUH = PdfFontEncoding.Unicode;
+            gfx.MFEH = PdfFontEmbedding.Default;
+
+            // Draw the title of the page.
+            gfx.DrawString("Table Of Contents", font, XBrushes.Blue,
+                new XRect(100, 100, page.Width - 200, 200), XStringFormats.TopLeft);
+
+            // Get a MigraDoc, and set up the properties of a new section.
+            MigraDoc.DocumentObjectModel.Document secDoc = new MigraDoc.DocumentObjectModel.Document();
+            Section sec = secDoc.AddSection();
+
+            // Create the actual table.
+            Table table = sec.AddTable();
+            table.Style = "Table";
+            
+            // Define the columns.
+            Column column = table.AddColumn("2in");
+            column.Format.Alignment = ParagraphAlignment.Left;
+
+            column = table.AddColumn("3in");
+            column.Format.Alignment = ParagraphAlignment.Right;
+
+            int k = 0;
+            foreach (int dex in indices)
+            {
+                Row row = table.AddRow();
+                row.Cells[0].AddParagraph(headings[k++]);
+                row.Cells[1].AddParagraph(dex.ToString());
+            }
+
+            // Create a renderer, prepare the doc.
+            MigraDoc.Rendering.DocumentRenderer docRenderer = new MigraDoc.Rendering.DocumentRenderer(secDoc);
+            docRenderer.PrepareDocument();
+
+            // Render the section.
+            docRenderer.RenderObject(gfx, XUnit.FromInch(1.5), XUnit.FromInch(2.0), "12cm", table);
         }
 
         /// <summary>
