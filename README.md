@@ -7,7 +7,7 @@ assist them in migrating their existing ACH transactions to a new account.
 What I intend to do is simple:
 
 1. Create a GUI for the employee to filter numerous ACH Account Change forms by
-a search bar, say if they didn't know the name of the company, but new that it was a utility service. 
+a search bar, say if they didn't know the name of the company, but knew that it was a utility service. 
 That, or if the customer does know the name of the billing company, we can select
 their specific ACH Account Change form.
 
