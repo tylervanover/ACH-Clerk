@@ -161,7 +161,7 @@ namespace ACHClerk
                     PdfDocument NativePDF = new PdfDocument();
                     try
                     {
-                        PdfReader.Open(pdfs[0], PdfDocumentOpenMode.Import);
+                        NativePDF = PdfReader.Open(pdfs[0], PdfDocumentOpenMode.Import);
                     }
                     catch (PdfReaderException) { }
 
@@ -270,8 +270,10 @@ namespace ACHClerk
         /// <returns></returns>
         internal PdfDocument CompileFinalDocument()
         {
-            // NOT YET COMPLETE
+            // Allocate space for the final packet. 
             PdfDocument finalPacket = new PdfDocument();
+
+            // For ever page in every packet, add that page to the final document.
             foreach (PacketEntry p in SelectedEntries)
             {
                 PdfDocument doc = p.NativeDoc;

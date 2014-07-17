@@ -45,6 +45,7 @@
             this.btnTestRmvSelected = new System.Windows.Forms.Button();
             this.btnTestRmvAllFinal = new System.Windows.Forms.Button();
             this.txtSearchBar = new System.Windows.Forms.TextBox();
+            this.btnBuildFinal = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // dlgPrintDiag
@@ -114,7 +115,7 @@
             this.btnAddSelected.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddSelected.Location = new System.Drawing.Point(11, 44);
             this.btnAddSelected.Name = "btnAddSelected";
-            this.btnAddSelected.Size = new System.Drawing.Size(184, 23);
+            this.btnAddSelected.Size = new System.Drawing.Size(185, 23);
             this.btnAddSelected.TabIndex = 8;
             this.btnAddSelected.Text = "Test Add Selected";
             this.btnAddSelected.UseVisualStyleBackColor = true;
@@ -185,7 +186,7 @@
             // 
             this.btnTestRmvAllFinal.Location = new System.Drawing.Point(12, 106);
             this.btnTestRmvAllFinal.Name = "btnTestRmvAllFinal";
-            this.btnTestRmvAllFinal.Size = new System.Drawing.Size(183, 23);
+            this.btnTestRmvAllFinal.Size = new System.Drawing.Size(184, 23);
             this.btnTestRmvAllFinal.TabIndex = 15;
             this.btnTestRmvAllFinal.Text = "Test Remove All Final";
             this.btnTestRmvAllFinal.UseVisualStyleBackColor = true;
@@ -194,17 +195,28 @@
             // txtSearchBar
             // 
             this.txtSearchBar.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.txtSearchBar.Location = new System.Drawing.Point(12, 163);
+            this.txtSearchBar.Location = new System.Drawing.Point(12, 174);
             this.txtSearchBar.Name = "txtSearchBar";
             this.txtSearchBar.Size = new System.Drawing.Size(274, 20);
             this.txtSearchBar.TabIndex = 16;
             this.txtSearchBar.TextChanged += new System.EventHandler(this.txtSearchBar_TextChanged);
+            // 
+            // btnBuildFinal
+            // 
+            this.btnBuildFinal.Location = new System.Drawing.Point(12, 135);
+            this.btnBuildFinal.Name = "btnBuildFinal";
+            this.btnBuildFinal.Size = new System.Drawing.Size(184, 23);
+            this.btnBuildFinal.TabIndex = 17;
+            this.btnBuildFinal.Text = "Test Build Final Packet";
+            this.btnBuildFinal.UseVisualStyleBackColor = true;
+            this.btnBuildFinal.Click += new System.EventHandler(this.btnBuildFinal_Click);
             // 
             // ClerkForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(763, 460);
+            this.Controls.Add(this.btnBuildFinal);
             this.Controls.Add(this.txtSearchBar);
             this.Controls.Add(this.btnTestRmvAllFinal);
             this.Controls.Add(this.btnTestRmvSelected);
@@ -245,6 +257,7 @@
         private System.Windows.Forms.Button btnTestRmvSelected;
         private System.Windows.Forms.Button btnTestRmvAllFinal;
         private System.Windows.Forms.TextBox txtSearchBar;
+        private System.Windows.Forms.Button btnBuildFinal;
     }
 }
 

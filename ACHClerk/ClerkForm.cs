@@ -171,6 +171,21 @@ namespace ACHClerk
         }
 
         /// <summary>
+        /// Creates a final packet, and then allows the user to preview it.
+        /// </summary>
+        private void PreviewFinalPacket()
+        {
+            PdfDocument doc = _clerk.CompileFinalDocument();
+            doc.Save("temp.pdf");
+            List<string> finalTag = new List<string>();
+            finalTag.Add("final");
+
+            PacketEntry packet = new PacketEntry(_clerk.NativeFormsCount + 1, doc, "FINAL", "temp.pdf", ref finalTag, false);
+            PreviewPaneForm preview = new PreviewPaneForm(ref packet, this.Height, new System.Drawing.Point(this.Left + this.Width, this.Top));
+            preview.ShowDialog();
+        }
+
+        /// <summary>
         /// Add items selected in the listPacketList box to the listSelectedList box.
         /// </summary>
         private void AddSelectedToListBox()
@@ -410,6 +425,11 @@ namespace ACHClerk
         private void txtSearchBar_TextChanged(object sender, EventArgs e)
         {
             PerformSearch(txtSearchBar.Text);
+        }
+
+        private void btnBuildFinal_Click(object sender, EventArgs e)
+        {
+            PreviewFinalPacket();
         }
     }
 }
