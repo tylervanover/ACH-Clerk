@@ -282,28 +282,34 @@ namespace ACHClerk
             string[] headings = new string[SelectedCount];
             
             // Keep track of headings and pages; used to add indices of new documents.
-            // Welcome page, followed by table of contents. Use page two as starter.
-            int j = 0, k = 3;
+            // Welcome page, followed by table of contents. Use page three as starter.
+            int j = 0, k = finalPacket.PageCount+2;
 
+            // Get the headings and page number information from the table of contents.
+            foreach (PacketEntry p in SelectedEntries)
+            {
+                indices[j] = k;
+                headings[j++] = p.NativeDoc.Info.Title;
+                k += p.NativeDoc.PageCount; // Advance the page counter by the number of pages in this doc.
+            }
+
+            // Create the TOC.
+            CreateTableOfContents(ref finalPacket, indices, headings);
+
+            k = finalPacket.PageCount + 1;
             // For ever page in every packet, add that page to the final document.
             foreach (PacketEntry p in SelectedEntries)
             {
                 PdfDocument doc = p.NativeDoc;
                 int pages = doc.PageCount;
-                
-                // Set the index of the first page of the current doc.
-                indices[j] = k;
-                headings[j++] = doc.Info.Title;
-                k += pages; // Advance the page counter by the number of pages in this doc.
 
                 PdfPage page;
                 for (int i = 0; i < pages; ++i )
                 {
-                    finalPacket.AddPage(doc.Pages[i]);
+                    page = finalPacket.AddPage(doc.Pages[i]);
+                    DrawPageNumber(page, k++);
                 }
             }
-
-            CreateTableOfContents(ref finalPacket, indices, headings);
 
             return finalPacket;
         }
@@ -391,10 +397,18 @@ namespace ACHClerk
             int k = 0;
             foreach (int dex in indices)
             {
+                // Add a new row to the table. Adjust its style.
                 Row row = table.AddRow();
+                row.Borders.Right.Width = row.Borders.Left.Width = 0.00;
+                row.Borders.Style = BorderStyle.DashLargeGap;
+
+                // Add the name of the current indexed document, and the
+                // page it begins on.
                 row.Cells[0].AddParagraph(headings[k++]);
                 row.Cells[1].AddParagraph(dex.ToString());
             }
+
+            table.Rows[0].Borders.Top.Clear();
 
             // Create a renderer, prepare the doc.
             MigraDoc.Rendering.DocumentRenderer docRenderer = new MigraDoc.Rendering.DocumentRenderer(secDoc);
@@ -402,6 +416,30 @@ namespace ACHClerk
 
             // Render the section.
             docRenderer.RenderObject(gfx, XUnit.FromInch(1.5), XUnit.FromInch(2.0), "12cm", table);
+        }
+
+        /// <summary>
+        /// A separate function to draw the page number on each PDF page.
+        /// This functionality is modular, in case the format of the page number is
+        /// scheduled to change.
+        /// </summary>
+        /// <param name="page">The page to render XGraphics on.</param>
+        /// <param name="i">The page number.</param>
+        private void DrawPageNumber(PdfPage page, int i)
+        {
+            XFont font = new XFont("Verdana", 10, XFontStyle.Regular);
+            XStringFormat format = new XStringFormat();
+            format.Alignment = XStringAlignment.Center;
+            format.LineAlignment = XLineAlignment.Far;
+            XGraphics gfx;
+            XRect box;
+
+            gfx = XGraphics.FromPdfPage(page);
+            box = page.MediaBox.ToXRect();
+            box.Inflate(0, -10);
+            gfx.DrawString(String.Format("ACH Transition Packet, Page {0}", i), font,
+                XBrushes.DarkRed, box, format);
+
         }
 
         /// <summary>
