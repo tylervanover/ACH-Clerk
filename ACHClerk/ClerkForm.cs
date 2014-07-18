@@ -133,9 +133,8 @@ namespace ACHClerk
         private void UpdateForm()
         {
             DisplayPacketInfo();
-            clerkNativeFormsCount.Text = _displayable.Count.ToString();
-            clerkDirectoryDisp.Text = _clerk.ParentDirectory;
-            txtSelectedEntriesCount.Text = _clerk.SelectedCount.ToString();
+            lblNativeDirectory.Text = ("Searching for forms in " + _clerk.ParentDirectory);
+            lblSelectedCount.Text = (_clerk.SelectedCount.ToString() + " forms selected.");
             lblNativeCountDisp.Text = (_displayable.Count.ToString() + " forms found.");
         }
 
