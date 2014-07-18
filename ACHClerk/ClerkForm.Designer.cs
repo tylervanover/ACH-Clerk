@@ -43,6 +43,18 @@
             this.btnRemoveSelected = new System.Windows.Forms.Button();
             this.btnClearAll = new System.Windows.Forms.Button();
             this.btnBuildFinalPacket = new System.Windows.Forms.Button();
+            this.btnChangeDirectory = new System.Windows.Forms.Button();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.actionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buildPacketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.documenationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dlgPrintDiag
@@ -59,7 +71,7 @@
             this.listPacketList.FormattingEnabled = true;
             this.listPacketList.HorizontalScrollbar = true;
             this.listPacketList.ItemHeight = 16;
-            this.listPacketList.Location = new System.Drawing.Point(12, 247);
+            this.listPacketList.Location = new System.Drawing.Point(12, 104);
             this.listPacketList.Name = "listPacketList";
             this.listPacketList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.listPacketList.Size = new System.Drawing.Size(380, 212);
@@ -74,7 +86,7 @@
             this.listFinalList.FormattingEnabled = true;
             this.listFinalList.HorizontalScrollbar = true;
             this.listFinalList.ItemHeight = 16;
-            this.listFinalList.Location = new System.Drawing.Point(504, 247);
+            this.listFinalList.Location = new System.Drawing.Point(504, 104);
             this.listFinalList.Name = "listFinalList";
             this.listFinalList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.listFinalList.Size = new System.Drawing.Size(380, 212);
@@ -85,7 +97,7 @@
             // lblSelectedCount
             // 
             this.lblSelectedCount.AutoSize = true;
-            this.lblSelectedCount.Location = new System.Drawing.Point(501, 231);
+            this.lblSelectedCount.Location = new System.Drawing.Point(501, 88);
             this.lblSelectedCount.MinimumSize = new System.Drawing.Size(15, 10);
             this.lblSelectedCount.Name = "lblSelectedCount";
             this.lblSelectedCount.Size = new System.Drawing.Size(111, 13);
@@ -95,7 +107,7 @@
             // lblNativeCountDisp
             // 
             this.lblNativeCountDisp.AutoSize = true;
-            this.lblNativeCountDisp.Location = new System.Drawing.Point(9, 231);
+            this.lblNativeCountDisp.Location = new System.Drawing.Point(9, 88);
             this.lblNativeCountDisp.MinimumSize = new System.Drawing.Size(15, 10);
             this.lblNativeCountDisp.Name = "lblNativeCountDisp";
             this.lblNativeCountDisp.Size = new System.Drawing.Size(99, 13);
@@ -105,7 +117,7 @@
             // txtSearchBar
             // 
             this.txtSearchBar.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.txtSearchBar.Location = new System.Drawing.Point(12, 193);
+            this.txtSearchBar.Location = new System.Drawing.Point(12, 56);
             this.txtSearchBar.Name = "txtSearchBar";
             this.txtSearchBar.Size = new System.Drawing.Size(380, 20);
             this.txtSearchBar.TabIndex = 16;
@@ -114,7 +126,7 @@
             // lblNativeDirectory
             // 
             this.lblNativeDirectory.AutoSize = true;
-            this.lblNativeDirectory.Location = new System.Drawing.Point(9, 177);
+            this.lblNativeDirectory.Location = new System.Drawing.Point(53, 33);
             this.lblNativeDirectory.MinimumSize = new System.Drawing.Size(15, 10);
             this.lblNativeDirectory.Name = "lblNativeDirectory";
             this.lblNativeDirectory.Size = new System.Drawing.Size(52, 13);
@@ -123,6 +135,10 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.actionToolStripMenuItem,
+            this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(896, 24);
@@ -131,9 +147,9 @@
             // 
             // btnAddSelected
             // 
-            this.btnAddSelected.Location = new System.Drawing.Point(398, 247);
+            this.btnAddSelected.Location = new System.Drawing.Point(404, 104);
             this.btnAddSelected.Name = "btnAddSelected";
-            this.btnAddSelected.Size = new System.Drawing.Size(100, 34);
+            this.btnAddSelected.Size = new System.Drawing.Size(90, 34);
             this.btnAddSelected.TabIndex = 19;
             this.btnAddSelected.Text = ">>";
             this.btnAddSelected.UseVisualStyleBackColor = true;
@@ -141,9 +157,9 @@
             // 
             // btnRemoveSelected
             // 
-            this.btnRemoveSelected.Location = new System.Drawing.Point(398, 287);
+            this.btnRemoveSelected.Location = new System.Drawing.Point(404, 144);
             this.btnRemoveSelected.Name = "btnRemoveSelected";
-            this.btnRemoveSelected.Size = new System.Drawing.Size(100, 34);
+            this.btnRemoveSelected.Size = new System.Drawing.Size(90, 34);
             this.btnRemoveSelected.TabIndex = 20;
             this.btnRemoveSelected.Text = "<<";
             this.btnRemoveSelected.UseVisualStyleBackColor = true;
@@ -151,9 +167,9 @@
             // 
             // btnClearAll
             // 
-            this.btnClearAll.Location = new System.Drawing.Point(398, 327);
+            this.btnClearAll.Location = new System.Drawing.Point(404, 184);
             this.btnClearAll.Name = "btnClearAll";
-            this.btnClearAll.Size = new System.Drawing.Size(100, 34);
+            this.btnClearAll.Size = new System.Drawing.Size(90, 34);
             this.btnClearAll.TabIndex = 20;
             this.btnClearAll.Text = "X";
             this.btnClearAll.UseVisualStyleBackColor = true;
@@ -161,19 +177,106 @@
             // 
             // btnBuildFinalPacket
             // 
-            this.btnBuildFinalPacket.Location = new System.Drawing.Point(398, 367);
+            this.btnBuildFinalPacket.Location = new System.Drawing.Point(404, 224);
             this.btnBuildFinalPacket.Name = "btnBuildFinalPacket";
-            this.btnBuildFinalPacket.Size = new System.Drawing.Size(100, 34);
+            this.btnBuildFinalPacket.Size = new System.Drawing.Size(90, 34);
             this.btnBuildFinalPacket.TabIndex = 20;
             this.btnBuildFinalPacket.Text = "Build";
             this.btnBuildFinalPacket.UseVisualStyleBackColor = true;
             this.btnBuildFinalPacket.Click += new System.EventHandler(this.btnBuildFinalPacket_Click_1);
             // 
+            // btnChangeDirectory
+            // 
+            this.btnChangeDirectory.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnChangeDirectory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnChangeDirectory.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnChangeDirectory.Location = new System.Drawing.Point(12, 33);
+            this.btnChangeDirectory.Margin = new System.Windows.Forms.Padding(0);
+            this.btnChangeDirectory.Name = "btnChangeDirectory";
+            this.btnChangeDirectory.Size = new System.Drawing.Size(38, 13);
+            this.btnChangeDirectory.TabIndex = 21;
+            this.btnChangeDirectory.Text = ". . .";
+            this.btnChangeDirectory.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnChangeDirectory.UseVisualStyleBackColor = false;
+            this.btnChangeDirectory.Click += new System.EventHandler(this.btnChangeDirectory_Click);
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.changeDirectoryToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // changeDirectoryToolStripMenuItem
+            // 
+            this.changeDirectoryToolStripMenuItem.Name = "changeDirectoryToolStripMenuItem";
+            this.changeDirectoryToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.changeDirectoryToolStripMenuItem.Text = "Change Directory";
+            // 
+            // actionToolStripMenuItem
+            // 
+            this.actionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addSelectedToolStripMenuItem,
+            this.removeSelectedToolStripMenuItem,
+            this.clearAllToolStripMenuItem,
+            this.buildPacketToolStripMenuItem});
+            this.actionToolStripMenuItem.Name = "actionToolStripMenuItem";
+            this.actionToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.actionToolStripMenuItem.Text = "Action";
+            // 
+            // addSelectedToolStripMenuItem
+            // 
+            this.addSelectedToolStripMenuItem.Name = "addSelectedToolStripMenuItem";
+            this.addSelectedToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.addSelectedToolStripMenuItem.Text = "Add Selected";
+            // 
+            // removeSelectedToolStripMenuItem
+            // 
+            this.removeSelectedToolStripMenuItem.Name = "removeSelectedToolStripMenuItem";
+            this.removeSelectedToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.removeSelectedToolStripMenuItem.Text = "Remove Selected";
+            // 
+            // clearAllToolStripMenuItem
+            // 
+            this.clearAllToolStripMenuItem.Name = "clearAllToolStripMenuItem";
+            this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.clearAllToolStripMenuItem.Text = "Clear All";
+            // 
+            // buildPacketToolStripMenuItem
+            // 
+            this.buildPacketToolStripMenuItem.Name = "buildPacketToolStripMenuItem";
+            this.buildPacketToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.buildPacketToolStripMenuItem.Text = "Build Packet";
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem,
+            this.documenationToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            // 
+            // documenationToolStripMenuItem
+            // 
+            this.documenationToolStripMenuItem.Name = "documenationToolStripMenuItem";
+            this.documenationToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.documenationToolStripMenuItem.Text = "Documenation";
+            // 
             // ClerkForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(896, 564);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(896, 331);
+            this.Controls.Add(this.btnChangeDirectory);
             this.Controls.Add(this.btnBuildFinalPacket);
             this.Controls.Add(this.btnClearAll);
             this.Controls.Add(this.btnRemoveSelected);
@@ -188,6 +291,8 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ClerkForm";
             this.Text = "ACH Clerk";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,6 +315,17 @@
         private System.Windows.Forms.Button btnRemoveSelected;
         private System.Windows.Forms.Button btnClearAll;
         private System.Windows.Forms.Button btnBuildFinalPacket;
+        private System.Windows.Forms.Button btnChangeDirectory;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changeDirectoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem actionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addSelectedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeSelectedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem buildPacketToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem documenationToolStripMenuItem;
     }
 }
 

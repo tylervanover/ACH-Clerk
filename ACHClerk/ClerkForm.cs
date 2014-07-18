@@ -276,16 +276,6 @@ namespace ACHClerk
         }
 
         /// <summary>
-        /// TESTING FUNCTIONALITY OF FILE SYSTEM MANAGEMENT.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnTestChangeLoad_Click(object sender, EventArgs e)
-        {
-            ChangeLoadDirectory();
-        }
-
-        /// <summary>
         /// TESTING FUNCTIONALITY.
         /// </summary>
         /// <param name="sender"></param>
@@ -453,6 +443,16 @@ namespace ACHClerk
         private void btnBuildFinalPacket_Click_1(object sender, EventArgs e)
         {
             PreviewFinalPacket();
+        }
+
+        /// <summary>
+        /// Changes the native forms directory.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnChangeDirectory_Click(object sender, EventArgs e)
+        {
+            ChangeLoadDirectory();
         }
     }
 }
