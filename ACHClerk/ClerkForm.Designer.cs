@@ -75,7 +75,7 @@
             this.listPacketList.Name = "listPacketList";
             this.listPacketList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.listPacketList.Size = new System.Drawing.Size(380, 212);
-            this.listPacketList.TabIndex = 3;
+            this.listPacketList.TabIndex = 2;
             this.listPacketList.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listPacketList_DrawItem);
             this.listPacketList.SelectedIndexChanged += new System.EventHandler(this.listPacketList_SelectedIndexChanged);
             this.listPacketList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listPacketList_MouseClick);
@@ -90,7 +90,7 @@
             this.listFinalList.Name = "listFinalList";
             this.listFinalList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.listFinalList.Size = new System.Drawing.Size(380, 212);
-            this.listFinalList.TabIndex = 9;
+            this.listFinalList.TabIndex = 7;
             this.listFinalList.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listSelectedList_DrawItem);
             this.listFinalList.SelectedIndexChanged += new System.EventHandler(this.listSelectedList_SelectedIndexChanged);
             // 
@@ -120,7 +120,7 @@
             this.txtSearchBar.Location = new System.Drawing.Point(12, 56);
             this.txtSearchBar.Name = "txtSearchBar";
             this.txtSearchBar.Size = new System.Drawing.Size(380, 20);
-            this.txtSearchBar.TabIndex = 16;
+            this.txtSearchBar.TabIndex = 1;
             this.txtSearchBar.TextChanged += new System.EventHandler(this.txtSearchBar_TextChanged);
             // 
             // lblNativeDirectory
@@ -150,7 +150,7 @@
             this.btnAddSelected.Location = new System.Drawing.Point(404, 104);
             this.btnAddSelected.Name = "btnAddSelected";
             this.btnAddSelected.Size = new System.Drawing.Size(90, 34);
-            this.btnAddSelected.TabIndex = 19;
+            this.btnAddSelected.TabIndex = 3;
             this.btnAddSelected.Text = ">>";
             this.btnAddSelected.UseVisualStyleBackColor = true;
             this.btnAddSelected.Click += new System.EventHandler(this.btnAddSelected_Click_1);
@@ -160,7 +160,7 @@
             this.btnRemoveSelected.Location = new System.Drawing.Point(404, 144);
             this.btnRemoveSelected.Name = "btnRemoveSelected";
             this.btnRemoveSelected.Size = new System.Drawing.Size(90, 34);
-            this.btnRemoveSelected.TabIndex = 20;
+            this.btnRemoveSelected.TabIndex = 4;
             this.btnRemoveSelected.Text = "<<";
             this.btnRemoveSelected.UseVisualStyleBackColor = true;
             this.btnRemoveSelected.Click += new System.EventHandler(this.btnRemoveSelected_Click);
@@ -170,7 +170,7 @@
             this.btnClearAll.Location = new System.Drawing.Point(404, 184);
             this.btnClearAll.Name = "btnClearAll";
             this.btnClearAll.Size = new System.Drawing.Size(90, 34);
-            this.btnClearAll.TabIndex = 20;
+            this.btnClearAll.TabIndex = 5;
             this.btnClearAll.Text = "X";
             this.btnClearAll.UseVisualStyleBackColor = true;
             this.btnClearAll.Click += new System.EventHandler(this.btnClearAll_Click_1);
@@ -180,7 +180,7 @@
             this.btnBuildFinalPacket.Location = new System.Drawing.Point(404, 224);
             this.btnBuildFinalPacket.Name = "btnBuildFinalPacket";
             this.btnBuildFinalPacket.Size = new System.Drawing.Size(90, 34);
-            this.btnBuildFinalPacket.TabIndex = 20;
+            this.btnBuildFinalPacket.TabIndex = 6;
             this.btnBuildFinalPacket.Text = "Build";
             this.btnBuildFinalPacket.UseVisualStyleBackColor = true;
             this.btnBuildFinalPacket.Click += new System.EventHandler(this.btnBuildFinalPacket_Click_1);
