@@ -213,6 +213,7 @@
             this.changeDirectoryToolStripMenuItem.Name = "changeDirectoryToolStripMenuItem";
             this.changeDirectoryToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.changeDirectoryToolStripMenuItem.Text = "Change Directory";
+            this.changeDirectoryToolStripMenuItem.Click += new System.EventHandler(this.btnChangeDirectory_Click);
             // 
             // actionToolStripMenuItem
             // 
@@ -230,24 +231,28 @@
             this.addSelectedToolStripMenuItem.Name = "addSelectedToolStripMenuItem";
             this.addSelectedToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.addSelectedToolStripMenuItem.Text = "Add Selected";
+            this.addSelectedToolStripMenuItem.Click += new System.EventHandler(this.btnAddSelected_Click_1);
             // 
             // removeSelectedToolStripMenuItem
             // 
             this.removeSelectedToolStripMenuItem.Name = "removeSelectedToolStripMenuItem";
             this.removeSelectedToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.removeSelectedToolStripMenuItem.Text = "Remove Selected";
+            this.removeSelectedToolStripMenuItem.Click += new System.EventHandler(this.btnRemoveSelected_Click);
             // 
             // clearAllToolStripMenuItem
             // 
             this.clearAllToolStripMenuItem.Name = "clearAllToolStripMenuItem";
             this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.clearAllToolStripMenuItem.Text = "Clear All";
+            this.clearAllToolStripMenuItem.Click += new System.EventHandler(this.btnClearAll_Click_1);
             // 
             // buildPacketToolStripMenuItem
             // 
             this.buildPacketToolStripMenuItem.Name = "buildPacketToolStripMenuItem";
             this.buildPacketToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.buildPacketToolStripMenuItem.Text = "Build Packet";
+            this.buildPacketToolStripMenuItem.Click += new System.EventHandler(this.btnBuildFinalPacket_Click_1);
             // 
             // helpToolStripMenuItem
             // 
