@@ -405,31 +405,52 @@ namespace ACHClerk
         }
 
         /// <summary>
-        /// TESTS THE FUNCTIONALITY OF AddSelectedToListBox().
+        /// Handles the event of the search bar text changing. Sends a call to 
+        /// perform search, where the documents are filtered.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnAddSelected_Click(object sender, EventArgs e)
-        {
-            AddSelectedToListBox();
-        }
-
-        private void btnTestRmvSelected_Click(object sender, EventArgs e)
-        {
-            RemoveSelectedItems();
-        }
-
-        private void btnTestRmvAllFinal_Click(object sender, EventArgs e)
-        {
-            RemoveAllFinalItems();
-        }
-
         private void txtSearchBar_TextChanged(object sender, EventArgs e)
         {
             PerformSearch(txtSearchBar.Text);
         }
 
-        private void btnBuildFinal_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Adds the selected packet(s) to the final list. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAddSelected_Click_1(object sender, EventArgs e)
+        {
+            AddSelectedToListBox();
+        }
+
+        /// <summary>
+        /// Removes the selected packet(s) from the final list.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRemoveSelected_Click(object sender, EventArgs e)
+        {
+            RemoveSelectedItems();
+        }
+
+        /// <summary>
+        /// Clears any selected packets from the final list.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnClearAll_Click_1(object sender, EventArgs e)
+        {
+            RemoveAllFinalItems();
+        }
+
+        /// <summary>
+        /// Compiles the final packet and pops up a preview pane.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnBuildFinalPacket_Click_1(object sender, EventArgs e)
         {
             PreviewFinalPacket();
         }
