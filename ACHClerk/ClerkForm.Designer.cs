@@ -39,11 +39,6 @@
             this.dlgSaveFileDiag = new System.Windows.Forms.SaveFileDialog();
             this.lblNativeDirectory = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.btnAddSelected = new System.Windows.Forms.Button();
-            this.btnRemoveSelected = new System.Windows.Forms.Button();
-            this.btnClearAll = new System.Windows.Forms.Button();
-            this.btnBuildFinalPacket = new System.Windows.Forms.Button();
-            this.btnChangeDirectory = new System.Windows.Forms.Button();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,6 +49,13 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.documenationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAddSelected = new System.Windows.Forms.Button();
+            this.btnRemoveSelected = new System.Windows.Forms.Button();
+            this.btnClearAll = new System.Windows.Forms.Button();
+            this.btnBuildFinalPacket = new System.Windows.Forms.Button();
+            this.btnChangeDirectory = new System.Windows.Forms.Button();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -145,65 +147,12 @@
             this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // btnAddSelected
-            // 
-            this.btnAddSelected.Location = new System.Drawing.Point(404, 104);
-            this.btnAddSelected.Name = "btnAddSelected";
-            this.btnAddSelected.Size = new System.Drawing.Size(90, 34);
-            this.btnAddSelected.TabIndex = 3;
-            this.btnAddSelected.Text = ">>";
-            this.btnAddSelected.UseVisualStyleBackColor = true;
-            this.btnAddSelected.Click += new System.EventHandler(this.btnAddSelected_Click_1);
-            // 
-            // btnRemoveSelected
-            // 
-            this.btnRemoveSelected.Location = new System.Drawing.Point(404, 144);
-            this.btnRemoveSelected.Name = "btnRemoveSelected";
-            this.btnRemoveSelected.Size = new System.Drawing.Size(90, 34);
-            this.btnRemoveSelected.TabIndex = 4;
-            this.btnRemoveSelected.Text = "<<";
-            this.btnRemoveSelected.UseVisualStyleBackColor = true;
-            this.btnRemoveSelected.Click += new System.EventHandler(this.btnRemoveSelected_Click);
-            // 
-            // btnClearAll
-            // 
-            this.btnClearAll.Location = new System.Drawing.Point(404, 184);
-            this.btnClearAll.Name = "btnClearAll";
-            this.btnClearAll.Size = new System.Drawing.Size(90, 34);
-            this.btnClearAll.TabIndex = 5;
-            this.btnClearAll.Text = "X";
-            this.btnClearAll.UseVisualStyleBackColor = true;
-            this.btnClearAll.Click += new System.EventHandler(this.btnClearAll_Click_1);
-            // 
-            // btnBuildFinalPacket
-            // 
-            this.btnBuildFinalPacket.Location = new System.Drawing.Point(404, 224);
-            this.btnBuildFinalPacket.Name = "btnBuildFinalPacket";
-            this.btnBuildFinalPacket.Size = new System.Drawing.Size(90, 34);
-            this.btnBuildFinalPacket.TabIndex = 6;
-            this.btnBuildFinalPacket.Text = "Build";
-            this.btnBuildFinalPacket.UseVisualStyleBackColor = true;
-            this.btnBuildFinalPacket.Click += new System.EventHandler(this.btnBuildFinalPacket_Click_1);
-            // 
-            // btnChangeDirectory
-            // 
-            this.btnChangeDirectory.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnChangeDirectory.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnChangeDirectory.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnChangeDirectory.Location = new System.Drawing.Point(12, 33);
-            this.btnChangeDirectory.Margin = new System.Windows.Forms.Padding(0);
-            this.btnChangeDirectory.Name = "btnChangeDirectory";
-            this.btnChangeDirectory.Size = new System.Drawing.Size(38, 13);
-            this.btnChangeDirectory.TabIndex = 21;
-            this.btnChangeDirectory.Text = ". . .";
-            this.btnChangeDirectory.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnChangeDirectory.UseVisualStyleBackColor = false;
-            this.btnChangeDirectory.Click += new System.EventHandler(this.btnChangeDirectory_Click);
-            // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.changeDirectoryToolStripMenuItem});
+            this.changeDirectoryToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -268,12 +217,80 @@
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // documenationToolStripMenuItem
             // 
             this.documenationToolStripMenuItem.Name = "documenationToolStripMenuItem";
             this.documenationToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.documenationToolStripMenuItem.Text = "Documenation";
+            // 
+            // btnAddSelected
+            // 
+            this.btnAddSelected.Location = new System.Drawing.Point(404, 104);
+            this.btnAddSelected.Name = "btnAddSelected";
+            this.btnAddSelected.Size = new System.Drawing.Size(90, 34);
+            this.btnAddSelected.TabIndex = 3;
+            this.btnAddSelected.Text = ">>";
+            this.btnAddSelected.UseVisualStyleBackColor = true;
+            this.btnAddSelected.Click += new System.EventHandler(this.btnAddSelected_Click_1);
+            // 
+            // btnRemoveSelected
+            // 
+            this.btnRemoveSelected.Location = new System.Drawing.Point(404, 144);
+            this.btnRemoveSelected.Name = "btnRemoveSelected";
+            this.btnRemoveSelected.Size = new System.Drawing.Size(90, 34);
+            this.btnRemoveSelected.TabIndex = 4;
+            this.btnRemoveSelected.Text = "<<";
+            this.btnRemoveSelected.UseVisualStyleBackColor = true;
+            this.btnRemoveSelected.Click += new System.EventHandler(this.btnRemoveSelected_Click);
+            // 
+            // btnClearAll
+            // 
+            this.btnClearAll.Location = new System.Drawing.Point(404, 184);
+            this.btnClearAll.Name = "btnClearAll";
+            this.btnClearAll.Size = new System.Drawing.Size(90, 34);
+            this.btnClearAll.TabIndex = 5;
+            this.btnClearAll.Text = "X";
+            this.btnClearAll.UseVisualStyleBackColor = true;
+            this.btnClearAll.Click += new System.EventHandler(this.btnClearAll_Click_1);
+            // 
+            // btnBuildFinalPacket
+            // 
+            this.btnBuildFinalPacket.Location = new System.Drawing.Point(404, 224);
+            this.btnBuildFinalPacket.Name = "btnBuildFinalPacket";
+            this.btnBuildFinalPacket.Size = new System.Drawing.Size(90, 34);
+            this.btnBuildFinalPacket.TabIndex = 6;
+            this.btnBuildFinalPacket.Text = "Build";
+            this.btnBuildFinalPacket.UseVisualStyleBackColor = true;
+            this.btnBuildFinalPacket.Click += new System.EventHandler(this.btnBuildFinalPacket_Click_1);
+            // 
+            // btnChangeDirectory
+            // 
+            this.btnChangeDirectory.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnChangeDirectory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnChangeDirectory.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnChangeDirectory.Location = new System.Drawing.Point(12, 33);
+            this.btnChangeDirectory.Margin = new System.Windows.Forms.Padding(0);
+            this.btnChangeDirectory.Name = "btnChangeDirectory";
+            this.btnChangeDirectory.Size = new System.Drawing.Size(38, 13);
+            this.btnChangeDirectory.TabIndex = 21;
+            this.btnChangeDirectory.Text = ". . .";
+            this.btnChangeDirectory.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnChangeDirectory.UseVisualStyleBackColor = false;
+            this.btnChangeDirectory.Click += new System.EventHandler(this.btnChangeDirectory_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(163, 6);
             // 
             // ClerkForm
             // 
@@ -331,6 +348,8 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem documenationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 

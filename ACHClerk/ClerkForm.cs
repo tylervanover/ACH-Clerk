@@ -454,5 +454,26 @@ namespace ACHClerk
         {
             ChangeLoadDirectory();
         }
+
+        /// <summary>
+        /// Opens a pane with details on the licensing of this project. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutPane about = new AboutPane();
+            about.ShowDialog();
+        }
+
+        /// <summary>
+        /// Closes the application.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

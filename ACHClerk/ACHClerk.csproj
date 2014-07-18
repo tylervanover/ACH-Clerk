@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AeroWizard">
+      <HintPath>packages\AeroWizard.2.0.2\lib\4\AeroWizard.dll</HintPath>
+    </Reference>
     <Reference Include="MigraDoc.DocumentObjectModel">
       <HintPath>C:\Users\Tyler\Documents\Visual Studio 2013\DLLs\PDFSharp\MigraDoc.DocumentObjectModel.dll</HintPath>
     </Reference>
@@ -62,6 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutPane.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutPane.Designer.cs">
+      <DependentUpon>AboutPane.cs</DependentUpon>
+    </Compile>
     <Compile Include="Clerk.cs" />
     <Compile Include="ClerkForm.cs">
       <SubType>Form</SubType>
@@ -84,6 +93,9 @@
     <Compile Include="SaveFolderForm.Designer.cs">
       <DependentUpon>SaveFolderForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AboutPane.resx">
+      <DependentUpon>AboutPane.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClerkForm.resx">
       <DependentUpon>ClerkForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,6 +114,7 @@
     <EmbeddedResource Include="SaveFolderForm.resx">
       <DependentUpon>SaveFolderForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

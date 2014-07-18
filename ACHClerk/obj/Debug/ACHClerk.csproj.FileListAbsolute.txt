@@ -21,3 +21,6 @@ D:\projects\ACH-Clerk\ACHClerk\bin\Debug\AxInterop.AcroPDFLib.dll
 D:\projects\ACH-Clerk\ACHClerk\obj\Debug\Interop.AcroPDFLib.dll
 D:\projects\ACH-Clerk\ACHClerk\obj\Debug\AxInterop.AcroPDFLib.dll
 D:\projects\ACH-Clerk\ACHClerk\obj\Debug\ACHClerk.csproj.ResolveComReference.cache
+D:\projects\ACH-Clerk\ACHClerk\obj\Debug\ACHClerk.AboutPane.resources
+D:\projects\ACH-Clerk\ACHClerk\bin\Debug\AeroWizard.dll
+D:\projects\ACH-Clerk\ACHClerk\bin\Debug\AeroWizard.xml
