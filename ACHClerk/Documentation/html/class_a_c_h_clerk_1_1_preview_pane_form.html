@@ -46,6 +46,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Packages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li>
@@ -94,7 +95,7 @@ $(document).ready(function(){initNavTree('class_a_c_h_clerk_1_1_preview_pane_for
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Properties</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Properties</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -128,9 +129,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a550330415c90452efd0750671054066c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_c_h_clerk_1_1_preview_pane_form.html#a550330415c90452efd0750671054066c">PreviewPaneForm</a> ()</td></tr>
 <tr class="memdesc:a550330415c90452efd0750671054066c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public, default constructor.  <a href="#a550330415c90452efd0750671054066c">More...</a><br /></td></tr>
 <tr class="separator:a550330415c90452efd0750671054066c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ab15c2a4a0f91e09dd758b26e797002"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_c_h_clerk_1_1_preview_pane_form.html#a6ab15c2a4a0f91e09dd758b26e797002">PreviewPaneForm</a> (ref PdfDocument doc)</td></tr>
-<tr class="memdesc:a6ab15c2a4a0f91e09dd758b26e797002"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-default public constructor. Accepts a PdfDocument, which will then be used to render a preview of the doc for the user.  <a href="#a6ab15c2a4a0f91e09dd758b26e797002">More...</a><br /></td></tr>
-<tr class="separator:a6ab15c2a4a0f91e09dd758b26e797002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9df1827606ec70d5059edc8246ea203c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_c_h_clerk_1_1_preview_pane_form.html#a9df1827606ec70d5059edc8246ea203c">PreviewPaneForm</a> (ref <a class="el" href="class_a_c_h_clerk_1_1_packet_entry.html">PacketEntry</a> doc, int height, Point leftLoc)</td></tr>
+<tr class="memdesc:a9df1827606ec70d5059edc8246ea203c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-default public constructor. Accepts a PdfDocument, which will then be used to render a preview of the doc for the user.  <a href="#a9df1827606ec70d5059edc8246ea203c">More...</a><br /></td></tr>
+<tr class="separator:a9df1827606ec70d5059edc8246ea203c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -146,18 +147,24 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:aefcc1c5d92e6a8905c167e42fb307c8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_c_h_clerk_1_1_preview_pane_form.html#aefcc1c5d92e6a8905c167e42fb307c8b">PreviewPaneForm_Load</a> (object sender, EventArgs e)</td></tr>
 <tr class="memdesc:aefcc1c5d92e6a8905c167e42fb307c8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">On form load, display the name of the PDF doc. This is to make sure that the list box was indexed properly.  <a href="#aefcc1c5d92e6a8905c167e42fb307c8b">More...</a><br /></td></tr>
 <tr class="separator:aefcc1c5d92e6a8905c167e42fb307c8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9bc7ac784c48d0b1266000504732e0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_c_h_clerk_1_1_preview_pane_form.html#af9bc7ac784c48d0b1266000504732e0b">RenderPDFandPanel</a> ()</td></tr>
+<tr class="memdesc:af9bc7ac784c48d0b1266000504732e0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render the PDF to the preview pane, using the ActiveX COM control. Set the preview pane size to match the height of the parent pane, and then snap this panel to the right side of the parent pane (by default).  <a href="#af9bc7ac784c48d0b1266000504732e0b">More...</a><br /></td></tr>
+<tr class="separator:af9bc7ac784c48d0b1266000504732e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30703e54fcdd8320c58533582585ecd1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_c_h_clerk_1_1_preview_pane_form.html#a30703e54fcdd8320c58533582585ecd1">InitializeComponent</a> ()</td></tr>
 <tr class="memdesc:a30703e54fcdd8320c58533582585ecd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Required method for Designer support - do not modify the contents of this method with the code editor.  <a href="#a30703e54fcdd8320c58533582585ecd1">More...</a><br /></td></tr>
 <tr class="separator:a30703e54fcdd8320c58533582585ecd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a7f175f206ce4868f5c0ff41b38737c1b"><td class="memItemLeft" align="right" valign="top">PdfDocument&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_c_h_clerk_1_1_preview_pane_form.html#a7f175f206ce4868f5c0ff41b38737c1b">_pdf</a></td></tr>
-<tr class="memdesc:a7f175f206ce4868f5c0ff41b38737c1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The PdfDocument to display on this form.  <a href="#a7f175f206ce4868f5c0ff41b38737c1b">More...</a><br /></td></tr>
-<tr class="separator:a7f175f206ce4868f5c0ff41b38737c1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8aadf295e61ee8375fe506ef0f50ad9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_a_c_h_clerk_1_1_packet_entry.html">PacketEntry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_c_h_clerk_1_1_preview_pane_form.html#ac8aadf295e61ee8375fe506ef0f50ad9">_entry</a></td></tr>
+<tr class="memdesc:ac8aadf295e61ee8375fe506ef0f50ad9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The PdfDocument to display on this form.  <a href="#ac8aadf295e61ee8375fe506ef0f50ad9">More...</a><br /></td></tr>
+<tr class="separator:ac8aadf295e61ee8375fe506ef0f50ad9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26e92d147dee8424998df6ec65996841"><td class="memItemLeft" align="right" valign="top">System.ComponentModel.IContainer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_c_h_clerk_1_1_preview_pane_form.html#a26e92d147dee8424998df6ec65996841">components</a> = null</td></tr>
 <tr class="memdesc:a26e92d147dee8424998df6ec65996841"><td class="mdescLeft">&#160;</td><td class="mdescRight">Required designer variable.  <a href="#a26e92d147dee8424998df6ec65996841">More...</a><br /></td></tr>
 <tr class="separator:a26e92d147dee8424998df6ec65996841"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf5984e7270c96b5b9fabd07c82ab5da"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adf5984e7270c96b5b9fabd07c82ab5da"></a>
+AxAcroPDFLib.AxAcroPDF&#160;</td><td class="memItemRight" valign="bottom"><b>axAdobePane</b></td></tr>
+<tr class="separator:adf5984e7270c96b5b9fabd07c82ab5da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a550330415c90452efd0750671054066c"></a>
@@ -177,16 +184,32 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a6ab15c2a4a0f91e09dd758b26e797002"></a>
+<a class="anchor" id="a9df1827606ec70d5059edc8246ea203c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">ACHClerk.PreviewPaneForm.PreviewPaneForm </td>
           <td>(</td>
-          <td class="paramtype">ref PdfDocument&#160;</td>
-          <td class="paramname"><em>doc</em></td><td>)</td>
+          <td class="paramtype">ref <a class="el" href="class_a_c_h_clerk_1_1_packet_entry.html">PacketEntry</a>&#160;</td>
+          <td class="paramname"><em>doc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Point&#160;</td>
+          <td class="paramname"><em>leftLoc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -345,8 +368,7 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a7f175f206ce4868f5c0ff41b38737c1b"></a>
+<a class="anchor" id="af9bc7ac784c48d0b1266000504732e0b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -354,7 +376,33 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">PdfDocument ACHClerk.PreviewPaneForm._pdf</td>
+          <td class="memname">void ACHClerk.PreviewPaneForm.RenderPDFandPanel </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Render the PDF to the preview pane, using the ActiveX COM control. Set the preview pane size to match the height of the parent pane, and then snap this panel to the right side of the parent pane (by default). </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="ac8aadf295e61ee8375fe506ef0f50ad9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_a_c_h_clerk_1_1_packet_entry.html">PacketEntry</a> ACHClerk.PreviewPaneForm._entry</td>
         </tr>
       </table>
   </td>
@@ -400,7 +448,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_a_c_h_clerk.html">ACHClerk</a></li><li class="navelem"><a class="el" href="class_a_c_h_clerk_1_1_preview_pane_form.html">PreviewPaneForm</a></li>
-    <li class="footer">Generated on Sun Jul 6 2014 14:26:05 for ACH-Clerk by
+    <li class="footer">Generated on Mon Jul 28 2014 22:20:52 for ACH-Clerk by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

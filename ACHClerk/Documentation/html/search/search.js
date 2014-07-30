@@ -7,12 +7,13 @@
 
 var indexSectionsWithContent =
 {
-  0: "_abcdfilnprstu",
-  1: "cps",
+  0: "_abcdefilnprstu",
+  1: "acps",
   2: "a",
-  3: "abcdfilprstu",
-  4: "_c",
-  5: "cinpst"
+  3: "abcdefilprstu",
+  4: "_cs",
+  5: "cfinpst",
+  6: "l"
 };
 
 var indexSectionNames =
@@ -22,7 +23,8 @@ var indexSectionNames =
   2: "namespaces",
   3: "functions",
   4: "variables",
-  5: "properties"
+  5: "properties",
+  6: "pages"
 };
 
 function convertToId(search)

@@ -31,17 +31,14 @@ namespace ACHClerk
 
         /// <summary>
         /// Non-default public constructor. Accepts a PdfDocument, which will then be
-        /// used to render a preview of the doc for the user.
+        /// used to render a preview of the doc for the user. Dock to the right side.
         /// </summary>
         /// <param name="doc"></param>
-        public PreviewPaneForm(ref PacketEntry doc, int height, Point leftLoc)
+        public PreviewPaneForm(ref PacketEntry doc)
             : this()
         {
             this._entry = doc;
-
-            // Square off the forms display. User can resize later.
-            this.Height = this.Width = height;
-            this.Location = leftLoc;
+            DockToRightSide();
         }
 
         /// <summary>
@@ -73,6 +70,13 @@ namespace ACHClerk
         private void RenderPDFandPanel()
         {
             axAdobePane.LoadFile(this._entry.FullPath);
+        }
+
+        private void DockToRightSide()
+        {
+            this.DesktopLocation = new Point(Screen.PrimaryScreen.WorkingArea.Width / 2, 0);
+            this.Height = Screen.PrimaryScreen.WorkingArea.Height;
+            this.Width = Screen.PrimaryScreen.WorkingArea.Width / 2;
         }
     }
 }

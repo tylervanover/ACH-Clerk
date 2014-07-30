@@ -46,6 +46,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Packages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li>
@@ -94,7 +95,7 @@ $(document).ready(function(){initNavTree('class_a_c_h_clerk_1_1_clerk.html','');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Properties</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Properties</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -133,7 +134,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:a6008f6df10bc7cfeef39781e346138b9"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_a_c_h_clerk_1_1_packet_entry.html">PacketEntry</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_c_h_clerk_1_1_clerk.html#a6008f6df10bc7cfeef39781e346138b9">SelectedEntries</a><code> [get]</code></td></tr>
-<tr class="memdesc:a6008f6df10bc7cfeef39781e346138b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the selected ach packet entires as an array. This will make it easier to iterate through and compile the final document.  <a href="#a6008f6df10bc7cfeef39781e346138b9">More...</a><br /></td></tr>
+<tr class="memdesc:a6008f6df10bc7cfeef39781e346138b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the selected ach packet entires as list. This will make it easier to iterate through and compile the final document.  <a href="#a6008f6df10bc7cfeef39781e346138b9">More...</a><br /></td></tr>
 <tr class="separator:a6008f6df10bc7cfeef39781e346138b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbfeb34af163cd64ec151b344953d79f"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_a_c_h_clerk_1_1_packet_entry.html">PacketEntry</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_c_h_clerk_1_1_clerk.html#afbfeb34af163cd64ec151b344953d79f">NativeChangeForms</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:afbfeb34af163cd64ec151b344953d79f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the native change forms as an array. In case you need to iterate the raw PDF documents.  <a href="#afbfeb34af163cd64ec151b344953d79f">More...</a><br /></td></tr>
@@ -165,6 +166,15 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:ae8a17b92bf82bec072a6d750c309e264"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_c_h_clerk_1_1_clerk.html#ae8a17b92bf82bec072a6d750c309e264">AddNativeEntry</a> (<a class="el" href="class_a_c_h_clerk_1_1_packet_entry.html">PacketEntry</a> toAdd)</td></tr>
 <tr class="memdesc:ae8a17b92bf82bec072a6d750c309e264"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a native PDF entry to the native change forms.  <a href="#ae8a17b92bf82bec072a6d750c309e264">More...</a><br /></td></tr>
 <tr class="separator:ae8a17b92bf82bec072a6d750c309e264"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9311b79bad77dc8a18d90254fc68e941"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_c_h_clerk_1_1_clerk.html#a9311b79bad77dc8a18d90254fc68e941">CreateFrontPage</a> (ref PdfDocument doc)</td></tr>
+<tr class="memdesc:a9311b79bad77dc8a18d90254fc68e941"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the front page of the PDF document.  <a href="#a9311b79bad77dc8a18d90254fc68e941">More...</a><br /></td></tr>
+<tr class="separator:a9311b79bad77dc8a18d90254fc68e941"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad44b8f59222dcab42d7003c7e9d858d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_c_h_clerk_1_1_clerk.html#ad44b8f59222dcab42d7003c7e9d858d9">CreateTableOfContents</a> (ref PdfDocument doc, int[] indices, string[] headings)</td></tr>
+<tr class="memdesc:ad44b8f59222dcab42d7003c7e9d858d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a table of contents within the final ACH packet.  <a href="#ad44b8f59222dcab42d7003c7e9d858d9">More...</a><br /></td></tr>
+<tr class="separator:ad44b8f59222dcab42d7003c7e9d858d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1492311b3fa56213e3d146fa8c53ea80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_c_h_clerk_1_1_clerk.html#a1492311b3fa56213e3d146fa8c53ea80">DrawPageNumber</a> (PdfPage page, int i)</td></tr>
+<tr class="memdesc:a1492311b3fa56213e3d146fa8c53ea80"><td class="mdescLeft">&#160;</td><td class="mdescRight">A separate function to draw the page number on each PDF page. This functionality is modular, in case the format of the page number is scheduled to change.  <a href="#a1492311b3fa56213e3d146fa8c53ea80">More...</a><br /></td></tr>
+<tr class="separator:a1492311b3fa56213e3d146fa8c53ea80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -238,6 +248,81 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a9311b79bad77dc8a18d90254fc68e941"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ACHClerk.Clerk.CreateFrontPage </td>
+          <td>(</td>
+          <td class="paramtype">ref PdfDocument&#160;</td>
+          <td class="paramname"><em>doc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates the front page of the PDF document. </p>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the final ACH packet.</dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad44b8f59222dcab42d7003c7e9d858d9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ACHClerk.Clerk.CreateTableOfContents </td>
+          <td>(</td>
+          <td class="paramtype">ref PdfDocument&#160;</td>
+          <td class="paramname"><em>doc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int[]&#160;</td>
+          <td class="paramname"><em>indices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string[]&#160;</td>
+          <td class="paramname"><em>headings</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create a table of contents within the final ACH packet. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">doc</td><td>A reference to the final ACH packet.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a94816cf9c062c72067785a1225cc05e2"></a>
 <div class="memitem">
 <div class="memproto">
@@ -252,6 +337,49 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Dispose of all the selected change forms. </p>
+
+</div>
+</div>
+<a class="anchor" id="a1492311b3fa56213e3d146fa8c53ea80"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ACHClerk.Clerk.DrawPageNumber </td>
+          <td>(</td>
+          <td class="paramtype">PdfPage&#160;</td>
+          <td class="paramname"><em>page</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A separate function to draw the page number on each PDF page. This functionality is modular, in case the format of the page number is scheduled to change. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">page</td><td>The page to render XGraphics on.</td></tr>
+    <tr><td class="paramname">i</td><td>The page number.</td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -606,7 +734,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the selected ach packet entires as an array. This will make it easier to iterate through and compile the final document. </p>
+<p>Returns the selected ach packet entires as list. This will make it easier to iterate through and compile the final document. </p>
 
 </div>
 </div>
@@ -619,7 +747,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_a_c_h_clerk.html">ACHClerk</a></li><li class="navelem"><a class="el" href="class_a_c_h_clerk_1_1_clerk.html">Clerk</a></li>
-    <li class="footer">Generated on Sun Jul 6 2014 14:26:05 for ACH-Clerk by
+    <li class="footer">Generated on Mon Jul 28 2014 22:20:52 for ACH-Clerk by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

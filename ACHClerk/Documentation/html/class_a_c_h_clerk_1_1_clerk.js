@@ -2,7 +2,10 @@ var class_a_c_h_clerk_1_1_clerk =
 [
     [ "Clerk", "class_a_c_h_clerk_1_1_clerk.html#ac06ec127e87e71de32d5b9290a6e3a81", null ],
     [ "AddNativeEntry", "class_a_c_h_clerk_1_1_clerk.html#ae8a17b92bf82bec072a6d750c309e264", null ],
+    [ "CreateFrontPage", "class_a_c_h_clerk_1_1_clerk.html#a9311b79bad77dc8a18d90254fc68e941", null ],
+    [ "CreateTableOfContents", "class_a_c_h_clerk_1_1_clerk.html#ad44b8f59222dcab42d7003c7e9d858d9", null ],
     [ "DisposeAllSelectedForms", "class_a_c_h_clerk_1_1_clerk.html#a94816cf9c062c72067785a1225cc05e2", null ],
+    [ "DrawPageNumber", "class_a_c_h_clerk_1_1_clerk.html#a1492311b3fa56213e3d146fa8c53ea80", null ],
     [ "FolderName", "class_a_c_h_clerk_1_1_clerk.html#a04de972e3088144ed5ae3d2bb9d044d1", null ],
     [ "LoadNativeChangeForms", "class_a_c_h_clerk_1_1_clerk.html#a8448ab55cbb9a45181a8edb101fa9e95", null ],
     [ "ProcessFormDirectory", "class_a_c_h_clerk_1_1_clerk.html#af5fd19693e0da2d9c62f79e3460da890", null ],

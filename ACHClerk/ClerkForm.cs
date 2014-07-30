@@ -182,7 +182,7 @@ namespace ACHClerk
                 finalTag.Add("final");
 
                 PacketEntry packet = new PacketEntry(_clerk.NativeFormsCount + 1, doc, "FINAL", "temp.pdf", ref finalTag, false);
-                PreviewPaneForm preview = new PreviewPaneForm(ref packet, this.Height, new System.Drawing.Point(this.Left + this.Width, this.Top));
+                PreviewPaneForm preview = new PreviewPaneForm(ref packet);
                 preview.ShowDialog();
             }
         }
@@ -303,9 +303,12 @@ namespace ACHClerk
                     // Retrieve the associated pdf.
                     PacketEntry doc = _clerk.NativeChangeForms.Find(p => p.PacketID == index);
 
+                    // Get the size of the primary display device.
+                    int workingHeight = Screen.PrimaryScreen.WorkingArea.Height;
+
                     // Send it to the preview pane, and show the dialog.
-                    // Align the preview form based on the right hand panel of the parent container.
-                    PreviewPaneForm preview = new PreviewPaneForm(ref doc, this.Height, new System.Drawing.Point(this.Left + this.Width, this.Top));
+                    // Dock the preview panel to the right side of the screen (internal).
+                    PreviewPaneForm preview = new PreviewPaneForm(ref doc);
                     preview.Show();
                 }
             }

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['nativechangeforms',['NativeChangeForms',['../class_a_c_h_clerk_1_1_clerk.html#afbfeb34af163cd64ec151b344953d79f',1,'ACHClerk::Clerk']]],
-  ['nativedoc',['NativeDoc',['../class_a_c_h_clerk_1_1_packet_entry.html#ab19c84887a206d860b73e2a1ac418459',1,'ACHClerk::PacketEntry']]],
-  ['nativeformscount',['NativeFormsCount',['../class_a_c_h_clerk_1_1_clerk.html#a1c410f7a2fb912b3e62873b5da40323a',1,'ACHClerk::Clerk']]]
+  ['ischecked',['IsChecked',['../class_a_c_h_clerk_1_1_save_folder_diag.html#a1c84d1c928e4b63f513911e7c472f71a',1,'ACHClerk::SaveFolderDiag']]],
+  ['istable',['IsTable',['../class_a_c_h_clerk_1_1_packet_entry.html#a4a1c4084b79b907b6a4f8ef9b91ba042',1,'ACHClerk::PacketEntry']]]
 ];
