@@ -271,11 +271,11 @@ namespace ACHClerk
         /// Builds the final ACH document and prompts the user to save or print.
         /// </summary>
         /// <returns></returns>
-        internal PdfDocument CompileFinalDocument()
+        internal PdfDocument CompileFinalDocument(string customerName)
         {
             // Allocate space for the final packet, and generate the front page. 
             PdfDocument finalPacket = new PdfDocument();
-            CreateFrontPage(ref finalPacket);
+            CreateFrontPage(ref finalPacket, customerName);
 
             // Prepare information for the table of contents.
             int[] indices = new int[SelectedCount];
@@ -318,7 +318,7 @@ namespace ACHClerk
         /// Creates the front page of the PDF document. 
         /// </summary>
         /// <returns>A reference to the final ACH packet.</returns>
-        private void CreateFrontPage(ref PdfDocument doc)
+        private void CreateFrontPage(ref PdfDocument doc, string customerName)
         {
             // Add a new page. 
             PdfPage page = doc.AddPage();
@@ -330,7 +330,7 @@ namespace ACHClerk
             gfx.MFEH = PdfFontEmbedding.Default;
 
             // Front page title.
-            gfx.DrawString("Welcome, New Member!", font, XBrushes.Black, 
+            gfx.DrawString("Welcome, " + customerName + "!", font, XBrushes.Black, 
                 new XRect(100, 100, page.Width - 200, 300), XStringFormats.Center);
             
             // Section Doc, need MigraDoc for rendering.

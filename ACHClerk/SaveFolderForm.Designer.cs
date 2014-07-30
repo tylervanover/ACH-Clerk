@@ -64,7 +64,7 @@
             this.btnCANCEL.UseVisualStyleBackColor = true;
             this.btnCANCEL.Click += new System.EventHandler(this.btnCANCEL_Click);
             // 
-            // dlgSaveFolderDiag
+            // SaveFolderDiag
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -73,9 +73,10 @@
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.chkbxSaveChoice);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "dlgSaveFolderDiag";
+            this.Name = "SaveFolderDiag";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Save this folder?";
+            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 

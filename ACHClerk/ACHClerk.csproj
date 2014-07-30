@@ -110,6 +110,12 @@
     <Compile Include="ClerkForm.Designer.cs">
       <DependentUpon>ClerkForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="InformationPane.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InformationPane.Designer.cs">
+      <DependentUpon>InformationPane.cs</DependentUpon>
+    </Compile>
     <Compile Include="PacketEntry.cs" />
     <Compile Include="PreviewPaneForm.cs">
       <SubType>Form</SubType>
@@ -130,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ClerkForm.resx">
       <DependentUpon>ClerkForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InformationPane.resx">
+      <DependentUpon>InformationPane.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PreviewPaneForm.resx">
       <DependentUpon>PreviewPaneForm.cs</DependentUpon>

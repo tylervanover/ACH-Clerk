@@ -172,19 +172,15 @@ namespace ACHClerk
         /// <summary>
         /// Creates a final packet, and then allows the user to preview it.
         /// </summary>
-        private void PreviewFinalPacket()
+        internal void PreviewFinalPacket(String customerName)
         {
-            if (_clerk.SelectedCount > 0)
-            {
-                PdfDocument doc = _clerk.CompileFinalDocument();
+                PdfDocument doc = _clerk.CompileFinalDocument(customerName);
                 doc.Save("temp.pdf");
                 List<string> finalTag = new List<string>();
                 finalTag.Add("final");
-
                 PacketEntry packet = new PacketEntry(_clerk.NativeFormsCount + 1, doc, "FINAL", "temp.pdf", ref finalTag, false);
                 PreviewPaneForm preview = new PreviewPaneForm(ref packet);
                 preview.ShowDialog();
-            }
         }
 
         /// <summary>
@@ -445,7 +441,17 @@ namespace ACHClerk
         /// <param name="e"></param>
         private void btnBuildFinalPacket_Click_1(object sender, EventArgs e)
         {
-            PreviewFinalPacket();
+            InformationPane infoPane = new InformationPane();
+
+            if (_clerk.SelectedCount > 0)
+            {
+                if(infoPane.ShowDialog() == DialogResult.OK)
+                    PreviewFinalPacket(infoPane.Customer);
+            }
+            else
+            {
+                MessageBox.Show("No forms were selected.");
+            }
         }
 
         /// <summary>

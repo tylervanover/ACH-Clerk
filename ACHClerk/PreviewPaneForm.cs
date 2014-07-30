@@ -40,15 +40,6 @@ namespace ACHClerk
             this._entry = doc;
             DockToRightSide();
         }
-
-        /// <summary>
-        /// On any mouse button, close this form. 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void PreviewPaneForm_MouseDown(object sender, MouseEventArgs e)
-        {
-        }
         
         /// <summary>
         /// On form load, display the name of the PDF doc. This is to make sure that
