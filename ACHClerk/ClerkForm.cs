@@ -97,20 +97,12 @@ namespace ACHClerk
             {
                 _clerk = new Clerk(parent);
                 _clerk.PreConfig = _configFileName;
-                try
-                {
-                    _clerk.LoadNativeChangeForms(_clerk.ParentDirectory, false);
-                }
-                catch (ArgumentException arge)
-                {
-                    MessageBox.Show(arge.Message, "Select New Directory", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ChangeLoadDirectory();
-                }
-                finally
-                {
-                    _displayable = _clerk.NativeChangeForms;
-                    UpdateForm();
-                }
+
+                MessageBox.Show("Pick New Directory", "Select New Directory", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                ChangeLoadDirectory();
+                _displayable = _clerk.NativeChangeForms;
+                UpdateForm();
             }
         }
 

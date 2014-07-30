@@ -28,3 +28,4 @@ D:\projects\ACH-Clerk\ACHClerk\bin\Release\ACHClerk.application
 D:\projects\ACH-Clerk\ACHClerk\obj\Release\ACHClerk.exe.manifest
 D:\projects\ACH-Clerk\ACHClerk\obj\Release\ACHClerk.application
 D:\projects\ACH-Clerk\ACHClerk\obj\Release\ACHClerk.csprojResolveAssemblyReference.cache
+D:\projects\ACH-Clerk\ACHClerk\obj\Release\ACHClerk.InformationPane.resources

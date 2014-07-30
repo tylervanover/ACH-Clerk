@@ -76,7 +76,7 @@
             this.listPacketList.Location = new System.Drawing.Point(12, 104);
             this.listPacketList.Name = "listPacketList";
             this.listPacketList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listPacketList.Size = new System.Drawing.Size(380, 212);
+            this.listPacketList.Size = new System.Drawing.Size(320, 340);
             this.listPacketList.TabIndex = 2;
             this.listPacketList.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listPacketList_DrawItem);
             this.listPacketList.SelectedIndexChanged += new System.EventHandler(this.listPacketList_SelectedIndexChanged);
@@ -88,10 +88,10 @@
             this.listFinalList.FormattingEnabled = true;
             this.listFinalList.HorizontalScrollbar = true;
             this.listFinalList.ItemHeight = 16;
-            this.listFinalList.Location = new System.Drawing.Point(504, 104);
+            this.listFinalList.Location = new System.Drawing.Point(440, 104);
             this.listFinalList.Name = "listFinalList";
             this.listFinalList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listFinalList.Size = new System.Drawing.Size(380, 212);
+            this.listFinalList.Size = new System.Drawing.Size(320, 340);
             this.listFinalList.TabIndex = 7;
             this.listFinalList.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listSelectedList_DrawItem);
             this.listFinalList.SelectedIndexChanged += new System.EventHandler(this.listSelectedList_SelectedIndexChanged);
@@ -143,7 +143,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(896, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(770, 24);
             this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -239,7 +239,7 @@
             // 
             // btnAddSelected
             // 
-            this.btnAddSelected.Location = new System.Drawing.Point(404, 104);
+            this.btnAddSelected.Location = new System.Drawing.Point(340, 104);
             this.btnAddSelected.Name = "btnAddSelected";
             this.btnAddSelected.Size = new System.Drawing.Size(90, 34);
             this.btnAddSelected.TabIndex = 3;
@@ -249,7 +249,7 @@
             // 
             // btnRemoveSelected
             // 
-            this.btnRemoveSelected.Location = new System.Drawing.Point(404, 144);
+            this.btnRemoveSelected.Location = new System.Drawing.Point(340, 144);
             this.btnRemoveSelected.Name = "btnRemoveSelected";
             this.btnRemoveSelected.Size = new System.Drawing.Size(90, 34);
             this.btnRemoveSelected.TabIndex = 4;
@@ -259,7 +259,7 @@
             // 
             // btnClearAll
             // 
-            this.btnClearAll.Location = new System.Drawing.Point(404, 184);
+            this.btnClearAll.Location = new System.Drawing.Point(340, 184);
             this.btnClearAll.Name = "btnClearAll";
             this.btnClearAll.Size = new System.Drawing.Size(90, 34);
             this.btnClearAll.TabIndex = 5;
@@ -269,7 +269,7 @@
             // 
             // btnBuildFinalPacket
             // 
-            this.btnBuildFinalPacket.Location = new System.Drawing.Point(404, 224);
+            this.btnBuildFinalPacket.Location = new System.Drawing.Point(340, 224);
             this.btnBuildFinalPacket.Name = "btnBuildFinalPacket";
             this.btnBuildFinalPacket.Size = new System.Drawing.Size(90, 34);
             this.btnBuildFinalPacket.TabIndex = 6;
@@ -297,7 +297,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(896, 331);
+            this.ClientSize = new System.Drawing.Size(770, 461);
             this.Controls.Add(this.btnChangeDirectory);
             this.Controls.Add(this.btnBuildFinalPacket);
             this.Controls.Add(this.btnClearAll);
@@ -311,6 +311,9 @@
             this.Controls.Add(this.listPacketList);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(786, 500);
+            this.MinimumSize = new System.Drawing.Size(786, 500);
             this.Name = "ClerkForm";
             this.Text = "ACH Clerk";
             this.menuStrip1.ResumeLayout(false);
